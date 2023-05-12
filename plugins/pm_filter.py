@@ -307,7 +307,7 @@ async def next_page(bot, query):
                     ],
                 )
     btn.insert(0, [
-        InlineKeyboardButton('How To Download', url='https://t.me/jarrydow')
+        InlineKeyboardButton('⚡️ How To Download ⚡️', url=HOW_TO_LINK)
     ])
     try:
         await query.edit_message_reply_markup(
@@ -517,7 +517,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             )
 
     btn.insert(0, [
-        InlineKeyboardButton('How To Download', url='https://t.me/jarrydow')
+        InlineKeyboardButton('⚡️ How To Download ⚡️', url=HOW_TO_LINK)
     ])
     offset = 0
 
@@ -1956,7 +1956,7 @@ async def auto_filter(client, msg, spoll=False):
             )
 
     btn.insert(0, [
-        InlineKeyboardButton('How To Download', url='https://t.me/jarrydow')
+        InlineKeyboardButton('⚡️ How To Download ⚡️', url=HOW_TO_LINK)
     ])
    # await message.delete()
     m=await message.reply_text("🔍") 
