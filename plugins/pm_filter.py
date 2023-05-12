@@ -1512,9 +1512,32 @@ async def cb_handler(client: Client, query: CallbackQuery):
              InlineKeyboardButton('ᴛ_ɢʀᴀᴘʜ', callback_data='tele')
         ],[
              InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help2'),
-            InlineKeyboardButton('ɴᴇxᴛ', callback_data='help2')         
+            InlineKeyboardButton('ɴᴇxᴛ', callback_data='shivam')         
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.HELPZ_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+
+elif query.data == "shivam":
+        buttons = [[
+             InlineKeyboardButton('ғᴏɴᴛ', callback_data='font'),
+             InlineKeyboardButton('ɢ_ᴛʀᴀɴs', callback_data='gtrans'),
+             InlineKeyboardButton('ᴄᴀʀʙᴏɴ', callback_data='carb')
+        ],[
+             InlineKeyboardButton('ᴅᴇᴘʟᴏʏ', callback_data='deploy'),
+             InlineKeyboardButton('ᴛᴛs', callback_data='tts')
+             InlineKeyboardButton('ᴠɪᴅᴇᴏ', callback_data='video')
+        ],[
+             InlineKeyboardButton('sᴏɴɢ', callback_data='song'),
+             InlineKeyboardButton('ᴛᴛs', callback_data='tts')
+        ],[
+             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='helpz'),
+             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start')
+        ]]
+         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.HELPZ_TXT,
             reply_markup=reply_markup,
