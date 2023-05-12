@@ -1614,7 +1614,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "abook":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='helpz')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1622,7 +1622,28 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-
+        
+    elif query.data == "corona":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='helpz')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.CORONA_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "fun":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='helpz')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.FUN_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
     elif query.data == "predvd":
         k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
         files, next_offset, total = await get_bad_files(
