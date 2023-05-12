@@ -1499,12 +1499,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "helpz":
         buttons = [[
-                     InlineKeyboardButton('⇍ song ⇏', callback_data='help2'),
+                     InlineKeyboardButton('covid', callback_data='covidz'),
                       InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='help2')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.HELPZ_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+
+elif query.data == "covidz":
+        buttons = [[
+                     
+                      InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='helpz')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.CORONA_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
