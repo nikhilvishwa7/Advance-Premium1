@@ -1508,18 +1508,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-
-elif query.data == "covid2":
-        buttons = [[
-                     
-                      InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='helpz')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.CORONA_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
         
     elif query.data == "store_file":
         buttons = [[
