@@ -15,4 +15,5 @@ psutil
 heroku3
 gTTS
 PyPDF2
+Fonts
 openai==0.25.0
