@@ -1383,7 +1383,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "help2":
         buttons = [[
-            InlineKeyboardButton('🍷 ᴍᴏʀᴇ ғᴇᴀᴛᴜʀᴇs 🍷', callback_data='help')
+            InlineKeyboardButton('🍷 ᴍᴏʀᴇ ғᴇᴀᴛᴜʀᴇs 🍷', callback_data='helpz')
         ], [
             InlineKeyboardButton('∙ ꜰɪʟᴛᴇʀs ∙', callback_data='filters'),
             InlineKeyboardButton('∙ ꜰɪʟᴇ sᴛᴏʀᴇ ∙', callback_data='store_file')
@@ -1497,13 +1497,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
     
-    elif query.data == "help":
+    elif query.data == "helpz":
         buttons = [[
                       InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='help2')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.HELP_TXT,
+            text=script.HELPZ_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
