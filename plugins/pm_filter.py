@@ -307,7 +307,7 @@ async def next_page(bot, query):
                     ],
                 )
     btn.insert(0, [
-        InlineKeyboardButton(f'🔍 {search} 🔎', 'reqst1')
+        InlineKeyboardButton('How To Download', url='https://t.me/jarrydow')
     ])
     try:
         await query.edit_message_reply_markup(
@@ -1488,9 +1488,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "extra":
         buttons = [[
-            InlineKeyboardButton('⇭ ᴍᴏʀᴇ ғᴇᴀᴛᴜʀᴇs ⇭', callback_data='prime3')
-        ],    
-[ InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='help2')
+                      InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='help2')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1958,7 +1956,7 @@ async def auto_filter(client, msg, spoll=False):
             )
 
     btn.insert(0, [
-        InlineKeyboardButton(f'🔍 {search} 🔎', 'reqst1')
+        InlineKeyboardButton('How To Download', url='https://t.me/jarrydow')
     ])
    # await message.delete()
     m=await message.reply_text("🔍") 
@@ -1995,7 +1993,7 @@ async def auto_filter(client, msg, spoll=False):
                 )
     else:
         btn.append(
-            [InlineKeyboardButton(text="♨️ ɴᴏ ᴍᴏʀᴇ ᴘᴀɢᴇs ᴀᴠᴀɪʟᴀʙʟᴇ ♨️",callback_data="pages")]
+            [InlineKeyboardButton(text="⇜ ɴᴏ ᴍᴏʀᴇ ᴘᴀɢᴇs ᴀᴠᴀɪʟᴀʙʟᴇ ⇝",callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
