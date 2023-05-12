@@ -307,7 +307,7 @@ async def next_page(bot, query):
                     ],
                 )
     btn.insert(0, [
-        InlineKeyboardButton('⚡️ How To Download ⚡️', url=HOW_TO_LINK)
+        InlineKeyboardButton("≼ ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ≽", url=f"https://t.me/jarrydow")
     ])
     try:
         await query.edit_message_reply_markup(
@@ -403,7 +403,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     files, _, _ = await get_search_results(chat_id, search, max_results=10)
     files = [file for file in files if re.search(lang, file.file_name, re.IGNORECASE)]
     if not files:
-        await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
+        await query.answer("≼ 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 ≽", show_alert=1)
         return
 
     settings = await get_settings(message.chat.id)
@@ -517,7 +517,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             )
 
     btn.insert(0, [
-        InlineKeyboardButton('⚡️ How To Download ⚡️', url=HOW_TO_LINK)
+        InlineKeyboardButton("≼ ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ≽", url=f"https://t.me/jarrydow")
     ])
     offset = 0
 
@@ -1956,7 +1956,7 @@ async def auto_filter(client, msg, spoll=False):
             )
 
     btn.insert(0, [
-        InlineKeyboardButton('⚡️ How To Download ⚡️', url=HOW_TO_LINK)
+        InlineKeyboardButton("≼ ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ≽", url=f"https://t.me/jarrydow")
     ])
    # await message.delete()
     m=await message.reply_text("🔍") 
