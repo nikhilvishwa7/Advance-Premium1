@@ -13,5 +13,6 @@ aiohttp
 python-dotenv
 psutil
 heroku3
+gTTS
 PyPDF2
 openai==0.25.0
