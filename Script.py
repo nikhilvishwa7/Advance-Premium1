@@ -10,7 +10,7 @@ class script(object):
     HELPZ_TXT = """
 <b>ʜᴇy {}
 
-ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʜᴇʟᴩ ꜰᴏʀ ᴍy ᴄᴏᴍᴍᴀɴᴅꜱ.</b>"""
+ʜᴇʀᴇ ɪs ᴍʏ ᴍᴏʀᴇ ғᴇᴀᴛᴜʀᴇs.</b>"""
 
     HELPER_TXT = """
 <b>ʜᴇy {}
