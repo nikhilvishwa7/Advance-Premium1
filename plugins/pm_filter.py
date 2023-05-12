@@ -1583,6 +1583,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
         ) 
+        
+        await query.message.edit_text(
+            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        ) 
     elif query.data == "shivam":
         buttons = [[
              InlineKeyboardButton('ғᴏɴᴛ', callback_data='font'),
@@ -1599,14 +1605,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
              InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='helpz'),
              InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start')
         ]]
-         reply_markup = InlineKeyboardMarkup(buttons)
+             reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.HELPD_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )    
-        await query.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
+            text=script.FILE_STORE_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
