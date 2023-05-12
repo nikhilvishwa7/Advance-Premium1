@@ -1499,7 +1499,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "helpz":
         buttons = [[
-                     InlineKeyboardButton('covid', callback_data='covidz'),
+                     InlineKeyboardButton('covid', callback_data='covid2'),
                       InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='help2')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1509,7 +1509,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-elif query.data == "covidz":
+elif query.data == "covid2":
         buttons = [[
                      
                       InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='helpz')
