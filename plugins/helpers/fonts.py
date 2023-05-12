@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery 
 from plugins.helper_functions.fonts_func import Fonts
-
+#font
 
 @Client.on_message(filters.private & filters.command(["font"]))
 async def style_buttons(c, m, cb=False):
