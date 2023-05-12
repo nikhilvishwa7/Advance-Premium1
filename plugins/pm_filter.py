@@ -1509,6 +1509,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
          ], [
              InlineKeyboardButton('ᴡʜᴏɪs', callback_data='whois'),
              InlineKeyboardButton('ᴜʀʟ_sʜᴏʀᴛ', callback_data='urlshort'),
+             InlineKeyboardButton('ᴛ_ɢʀᴀᴘʜ', callback_data='tele')
+        ],[
              InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help2'),
             InlineKeyboardButton('ɴᴇxᴛ', callback_data='help2')         
         ]]
