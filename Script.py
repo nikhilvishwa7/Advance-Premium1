@@ -15,9 +15,7 @@ class script(object):
 <code>/covid 𝖨𝗇𝖽𝗂𝖺<b>
     
     HELPZ_TXT = """
-<b>ʜᴇy 👻
-
-ʜᴇʀᴇ ɪs ᴍʏ ᴍᴏʀᴇ ғᴇᴀᴛᴜʀᴇs.</b>"""
+<b>ʜᴇʀᴇ ɪs ᴍʏ ᴍᴏʀᴇ ғᴇᴀᴛᴜʀᴇs.</b>"""
 
     HELPER_TXT = """
 <b>ʜᴇy {}
