@@ -50,7 +50,7 @@ async def nxt(c, m):
             InlineKeyboardButton('C͜͡l͜͡o͜͡u͜͡d͜͡s͜͡', callback_data='style+cloud'),
             InlineKeyboardButton('H̆̈ă̈p̆̈p̆̈y̆̈', callback_data='style+happy'),
             InlineKeyboardButton('S̑̈ȃ̈d̑̈', callback_data='style+sad'),
-            ],]
+            ],[
             InlineKeyboardButton('Next ➡️', callback_data="nxt")
         ]]
         await m.answer()
