@@ -64,6 +64,7 @@ FILE_CHANNEL_LINK = environ.get('FILE_CHANNEL_LINK', 'https://t.me/TGxMULTIBOTDB
 #VALUES
 HRK_APP_NAME = environ.get('HRK_APP_NAME', 'mybots')
 HRK_API = environ.get('HRK_API', '0')
+OPENAI_API = environ.get("OPENAI_API","")
 
 #Downloader
 DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
