@@ -22,8 +22,19 @@ async def style_buttons(c, m, cb=False):
         InlineKeyboardButton('𝗦𝗮𝗻𝘀', callback_data='style+sans'),
         InlineKeyboardButton('𝙎𝙖𝙣𝙨', callback_data='style+slant_sans'),
         ],[
-        InlineKeyboardButton('≁ Close ≁', callback_data="close_data"),
-        InlineKeyboardButton('Next 〉', callback_data="priya")
+        InlineKeyboardButton('𝘚𝘢𝘯𝘴', callback_data='style+slant'),
+        InlineKeyboardButton('𝖲𝖺𝗇𝗌', callback_data='style+sim'),
+        InlineKeyboardButton('Ⓒ︎Ⓘ︎Ⓡ︎Ⓒ︎Ⓛ︎Ⓔ︎Ⓢ︎', callback_data='style+circles')
+        ],[
+        InlineKeyboardButton('🅒︎🅘︎🅡︎🅒︎🅛︎🅔︎🅢︎', callback_data='style+circle_dark'),
+        InlineKeyboardButton('𝔊𝔬𝔱𝔥𝔦𝔠', callback_data='style+gothic'),
+        InlineKeyboardButton('𝕲𝖔𝖙𝖍𝖎𝖈', callback_data='style+gothic_bolt'),
+        ],[
+        InlineKeyboardButton('C͜͡l͜͡o͜͡u͜͡d͜͡s͜͡', callback_data='style+cloud'),
+        InlineKeyboardButton('H̆̈ă̈p̆̈p̆̈y̆̈', callback_data='style+happy'),
+        InlineKeyboardButton('S̑̈ȃ̈d̑̈', callback_data='style+sad'),
+        ],[
+        InlineKeyboardButton('Next ➡️', callback_data="nxt")
     ]]
     if not cb:
         if ' ' in m.text:
@@ -34,29 +45,6 @@ async def style_buttons(c, m, cb=False):
     else:
         await m.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
-        
-@Client.on_callback_query(filters.regex('^priya'))
-async def nxt(c, m):
-    if m.data == "priya":
-        buttons = [[
-            InlineKeyboardButton('𝘚𝘢𝘯𝘴', callback_data='style+slant'),
-            InlineKeyboardButton('𝖲𝖺𝗇𝗌', callback_data='style+sim'),
-            InlineKeyboardButton('Ⓒ︎Ⓘ︎Ⓡ︎Ⓒ︎Ⓛ︎Ⓔ︎Ⓢ︎', callback_data='style+circles')
-            ],[
-            InlineKeyboardButton('🅒︎🅘︎🅡︎🅒︎🅛︎🅔︎🅢︎', callback_data='style+circle_dark'),
-            InlineKeyboardButton('𝔊𝔬𝔱𝔥𝔦𝔠', callback_data='style+gothic'),
-            InlineKeyboardButton('𝕲𝖔𝖙𝖍𝖎𝖈', callback_data='style+gothic_bolt'),
-            ],[
-            InlineKeyboardButton('C͜͡l͜͡o͜͡u͜͡d͜͡s͜͡', callback_data='style+cloud'),
-            InlineKeyboardButton('H̆̈ă̈p̆̈p̆̈y̆̈', callback_data='style+happy'),
-            InlineKeyboardButton('S̑̈ȃ̈d̑̈', callback_data='style+sad'),
-            ],[
-            InlineKeyboardButton('Next ➡️', callback_data="nxt")
-        ]]
-        await m.answer()
-        await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
-    else:
-        await style_buttons(c, m, cb=True)
 
 
 @Client.on_callback_query(filters.regex('^nxt'))
@@ -182,6 +170,6 @@ async def style(c, m):
     r, oldtxt = m.message.reply_to_message.text.split(None, 1) 
     new_text = cls(oldtxt)            
     try:
-        await m.message.edit_text(f"`{new_text}`\n\n⇡ Click To Copy", reply_markup=m.message.reply_markup)
+        await m.message.edit_text(f"`{new_text}`\n\n👆 Click To Copy", reply_markup=m.message.reply_markup)
     except Exception as e:
         print(e)
