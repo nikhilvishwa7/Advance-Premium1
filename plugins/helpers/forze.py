@@ -10,7 +10,7 @@ async def f_sub_cmd(bot, message):
        group     = await get_group(message.chat.id)
        user_id   = group["user_id"] 
        user_name = group["user_name"]
-       verified  = group["verified"]
+    
     except :
        return await bot.leave_chat(message.chat.id)  
     if message.from_user.id!=user_id:
@@ -41,7 +41,6 @@ async def nf_sub_cmd(bot, message):
        group     = await get_group(message.chat.id)
        user_id   = group["user_id"] 
        user_name = group["user_name"]
-       verified  = group["verified"]
        f_sub     = group["f_sub"]
     except :
        return await bot.leave_chat(message.chat.id)  
