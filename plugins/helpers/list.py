@@ -107,3 +107,6 @@ list = {
 "yiddish":"yi",
 "yoruba":"yo",
 "zulu":"zu"}
+
+
+# @heartlesssn
