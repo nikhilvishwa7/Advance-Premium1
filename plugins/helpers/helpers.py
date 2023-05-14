@@ -15,10 +15,10 @@ dlt_col  = db["Auto-Delete"]
 
 ia = Cinemagoer()
 
-async def add_group(group_id, group_name, user_name, user_id, channels, f_sub, verified):
+async def add_group(group_id, group_name, user_name, user_id, channels, f_sub):
     data = {"_id": group_id, "name":group_name, 
             "user_id":user_id, "user_name":user_name,
-            "channels":channels, "f_sub":f_sub, "verified":verified}
+            "channels":channels, "f_sub":f_sub}
     try:
        await grp_col.insert_one(data)
     except DuplicateKeyError:
