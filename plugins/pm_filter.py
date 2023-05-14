@@ -1601,11 +1601,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
              InlineKeyboardButton('sᴏɴɢ', callback_data='song')
         ],[
              InlineKeyboardButton('ᴛᴛs', callback_data='tts'),
-             InlineKeyboardButton('mute', callback_data='khus'),
-             InlineKeyboardButton('pin', callback_data='pinz')
+             InlineKeyboardButton('ᴍᴜᴛᴇ', callback_data='khus'),
+             InlineKeyboardButton('ᴘɪɴ', callback_data='pinz')
         ],[
-             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='helpz'),
-             InlineKeyboardButton('next', callback_data='khushi')
+             InlineKeyboardButton('≼ ʙᴀᴄᴋ', callback_data='helpz'),
+             InlineKeyboardButton('ɴᴇxᴛ ⋟', callback_data='khushi')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1826,15 +1826,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "khushi":
         buttons = [[
-             InlineKeyboardButton('kick', callback_data='kick'),
-             InlineKeyboardButton('contry', callback_data='contr'),
-             InlineKeyboardButton('lyrics', callback_data='lyric')
+             InlineKeyboardButton('ᴋɪᴄᴋ', callback_data='kick'),
+             InlineKeyboardButton('ᴄᴏᴜɴᴛʀʏ', callback_data='contr'),
+             InlineKeyboardButton('ʟʏʀɪᴄs', callback_data='lyric')
         ],[
-             InlineKeyboardButton('Gen passwrd', callback_data='passw')
+             InlineKeyboardButton('ɢᴇɴ-ᴘᴀss', callback_data='passw')
              
         ],[
-             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam'),
-             InlineKeyboardButton('home', callback_data='start')
+             InlineKeyboardButton('⋞ ʙᴀᴄᴋ', callback_data='shivam'),
+             InlineKeyboardButton('ʜᴏᴍᴇ ⋟', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1854,7 +1854,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "lyric":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='khushi')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1865,7 +1865,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "passw":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='khushi')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
