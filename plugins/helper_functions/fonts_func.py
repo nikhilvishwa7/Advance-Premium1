@@ -2359,5 +2359,11 @@ class Fonts:
         for i, j in style.items():
             text = text.replace(i, j)
         return text
+    
+        #feature added by crazy devoper don't remove credits 
+
+               
+
+                 # @crazybotz
 
 
