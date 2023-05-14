@@ -1600,10 +1600,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
              InlineKeyboardButton('sᴏɴɢ', callback_data='song')
         ],[
-             InlineKeyboardButton('ᴛᴛs', callback_data='tts')
+             InlineKeyboardButton('ᴛᴛs', callback_data='tts'),
+             InlineKeyboardButton('mute', callback_data='khus'),
+             InlineKeyboardButton('pin', callback_data='pinz')
         ],[
              InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='helpz'),
-             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start')
+             InlineKeyboardButton('next', callback_data='khushi')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1643,6 +1645,39 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+        
+    elif query.data == "khus":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.RESTRIC_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
+    elif query.data == "pinz":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.PIN_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )     
+        
+    elif query.data == "contr":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.CON_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )     
         
     elif query.data == "font":
         buttons = [[
@@ -1789,6 +1824,65 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    elif query.data == "khushi":
+        buttons = [[
+             InlineKeyboardButton('kick', callback_data='kick'),
+             InlineKeyboardButton('contry', callback_data='contr'),
+             InlineKeyboardButton('lyrics', callback_data='lyric')
+        ],[
+             InlineKeyboardButton('Gen passwrd', callback_data='passw')
+             
+        ],[
+             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam'),
+             InlineKeyboardButton('home', callback_data='start')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.HELPK_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "kick":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='khushi')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.ZOMBIES_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "lyric":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.LRX_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    
+    elif query.data == "passw":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.GENR_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "past":
+        buttons = [[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='shivam')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.PASTE_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )     
         
     elif query.data == "predvd":
         k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
