@@ -32,3 +32,11 @@ async def admin_check(message: Message) -> bool:
         return False
     else:
         return True
+
+    
+    #feature added by crazy devoper don't remove credits 
+               
+                 # @crazybotz
+             ⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
+
+ 　
