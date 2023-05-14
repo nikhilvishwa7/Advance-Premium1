@@ -23,3 +23,10 @@ def get_file_id(msg: Message):
             if obj:
                 setattr(obj, "message_type", message_type)
                 return obj
+
+            
+                #feature added by crazy devoper don't remove credits 
+
+               
+
+                 # @crazybotz
