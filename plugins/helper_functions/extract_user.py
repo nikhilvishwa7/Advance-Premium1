@@ -39,8 +39,4 @@ def extract_user(message: Message) -> (int, str):
 
     return (user_id, user_first_name)
 
-    #feature added by crazy devoper don't remove credits 
-
-               
-
-                 # @crazybotz
+  
