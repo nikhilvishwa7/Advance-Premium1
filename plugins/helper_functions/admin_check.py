@@ -36,7 +36,7 @@ async def admin_check(message: Message) -> bool:
     
     #feature added by crazy devoper don't remove credits 
                
-                 # @crazybotz
+                 
              ⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
 
  　
