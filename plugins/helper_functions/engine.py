@@ -17,8 +17,4 @@ async def ask_ai(client, m, message):
         error_message = f"An error occurred: {e}"
         await m.edit(error_message)
         
-            #feature added by crazy devoper don't remove credits 
-
-               
-
-                 # @crazybotz
+            
