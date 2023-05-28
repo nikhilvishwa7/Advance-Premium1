@@ -48,7 +48,7 @@
 - [x] LANGUAGE FILTER
 - [x] 𝐴𝑛𝑑 𝑀𝑜𝑟𝑒...
 
-<b>𝑇𝑜 𝑘𝑛𝑜𝑤 𝑎𝑏𝑜𝑢𝑡 𝑎𝑙𝑙 𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑠, 𝐽𝑜𝑖𝑛 𝑜𝑢𝑟 <a href='https://telegram.me/CRAZYBOTZ'>𝑢𝑝𝑑𝑎𝑡𝑒𝑠 𝑐ℎ𝑎𝑛𝑛𝑒𝑙</a>.</b>
+<b>𝑇𝑜 𝑘𝑛𝑜𝑤 𝑎𝑏𝑜𝑢𝑡 𝑎𝑙𝑙 𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑠, 𝐽𝑜𝑖𝑛 𝑜𝑢𝑟 <a href='https://telegram.me/crazybotz'>𝑢𝑝𝑑𝑎𝑡𝑒𝑠 𝑐ℎ𝑎𝑛𝑛𝑒𝑙</a>.</b>
 
 ## Variables
 
@@ -70,7 +70,7 @@
 <details><summary>Deploy To Heroku</summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/Joelkb/DQ-the-file-donor">
+<a href="https://heroku.com/deploy?template=https://github.com/shivam31635/panda">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy To Heroku">
 </a>
 </p>
