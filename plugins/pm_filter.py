@@ -306,9 +306,19 @@ async def next_page(bot, query):
                         InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-    btn.insert(0, [
-        InlineKeyboardButton("≼ ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ≽", url=f"https://t.me/jarrydow")
-    ])
+    try:
+        tutorial = settings['tutorial']
+        btn.insert(0, [
+            InlineKeyboardButton(f'🔮 ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ 🔮', url=tutorial)
+        ])
+    except KeyError:
+        grpid = await active_connection(str(message.from_user.id))
+        await save_group_settings(grpid, 'tutorial', 'https://telegra.ph/No-tutorial-link-set-03-27')
+        settings = await get_settings(message.chat.id)
+        tutorial = settings['tutorial']
+        btn.insert(0, [
+            InlineKeyboardButton(f'🔮 ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ 🔮', url=tutorial)
+        ])
     try:
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
@@ -517,7 +527,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             )
 
     btn.insert(0, [
-        InlineKeyboardButton("≼ ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ≽", url=f"https://t.me/jarrydow")
+        InlineKeyboardButton("💢 𝐀𝐝𝐝 𝐌𝐞 𝐓𝐨 𝐆𝐫𝐨𝐮𝐩𝐬 💢", url=f'http://t.me/{temp.U_NAME}?startgroup=true')
     ])
     offset = 0
 
@@ -2273,9 +2283,20 @@ async def auto_filter(client, msg, spoll=False):
                 ]
             )
 
-    btn.insert(0, [
-        InlineKeyboardButton("≼ ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ≽", url=f"https://t.me/jarrydow")
-    ])
+    try:
+        tutorial = settings['tutorial']
+        btn.insert(0, [
+            InlineKeyboardButton(f'🔮 ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ 🔮', url=tutorial)
+        ])
+    except KeyError:
+        grpid = await active_connection(str(message.from_user.id))
+        await save_group_settings(grpid, 'tutorial', 'https://telegra.ph/No-tutorial-link-set-03-27')
+        settings = await get_settings(message.chat.id)
+        tutorial = settings['tutorial']
+        btn.insert(0, [
+            InlineKeyboardButton(f'🔮 ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ 🔮', url=tutorial)
+        ])
+
    # await message.delete()
     m=await message.reply_text("🔍") 
     await asyncio.sleep(1)
