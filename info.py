@@ -127,7 +127,9 @@ FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).
 MELCOW_NEW_USERS = is_enabled((environ.get('MELCOW_NEW_USERS', "True")), True)
 PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
+# Tutorial 
 
+TUTORIAL = environ.get('TUTORIAL', 'https://telegra.ph/No-tutorial-link-set-03-27')
 #language
 
 LANGUAGES = ["malayalam", "tamil", "english", "hindi", "telugu", "kannada"]
