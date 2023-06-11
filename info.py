@@ -103,14 +103,14 @@ NO_RESULTS_MSG = bool(environ.get('NO_RESULTS_MSG', False))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "7")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "False")), False)
-S_GROUP = environ.get('S_GROUP',"https://t.me/MLZ_BOTZ_SUPPORT")
-MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/MLZ_BOTZ")
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/MLZ_BOTZ_SUPPORT')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/MLZ_BOTZ')
-MSG_ALRT = environ.get('MSG_ALRT', 'Piracy Is Crime')
+S_GROUP = environ.get('S_GROUP',"https://t.me/crazysupportz")
+MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/crazybotz")
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/crazysupportz')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/crazybotz')
+MSG_ALRT = environ.get('MSG_ALRT', 'ˢʰᵃʳᵉ ᵃⁿᵈ ˢᵘᵖᵖᵒʳᵗ')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'MLZ_BOTZ_SUPPORT')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'crazysupportz')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
@@ -133,8 +133,6 @@ TUTORIAL = environ.get('TUTORIAL', 'https://telegra.ph/No-tutorial-link-set-03-2
 #language
 
 LANGUAGES = ["malayalam", "tamil", "english", "hindi", "telugu", "kannada"]
-
-UNLANGUAGES = ["mal", "tam", "eng", "hin", "tel", "kan"]
 
 # Delete Time
 DELETE_TIME = int(environ.get('DELETE_TIME', 300))
