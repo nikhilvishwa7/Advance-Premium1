@@ -1275,7 +1275,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🔍 sᴇᴀʀᴄʜ​', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('🌡️ ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
             InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
             ],[      
             InlineKeyboardButton('🔖 ʜᴇʟᴘ', callback_data='help2'),
@@ -1308,6 +1308,62 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.ALL_FILTERS.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "smrati":
+        buttons = [[
+            InlineKeyboardButton('ʜɪɴᴅɪ', callback_data='smrat'),
+            InlineKeyboardButton('ᴇɴɢʟɪsʜ',callback_data='english'),
+        ],[
+            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
+            InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.EARN_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
+    elif query.data == "english":
+        buttons = [[
+            InlineKeyboardButton('🖤 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='t.me/snfilmy')
+            ],[
+            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='smrati'),
+            InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.EARN2_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )    
+    elif query.data == "smrat":
+        buttons = [[
+            InlineKeyboardButton('🖤 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='t.me/snfilmy')
+            ],[
+            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='smrati'),
+            InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.CRAZY_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
