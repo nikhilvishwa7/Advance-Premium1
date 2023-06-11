@@ -65,7 +65,7 @@ async def give_filter(client, message):
                 
             ]
         
-        m=await message.reply_sticker("CAACAgUAAxkBAAINdmL9uWnC3ptj9YnTjFU4YGr5dtzwAAIEAAPBJDExieUdbguzyBAeBA")
+        m=await message.reply_sticker("CAACAgUAAxkBAAIIpWSFlOT-Gc_9znDi29HsT4pZ_dHlAAKxAwACGFJ5VaTw7xFsO6S9HgQ")
         await asyncio.sleep(1)
         await m.delete()
         await client.send_message(
@@ -309,7 +309,7 @@ async def next_page(bot, query):
     try:
         tutorial = settings['tutorial']
         btn.insert(0, [
-            InlineKeyboardButton(f'🔮 ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ 🔮', url=tutorial)
+            InlineKeyboardButton(f'⋞ ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ ⋟', url=tutorial)
         ])
     except KeyError:
         grpid = await active_connection(str(message.from_user.id))
@@ -317,7 +317,7 @@ async def next_page(bot, query):
         settings = await get_settings(message.chat.id)
         tutorial = settings['tutorial']
         btn.insert(0, [
-            InlineKeyboardButton(f'🔮 ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ 🔮', url=tutorial)
+            InlineKeyboardButton(f'⋞ ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ ⋟', url=tutorial)
         ])
     try:
         await query.edit_message_reply_markup(
@@ -1278,8 +1278,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔍 sᴇᴀʀᴄʜ​', switch_inline_query_current_chat=''),
             InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
             ],[      
-            InlineKeyboardButton('🎭 ʜᴇʟᴘ 🎭', callback_data='help2'),
-            InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
+            InlineKeyboardButton('🔖 ʜᴇʟᴘ', callback_data='help2'),
+            InlineKeyboardButton('📕 ᴀʙᴏᴜᴛ', callback_data='about')
             ],[
             InlineKeyboardButton('💰 ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʙᴏᴛ 💸', callback_data='money_bot')
         ]] 
@@ -1968,7 +1968,7 @@ async def auto_filter(client, msg, spoll=False):
     try:
         tutorial = settings['tutorial']
         btn.insert(0, [
-            InlineKeyboardButton(f'🔮 ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ 🔮', url=tutorial)
+            InlineKeyboardButton(f'⋞ ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ ⋟', url=tutorial)
         ])
     except KeyError:
         grpid = await active_connection(str(message.from_user.id))
@@ -1976,11 +1976,11 @@ async def auto_filter(client, msg, spoll=False):
         settings = await get_settings(message.chat.id)
         tutorial = settings['tutorial']
         btn.insert(0, [
-            InlineKeyboardButton(f'🔮 ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ 🔮', url=tutorial)
+            InlineKeyboardButton(f'⋞ ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ ⋟', url=tutorial)
         ])
 
    # await message.delete()
-    m=await message.reply_text("🔍") 
+    m=await message.reply_text("💸") 
     await asyncio.sleep(1)
     await m.delete()
    
