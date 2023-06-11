@@ -129,7 +129,7 @@ PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 # Tutorial 
 
-TUTORIAL = environ.get('TUTORIAL', 'https://telegra.ph/No-tutorial-link-set-03-27')
+TUTORIAL = environ.get('TUTORIAL', 'https://telegra.ph/No-tutorial-link-set-06-11-3')
 #language
 
 LANGUAGES = ["malayalam", "tamil", "english", "hindi", "telugu", "kannada"]
