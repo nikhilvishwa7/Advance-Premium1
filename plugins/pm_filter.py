@@ -1325,7 +1325,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "owner_info":
         buttons = [[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
-            InlineKeyboardButton('✧ ᴄᴏɴᴛᴀᴄᴛ​', url='t.me/af_x_su')
+            InlineKeyboardButton('☎️ ᴄᴏɴᴛᴀᴄᴛ​', url='t.me/af_x_su')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1340,7 +1340,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "money_bot":
         buttons = [[
-            InlineKeyboardButton('ᴄᴏɴᴛᴀᴄᴛ sᴜᴘᴘᴏʀᴛ', url='https://t.me/crazybotz')
+            InlineKeyboardButton('☎️ ᴄᴏɴᴛᴀᴄᴛ sᴜᴘᴘᴏʀᴛ', url='https://t.me/crazybotz')
         ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
@@ -1878,7 +1878,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"🔖 {get_size(file.file_size)}-⚡️-{file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"🔖 {get_size(file.file_size)}-∙-{file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                 ]
                 for file in files
@@ -1902,7 +1902,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"🔖 {get_size(file.file_size)}-⚡️-{file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                        text=f"🔖 {get_size(file.file_size)}-∙-{file.file_name}", callback_data=f'{pre}#{file.file_id}'
                     ),
                 ]
                 for file in files
@@ -1980,7 +1980,7 @@ async def auto_filter(client, msg, spoll=False):
         ])
 
    # await message.delete()
-    m=await message.reply_text("💸") 
+    m=await message.reply_text("📝") 
     await asyncio.sleep(1)
     await m.delete()
    
@@ -2051,7 +2051,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>🎪 ᴛɪᴛɪʟᴇ {search}\n\n┏ 🤴 ᴀsᴋᴇᴅ ʙʏ : {message.from_user.mention}\n┣ ⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href='https://t.me/crazybotz'>ᴊᴀʀʀʏ</a>\n┗ 🍁 ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/snfilmy'>ᴄᴋᴛᴀʟᴋɪᴇs</a>\n\n★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ  <a href='https://t.me/crazybotz'>ᴄʀᴀᴢʏ ʙᴏᴛᴢ</a></b>"
+        cap = f"<b>🎪 ᴛɪᴛɪʟᴇ {search}\n\n┏ 🤴 ᴀsᴋᴇᴅ ʙʏ : {message.from_user.mention}\n┣ ⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href='https://t.me/crazybotz'>ᴄʀᴀᴢʏ ʙᴏᴛᴢ</a>\n┗ 🍁 ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/snfilmy'>sɴ ʙᴀᴄᴋᴜᴘ</a>\n\n★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ  <a href='https://t.me/crazybotz'>ᴄʀᴀᴢʏ ʙᴏᴛᴢ</a></b>"
     if imdb and imdb.get('poster'):
         try:
             if message.chat.id == SUPPORT_CHAT_ID:
