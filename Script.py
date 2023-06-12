@@ -172,12 +172,12 @@ Nᴀᴍᴇ - {}
 ≍≍≍≍≍≍≍≍≍≍≍≍≍≍
 📮ᴊᴏɪɴ : <a href='https://t.me/snfilmy'>ᴄʜᴀɴɴᴇʟ</a>
 🔖 ᴍᴏᴠɪᴇs : <a href='https://t.me/smovierequestgroup'>ɢʀᴏᴜᴘ</a>
-🌿 ʙʏ : <a href='t.me/crazybotz'>ᴄʀᴀᴢʏ</a></b>"""</b>"""
+🌿 ʙʏ : <a href='t.me/crazybotz'>ᴄʀᴀᴢʏ</a></b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>𝐇𝐞𝐲 {message.from_user.mention}, 𝐇𝐞𝐫𝐞 𝐢𝐬 𝐭𝐡𝐞 𝐫𝐞𝐬𝐮𝐥𝐭 𝐟𝐨𝐫 𝐲𝐨𝐮𝐫 {query}
 
-🏷 𝐓𝐢𝐭𝐥𝐞 : {title}
+🏷️ 𝐓𝐢𝐭𝐥𝐞 : {title}
 
 🎭 𝐆𝐞𝐧𝐫𝐞𝐬 : {genres}
 
