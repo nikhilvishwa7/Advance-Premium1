@@ -15,7 +15,9 @@ class script(object):
     HELPER_TXT = """
 <b>ʜᴇy {}
 
-ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʜᴇʟᴩ ꜰᴏʀ ᴍy ᴄᴏᴍᴍᴀɴᴅꜱ.</b>"""
+ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʜᴇʟᴩ ꜰᴏʀ ᴍy ᴄᴏᴍᴍᴀɴᴅꜱ.
+
+🌿 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='t.me/heartlesssn'>ᴄʀᴀᴢʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ</a></b>"""
 
     STARTER_TXT = """
 <b>ʜᴇʟʟᴏ {}
@@ -37,8 +39,7 @@ class script(object):
 ⚠️ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ
 ◆ ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : <a href='https://t.me/crazybotz'>ʜᴇʀᴇ</a>
 
-◆ ᴅᴇᴠs ​1 : <a href='https://t.me/heartlesssn'>ᴄʀᴀᴢʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ</a>
-◆ ᴅᴇᴠs 2​ : <a href='https://t.me/kcrazyprincessbot'>ʀᴏʙᴏᴛ</a></b>"""
+◆ ᴅᴇᴠs ​1 : <a href='https://t.me/heartlesssn'>ᴄʀᴀᴢʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ</a></b>"""
     MANUELFILTER_TXT = """ʜᴇʟᴘ: <b>ꜰɪʟᴛᴇʀꜱ</b>
 - ꜰɪʟᴛᴇʀ ɪꜱ ᴀ ꜰᴇᴀᴛᴜʀᴇ ᴡᴇʀᴇ ᴜꜱᴇʀꜱ ᴄᴀɴ ꜱᴇᴛ ᴀᴜᴛᴏᴍᴀᴛᴇᴅ ʀᴇᴘʟɪᴇꜱ ꜰᴏʀ ᴀ ᴘᴀʀᴛɪᴄᴜʟᴀʀ ᴋᴇʏᴡᴏʀᴅ ᴀɴᴅ ɪ ᴡɪʟʟ ʀᴇꜱᴘᴏɴᴅ ᴡʜᴇɴᴇᴠᴇʀ ᴀ ᴋᴇʏᴡᴏʀᴅ ɪꜱ ꜰᴏᴜɴᴅ ɪɴ ᴛʜᴇ ᴍᴇꜱꜱᴀɢᴇ
 <b>ɴᴏᴛᴇ:</b>
@@ -116,13 +117,13 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 • /delallg - <code>Tᴏ ᴅᴇʟᴇᴛᴇ ᴀʟʟ Gғɪʟᴛᴇʀs ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ's ᴅᴀᴛᴀʙᴀsᴇ.</code>
 • /deletefiles - <code>Tᴏ ᴅᴇʟᴇᴛᴇ CᴀᴍRɪᴘ ᴀɴᴅ PʀᴇDVD Fɪʟᴇs ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ's ᴅᴀᴛᴀʙᴀsᴇ.</code>"""
 
-    LOG_TEXT_G = """#NewGroup #jerry
+    LOG_TEXT_G = """#NewGroup #imdb
 Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
 Added By - {}
 """
 
-    LOG_TEXT_P = """#NewUser #jerry
+    LOG_TEXT_P = """#NewUser #imdb
 ID - <code>{}</code>
 Nᴀᴍᴇ - {}
 """
@@ -167,11 +168,11 @@ Nᴀᴍᴇ - {}
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """
-<b>@snfilmy {file_name}
+<b>≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍
+𝒇𝒊𝒍𝒆 𝒏𝒂𝒎𝒆 - {file_name}
 
-≍≍≍≍≍≍≍≍≍≍≍≍≍≍
-📮ᴊᴏɪɴ : <a href='https://t.me/snfilmy'>ᴄʜᴀɴɴᴇʟ</a>
-🔖 ᴍᴏᴠɪᴇs : <a href='https://t.me/smovierequestgroup'>ɢʀᴏᴜᴘ</a>
+𝒇𝒊𝒍𝒆 𝒔𝒊𝒛𝒆 - {file_size}
+≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍
 🌿 ʙʏ : <a href='t.me/crazybotz'>ᴄʀᴀᴢʏ</a></b>"""
 
     IMDB_TEMPLATE_TXT = """
@@ -231,13 +232,13 @@ Aᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:
 
 Iғ ᴛʜᴇ ɢʀᴏᴜᴘ ᴄᴏᴘʏ ʀɪɢʜᴛ ɪꜱ ʟᴏꜱᴛ , ᴡʜᴇɴ ᴀ ɴᴇᴡ ɢʀᴏᴜᴘ ɪꜱ ꜱᴛᴀʀᴛᴇᴅ, ɪᴛ ᴡɪʟʟ ʙᴇ ɴᴏᴛɪғɪᴇᴅ ᴏɴ ᴛʜɪꜱ ᴄʜᴀɴɴᴇʟ🤥
 
-©ᴍʟᴢ ʙᴏᴛᴢ"""
+©𝒄𝒓𝒂𝒛𝒚 𝒃𝒐𝒕𝒛"""
     QINFO = """
 ʜᴇʏ ʙʀᴏ ☻
 
 Cʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛʜᴇ ғɪʟᴇꜱ ʏᴏᴜ ᴡᴀɴᴛ ᴀɴᴅ ꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ ⇓⇓
 
-©ᴍʟᴢ ʙᴏᴛᴢ"""
+©𝒄𝒓𝒂𝒛𝒚 𝒃𝒐𝒕𝒛"""
     REPRT_MSG = """ Reported To Admin"""
 
     EARN_TXT = """
@@ -265,7 +266,7 @@ Now You can start earning 💸 money today with our Simple and easy-to-use bot!
 ᴄᴜʀʀᴇɴᴛʟʏ ᴛʜɪꜱ ʙᴜᴛᴛᴏɴ ɪꜱ ɴᴏᴛ ᴡᴏʀᴋ.. 
 ʙᴇᴄᴀᴜꜱᴇ ʙᴜᴛᴛᴏɴ ᴡᴇʀᴇ ʀᴇᴍᴏᴠᴇᴅ ʙʏ ᴀᴅᴍɪɴ
 
-©ᴍʟᴢ ʙᴏᴛᴢ"""
+©𝒄𝒓𝒂𝒛𝒚 𝒃𝒐𝒕𝒛"""
     INFO = """
 ⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠
 
@@ -273,7 +274,7 @@ Now You can start earning 💸 money today with our Simple and easy-to-use bot!
 
 ɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ
 
-©ᴄʀᴀᴢʏ ʙᴏᴛᴢ"""
+©𝒄𝒓𝒂𝒛𝒚 𝒃𝒐𝒕𝒛"""
     FORMAT = """
 ⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 ⇄ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ ⇄
@@ -378,7 +379,7 @@ coммand and υѕeѕ
 ⚙️ 𝖭ᴏᴛᴇ :- 𝖠ʟʟ ᴍᴇ𝗌𝗌ᴀɢᴇ𝗌 ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏ-ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 𝟷𝟶 ᴍɪɴᴜᴛᴇ𝗌 ᴛᴏ ᴀᴠᴏɪᴅ ᴄᴏᴘʏʀɪɢʜᴛ ɪ𝗌𝗌ᴜᴇ𝗌.</b>"""
     STATUS_TXT = """
 <b>📑 ғɪʟᴇs sᴀᴠᴇᴅ: <code>{}</code>
-👤 ᴛᴏᴛᴀʟ ᴜsᴇʀs: <code>10{}</code>
+👤 ᴛᴏᴛᴀʟ ᴜsᴇʀs: <code>1{}</code>
 ♻️ ᴛᴏᴛᴀʟ ᴄʜᴀᴛs: <code>{}</code>
 🗃️ ᴜsᴇᴅ sᴛᴏʀᴀɢᴇ: <code>{}</code> 𝙼𝚒𝙱
 🆓 ғʀᴇᴇ sᴛᴏʀᴀɢᴇ: <code>{}</code> 𝙼𝚒𝙱</b>"""
