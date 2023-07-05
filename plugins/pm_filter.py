@@ -1275,13 +1275,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('📌 ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
+            InlineKeyboardButton('🦢 ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
             InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
             ],[      
-            InlineKeyboardButton('🩸 ʜᴇʟᴘ', callback_data='help2'),
+            InlineKeyboardButton('🍁 ʜᴇʟᴘ', callback_data='help2'),
             InlineKeyboardButton('🍂 ᴀʙᴏᴜᴛ', callback_data='about')
             ],[
-            InlineKeyboardButton('💰 ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʙᴏᴛ 💸', callback_data='money_bot')
+            InlineKeyboardButton('💰 ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ᴛʜɪꜱ ʙᴏᴛ 💸', callback_data='money_bot')
         ]] 
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1301,7 +1301,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ᴍᴀɴᴜᴀʟ ꜰɪʟᴛᴇʀ', callback_data='manuelfilter'),
             InlineKeyboardButton('ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ', callback_data='autofilter')
         ],[
-            InlineKeyboardButton('⇍ʙᴀᴄᴋ', callback_data='help2'),
+            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='help2'),
             InlineKeyboardButton('ɢʟᴏʙᴀʟ ꜰɪʟᴛᴇʀs​', callback_data='global_filters')
         ]]
         
@@ -1333,7 +1333,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "english":
         buttons = [[
-            InlineKeyboardButton('🖤 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='t.me/snfilmy')
+            InlineKeyboardButton('🌹 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🌹', url='t.me/snfilmy')
             ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='smrati'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
@@ -1351,7 +1351,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )    
     elif query.data == "smrat":
         buttons = [[
-            InlineKeyboardButton('🖤 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='t.me/snfilmy')
+            InlineKeyboardButton('🌹 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🌹', url='t.me/snfilmy')
             ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='smrati'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
