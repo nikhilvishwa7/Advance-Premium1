@@ -36,7 +36,7 @@ class script(object):
 ‣ ʙᴏᴛ sᴇʀᴠᴇʀ : <a href='https://heroku.com'>ʜᴇʀᴏᴋᴜ</a>
 ‣ ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ2.7.1 [sᴛᴀʙʟᴇ​]</b>"""
     SOURCE_TXT = """<b>NOTE:
-⚠️ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ
+⚠️ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ɴᴏᴛ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ
 ◆ ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : <a href='https://t.me/crazybotz'>ʜᴇʀᴇ</a>
 
 ◆ ᴅᴇᴠs ​1 : <a href='https://t.me/heartlesssn'>ᴄʀᴀᴢʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ</a></b>"""
@@ -152,7 +152,17 @@ Nᴀᴍᴇ - {}
 
 3)ᴍᴏᴠɪᴇ ɪs ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ɪɴ ᴛʜᴇ ᴅᴀᴛᴀʙᴀsᴇ ʀᴇᴘᴏʀᴛ ᴛᴏ ᴀᴅᴍɪɴs​</b>"""
 
-    MELCOW_ENG = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️</b>"""
+    MELCOW_ENG = """<b>🥵 ʜᴇʏ {}
+
+👨‍🏫 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴏᴜʀ ɢʀᴏᴜᴘ
+
+💣 ᴛʜɪꜱ ɪꜱ ᴀ {} ɢʀᴏᴜᴘ
+
+🍂 ᴀʟʟ ᴄᴀᴛᴇɢᴏʀɪᴇꜱ ᴏꜰ ᴍᴏᴠɪᴇꜱ ᴀᴠᴀɪʟᴀʙʟᴇ ʜᴇʀᴇ
+
+🌲 ᴊᴜꜱᴛ ᴛʏᴘᴇ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ
+
+👽 ᴏᴜʀ ʙᴏᴛ ᴡɪʟʟ ꜱᴇɴᴅ ʏᴏᴜʀ ᴍᴏᴠɪᴇ</b>"""
     
     OWNER_INFO = """
 <b>───[ ᴏᴡɴᴇʀ ᴅᴇᴛᴀɪʟꜱ ]───
@@ -176,23 +186,18 @@ Nᴀᴍᴇ - {}
 🌿 ʙʏ : <a href='t.me/crazybotz'>ᴄʀᴀᴢʏ</a></b>"""
 
     IMDB_TEMPLATE_TXT = """
-<b>𝐇𝐞𝐲 {message.from_user.mention}, 𝐇𝐞𝐫𝐞 𝐢𝐬 𝐭𝐡𝐞 𝐫𝐞𝐬𝐮𝐥𝐭 𝐟𝐨𝐫 𝐲𝐨𝐮𝐫 {query}
+<b>​ʜᴇʏ {message.from_user.mention}, ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʀᴇꜱᴜʟᴛ ꜰᴏʀ ʏᴏᴜʀ {query}
 
-🏷️ 𝐓𝐢𝐭𝐥𝐞 : {title}
+🦢 {title}
 
-🎭 𝐆𝐞𝐧𝐫𝐞𝐬 : {genres}
+⭐ {rating} | ⏰ {runtime} | 📅 {release_date}
 
-🌟 𝐑𝐚𝐭𝐢𝐧𝐠 : {rating}
+● {genres}
+● {languages}
 
-☀️ 𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞𝐬 : {languages}
+💯 ᴄᴏᴜɴᴛʀɪᴇꜱ : {countries}
 
-📀 𝐑𝐮𝐧𝐓𝐢𝐦𝐞 : {runtime}
-
-📆 𝐑𝐞𝐥𝐞𝐚𝐬𝐞 𝐈𝐧𝐟𝐨 : {year}
-
-🎛 𝐂𝐨𝐮𝐧𝐭𝐫𝐢𝐞𝐬 : {countries}
-
-𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 {message.chat.title}</b>"""
+💗 ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href='t.me/crazybotz'>ᴄʀᴀᴢʏ</a></b>"""
 
     ALL_FILTERS = """
 <b>Hᴇʏ {}, Tʜᴇsᴇ ᴀʀᴇ ᴍʏ ᴛʜʀᴇᴇ ᴛʏᴘᴇs ᴏғ ғɪʟᴛᴇʀs.</b>"""
@@ -216,13 +221,13 @@ Aᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:
 • /plink - <code>Jᴜsᴛ ʟɪᴋᴇ /link, ʙᴜᴛ ᴛʜᴇ ғɪʟᴇ ᴡɪʟʟ ʙᴇ sᴇɴᴅ ᴡɪᴛʜ ғᴏʀᴡᴀʀᴅ ʀᴇsᴛʀɪᴄᴛɪᴏɴ.</code>"""
 
     RESTART_TXT = """
-<b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
+<b>░b░o░t░ ░s░t░a░r░t░e░d░ !
 
 📅 Dᴀᴛᴇ : <code>{}</code>
 ⏰ Tɪᴍᴇ : <code>{}</code>
 🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>Asia/Kolkata</code>
 🛠️ Bᴜɪʟᴅ Sᴛᴀᴛᴜs: <code>v2.7.1 [ Sᴛᴀʙʟᴇ ]</code></b>
-©ᴍʟᴢ ʙᴏᴛᴢ"""
+©ᴄʀᴀᴢʏʙᴏᴛᴢ​"""
 
     LOGO = """
 𝑺𝒕𝒂𝒓𝒕𝒊𝒏𝒈.......🥵"""
@@ -232,33 +237,29 @@ Aᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:
 
 Iғ ᴛʜᴇ ɢʀᴏᴜᴘ ᴄᴏᴘʏ ʀɪɢʜᴛ ɪꜱ ʟᴏꜱᴛ , ᴡʜᴇɴ ᴀ ɴᴇᴡ ɢʀᴏᴜᴘ ɪꜱ ꜱᴛᴀʀᴛᴇᴅ, ɪᴛ ᴡɪʟʟ ʙᴇ ɴᴏᴛɪғɪᴇᴅ ᴏɴ ᴛʜɪꜱ ᴄʜᴀɴɴᴇʟ🤥
 
-©𝒄𝒓𝒂𝒛𝒚 𝒃𝒐𝒕𝒛"""
+©ᴄʀᴀᴢʏʙᴏᴛᴢ​"""
     QINFO = """
 ʜᴇʏ ʙʀᴏ ☻
 
 Cʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛʜᴇ ғɪʟᴇꜱ ʏᴏᴜ ᴡᴀɴᴛ ᴀɴᴅ ꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ ⇓⇓
 
-©𝒄𝒓𝒂𝒛𝒚 𝒃𝒐𝒕𝒛"""
+©ᴄʀᴀᴢʏʙᴏᴛᴢ"""
     REPRT_MSG = """ Reported To Admin"""
 
     EARN_TXT = """
 <b>──────「 <a href='https://t.me/heartlesssn'>ᴇᴀʀɴ ᴍᴏɴᴇʏ</a> 」─────
 
-Now You can start earning 💸 money today with our Simple and easy-to-use bot!
+➥ ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴇᴀʀɴ ʟᴏᴛs ᴏꜰ ᴍᴏɴᴇʏ ꜰʀᴏᴍ ᴛʜɪꜱ ʙᴏᴛ.
 
-›› Step 1: Add This bot to your group as an admin..
+›› sᴛᴇᴘ 𝟷 : ʏᴏᴜ ᴍᴜsᴛ ʜᴀᴠᴇ ᴀᴛʟᴇᴀsᴛ ᴏɴᴇ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴍɪɴɪᴍᴜᴍ 𝟹𝟶𝟶 ᴍᴇᴍʙᴇʀs.
 
-›› Step 2: If you don't Using any shortner website then make account first on shorturllink.in (You can also use other link shortner website).
+›› sᴛᴇᴘ 𝟸 : ᴍᴀᴋᴇ ᴀᴄᴄᴏᴜɴᴛ ᴏɴ <a href='https://onepagelink.in/ref/Shivam31'>ᴏɴᴇᴘᴀɢᴇʟɪɴᴋ</a> ᴏʀ <a href='https://omegalinks.in/ref/shivamnamdev'>ᴏᴍᴇɢᴀʟɪɴᴋꜱ</a>. [ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴜsᴇ ᴏᴛʜᴇʀ sʜᴏʀᴛɴᴇʀ ᴡᴇʙsɪᴛᴇ ]
 
-›› Step 3: Copy your API from website and then, simply set your website and API Using the
-/set_shortner command
+›› sᴛᴇᴘ 𝟹 : ꜰᴏʟʟᴏᴡ ᴛʜᴇsᴇ <a href='t.me/crazybotz/43'>​ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ</a>.
 
-› Like this :  /set_shortner <code>shorturllink.in b4d510e7b1e56da54f43c9e27569ee0a281121db</code>
+★ ​ᴛʜɪꜱ ʙᴏᴛ ᴡɪʟʟ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴄᴏɴᴠᴇʀᴛꜱ ʟɪɴᴋꜱ ᴡɪᴛʜ ʏᴏᴜʀ ᴀᴘɪ ᴀɴᴅ ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜʀ ʟɪɴᴋꜱ.
 
-
-★ This bot will automatically converts links with Your Api and will provide your links.
-
-★ Don't wait any longer to start earning money from your telegram group. Add our bot today and start making money 💰!</b>"""
+★ ᴅᴏɴ'ᴛ ᴡᴀɪᴛ ᴀɴʏ ʟᴏɴɢᴇʀ ᴛᴏ ꜱᴛᴀʀᴛ ᴇᴀʀɴɪɴɢ ᴍᴏɴᴇʏ ꜰʀᴏᴍ ʏᴏᴜʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘ. ᴀᴅᴅ ᴏᴜʀ ʙᴏᴛ ᴛᴏᴅᴀʏ ᴀɴᴅ ꜱᴛᴀʀᴛ ᴍᴀᴋɪɴɢ ᴍᴏɴᴇʏ 💰!</b>"""
 
     DELF = """
 ꜱᴏʀʀʏ ᴅᴜᴅᴇ ☹,
@@ -266,7 +267,7 @@ Now You can start earning 💸 money today with our Simple and easy-to-use bot!
 ᴄᴜʀʀᴇɴᴛʟʏ ᴛʜɪꜱ ʙᴜᴛᴛᴏɴ ɪꜱ ɴᴏᴛ ᴡᴏʀᴋ.. 
 ʙᴇᴄᴀᴜꜱᴇ ʙᴜᴛᴛᴏɴ ᴡᴇʀᴇ ʀᴇᴍᴏᴠᴇᴅ ʙʏ ᴀᴅᴍɪɴ
 
-©𝒄𝒓𝒂𝒛𝒚 𝒃𝒐𝒕𝒛"""
+©ᴄʀᴀᴢʏʙᴏᴛᴢ"""
     INFO = """
 ⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠
 
@@ -274,7 +275,7 @@ Now You can start earning 💸 money today with our Simple and easy-to-use bot!
 
 ɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ
 
-©𝒄𝒓𝒂𝒛𝒚 𝒃𝒐𝒕𝒛"""
+©🇨​​🇷​​🇦​​🇿​​🇾​​🇧​​🇴​​🇹​​🇿"""
     FORMAT = """
 ⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 ⇄ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ ⇄
