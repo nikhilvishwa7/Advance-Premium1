@@ -35,9 +35,8 @@ class script(object):
 ‣ ᴅᴀᴛᴀ ʙᴀsᴇ : <a href='https://www.mongodb.com/'>ᴍᴏɴɢᴏ ᴅʙ</a>
 ‣ ʙᴏᴛ sᴇʀᴠᴇʀ : <a href='https://heroku.com'>ʜᴇʀᴏᴋᴜ</a>
 ‣ ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ2.7.1 [sᴛᴀʙʟᴇ​]</b>"""
-    SOURCE_TXT = """<b>NOTE:
+    SOURCE_TXT = """<b>
 ⚠️ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ɴᴏᴛ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ
-◆ ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : <a href='https://t.me/crazybotz'>ʜᴇʀᴇ</a>
 
 ◆ ᴅᴇᴠs ​1 : <a href='https://t.me/heartlesssn'>ᴄʀᴀᴢʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ</a></b>"""
     MANUELFILTER_TXT = """ʜᴇʟᴘ: <b>ꜰɪʟᴛᴇʀꜱ</b>
@@ -195,9 +194,9 @@ Nᴀᴍᴇ - {}
 ● {genres}
 ● {languages}
 
-💯 ᴄᴏᴜɴᴛʀɪᴇꜱ : {countries}
-
-💗 ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href='t.me/crazybotz'>ᴄʀᴀᴢʏ</a></b>"""
+📖 ꜱᴛᴏʀʏ : {plot}
+ 
+💗 ᴘᴏᴡᴇʀᴇᴅ ʙʏ {message.chat.title}</b>"""
 
     ALL_FILTERS = """
 <b>Hᴇʏ {}, Tʜᴇsᴇ ᴀʀᴇ ᴍʏ ᴛʜʀᴇᴇ ᴛʏᴘᴇs ᴏғ ғɪʟᴛᴇʀs.</b>"""
@@ -221,9 +220,9 @@ Aᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:
 • /plink - <code>Jᴜsᴛ ʟɪᴋᴇ /link, ʙᴜᴛ ᴛʜᴇ ғɪʟᴇ ᴡɪʟʟ ʙᴇ sᴇɴᴅ ᴡɪᴛʜ ғᴏʀᴡᴀʀᴅ ʀᴇsᴛʀɪᴄᴛɪᴏɴ.</code>"""
 
     RESTART_TXT = """
-<b>░b░o░t░ ░s░t░a░r░t░e░d░ !
+<b>вσт ѕтαятє∂є !
 
-📅 Dᴀᴛᴇ : <code>{}</code>
+📅 ∂αтє : <code>{}</code>
 ⏰ Tɪᴍᴇ : <code>{}</code>
 🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>Asia/Kolkata</code>
 🛠️ Bᴜɪʟᴅ Sᴛᴀᴛᴜs: <code>v2.7.1 [ Sᴛᴀʙʟᴇ ]</code></b>
