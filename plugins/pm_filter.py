@@ -183,7 +183,7 @@ async def next_page(bot, query):
                 [
                     InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🥤 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'🍂 ᴛɪᴘs', 'tips')
                 ]
             )
 
@@ -413,7 +413,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     files, _, _ = await get_search_results(chat_id, search, max_results=10)
     files = [file for file in files if re.search(lang, file.file_name, re.IGNORECASE)]
     if not files:
-        await query.answer("≼ 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 ≽", show_alert=1)
+        await query.answer("⛔ 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 ⛔", show_alert=1)
         return
 
     settings = await get_settings(message.chat.id)
@@ -1275,11 +1275,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🌡️ ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
+            InlineKeyboardButton('📌 ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
             InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
             ],[      
-            InlineKeyboardButton('🔖 ʜᴇʟᴘ', callback_data='help2'),
-            InlineKeyboardButton('📕 ᴀʙᴏᴜᴛ', callback_data='about')
+            InlineKeyboardButton('🩸 ʜᴇʟᴘ', callback_data='help2'),
+            InlineKeyboardButton('🍂 ᴀʙᴏᴜᴛ', callback_data='about')
             ],[
             InlineKeyboardButton('💰 ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʙᴏᴛ 💸', callback_data='money_bot')
         ]] 
