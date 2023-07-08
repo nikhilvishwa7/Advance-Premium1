@@ -35,6 +35,9 @@ import time
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+import os
+req_channel = int(os.environ.get('CRAZY_REQUEST','-1001915834318'))
+
 BUTTONS = {}
 SPELL_CHECK = {}
 
@@ -1911,6 +1914,8 @@ async def auto_filter(client, msg, spoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(message.chat.id ,search.lower(), offset=0, filter=True)
             if not files:
+                await client.send_message(req_channel,f"-🦋 #REQUESTED_CONTENT 🦋-\n\n📝**Content Name** :`{search}`\n**Requested By**: {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️**",
+                                                                                                       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔺 Mark as Done 🔺", callback_data="close_data")]]))
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, msg)
                 else:
