@@ -1293,6 +1293,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
+            text="● ○ ○"
+        )
+        await query.message.edit_text(
+            text="● ● ○"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
+        )
+        await query.message.edit_text(
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -1329,6 +1338,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
+            text="● ○ ○"
+        )
+        await query.message.edit_text(
+            text="● ● ○"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
+        )
+        await query.message.edit_text(
             text=script.HELPZ_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -1348,6 +1366,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
+            text="● ○ ○"
+        )
+        await query.message.edit_text(
+            text="● ● ○"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
+        )
+        await query.message.edit_text(
             text=script.EARN2_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -1364,6 +1391,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             query.message.chat.id, 
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text="● ○ ○"
+        )
+        await query.message.edit_text(
+            text="● ● ○"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
         )
         await query.message.edit_text(
             text=script.CRAZY_TXT,
@@ -1393,6 +1429,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
+            text="● ○ ○"
+        )
+        await query.message.edit_text(
+            text="● ● ○"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
+        )
+        await query.message.edit_text(
             text=script.OWNER_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -1409,6 +1454,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             query.message.chat.id, 
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text="● ○ ○"
+        )
+        await query.message.edit_text(
+            text="● ● ○"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
         )
         await query.message.edit_text(
             text=script.EARN_TXT,
@@ -1472,6 +1526,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
+            text="● ○ ○"
+        )
+        await query.message.edit_text(
+            text="● ● ○"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
+        )
+        await query.message.edit_text(
             text=script.HELPER_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -1508,6 +1571,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             query.message.chat.id, 
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text="● ○ ○"
+        )
+        await query.message.edit_text(
+            text="● ● ○"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
         )
         await query.message.edit_text(
             text=script.SOURCE_TXT,
