@@ -23,10 +23,7 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                  ],[
-                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url='https://t.me/crazybotz'),
-                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url='https://t.me/crazysupportz')
+                    InlineKeyboardButton("〆 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ʙᴏᴛ 〆", url=f"https://telegram.me/{temp.U_NAME}"),
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kd = await message.reply_photo(
@@ -48,7 +45,7 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🦢 ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
+            InlineKeyboardButton('🎅 ʙᴏᴛꜱ', url='t.me/crazybotz'),
             InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
             ],[      
             InlineKeyboardButton('🍁 ʜᴇʟᴘ', callback_data='help2'),
@@ -78,7 +75,7 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🦢 ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
+            InlineKeyboardButton('🎅 ʙᴏᴛꜱ', url='t.me/crazybotz'),
             InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
             ],[      
             InlineKeyboardButton('🍁 ʜᴇʟᴘ', callback_data='help2'),
