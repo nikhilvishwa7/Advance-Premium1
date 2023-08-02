@@ -845,6 +845,52 @@ async def set_tutorial_link(client, message):
     await save_group_settings(grpid, 'tutorial', tutorial)
     await message.reply_text(f"<b>📌 sᴜᴄᴄᴇssꜰᴜʟʏ ᴀᴅᴅᴇᴅ ᴛᴜᴛᴏʀɪᴀʟ 🎉\n\nʏᴏᴜʀ ᴛᴜᴛᴏʀɪᴀʟ ʟɪɴᴋ ꜰᴏʀ ɢʀᴏᴜᴘ {title} ɪs 👇\n\n☞{tutorial}\n\n© @crazybotz\n</b>")
 
+
+#new
+@Client.on_message(filters.command("get_shortner"))
+async def showshortlink(bot, message):
+    userid = message.from_user.id if message.from_user else None
+    if not userid:
+        return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
+    chat_type = message.chat.type
+    if chat_type == enums.ChatType.PRIVATE:
+        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This Command Only Works in Group\n\nTry this command in your own group, if you are using me in your group</b>")
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        grpid = message.chat.id
+        title = message.chat.title
+    else:
+        return
+    chat_id=message.chat.id
+    userid = message.from_user.id
+    user = await bot.get_chat_member(grpid, userid)
+#     if 'shortlink' in settings.keys():
+#         su = settings['shortlink']
+#         sa = settings['shortlink_api']
+#     else:
+#         return await message.reply_text("<b>Shortener Url Not Connected\n\nYou can Connect Using /shortlink command</b>")
+#     if 'tutorial' in settings.keys():
+#         st = settings['tutorial']
+#     else:
+#         return await message.reply_text("<b>Tutorial Link Not Connected\n\nYou can Connect Using /set_tutorial command</b>")
+    if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
+        return await message.reply_text("<b>Tʜɪs ᴄᴏᴍᴍᴀɴᴅ Wᴏʀᴋs Oɴʟʏ Fᴏʀ ᴛʜɪs Gʀᴏᴜᴘ Oᴡɴᴇʀ/Aᴅᴍɪɴ\n\nTʀʏ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪɴ ʏᴏᴜʀ Oᴡɴ Gʀᴏᴜᴘ, Iғ Yᴏᴜ Aʀᴇ Usɪɴɢ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ</b>")
+    else:
+        settings = await get_settings(chat_id) #fetching settings for group
+        if 'shortlink' in settings.keys() and 'tutorial' in settings.keys():
+            su = settings['shortlink']
+            sa = settings['shortlink_api']
+            st = settings['tutorial']
+            return await message.reply_text(f"<b>🥵 ꜱʜᴏʀᴛɴᴇʀ ᴡᴇʙꜱɪᴛᴇ: <code>{su}</code>\n\nApi: <code>{sa}</code>\n\n🥶 ᴛᴜᴛᴏʀɪᴀʟ: <code>{st}</code></b>")
+        elif 'shortlink' in settings.keys() and 'tutorial' not in settings.keys():
+            su = settings['shortlink']
+            sa = settings['shortlink_api']
+            return await message.reply_text(f"<b>Shortener Website: <code>{su}</code>\n\nApi: <code>{sa}</code>\n\nTutorial Link Not Connected\n\nYou can Connect Using /set_tutorial command</b>")
+        elif 'shortlink' not in settings.keys() and 'tutorial' in settings.keys():
+            st = settings['tutorial']
+            return await message.reply_text(f"<b>Tutorial: <code>{st}</code>\n\nShortener Url Not Connected\n\nYou can Connect Using /shortlink command</b>")
+        else:
+            return await message.reply_text("Shortener url and Tutorial Link Not Connected. Check this commands, /set_shortner and /set_tutorial")
+
 @Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
 async def deletemultiplefiles(bot, message):
     btn = [[
