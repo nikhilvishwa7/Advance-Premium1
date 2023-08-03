@@ -847,7 +847,7 @@ async def set_tutorial_link(client, message):
 
 
 #new
-@Client.on_message(filters.command("get_shortner"))
+@Client.on_message(filters.command("ginfo"))
 async def showshortlink(bot, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -880,7 +880,7 @@ async def showshortlink(bot, message):
             su = settings['shortlink']
             sa = settings['shortlink_api']
             st = settings['tutorial']
-            return await message.reply_text(f"<b>🥵 ꜱʜᴏʀᴛɴᴇʀ ᴡᴇʙꜱɪᴛᴇ: <code>{su}</code>\n\nApi: <code>{sa}</code>\n\n🥶 ᴛᴜᴛᴏʀɪᴀʟ: <code>{st}</code></b>")
+            return await message.reply_text(f"<b>ᴄᴜʀʀᴇɴᴛ ꜱᴛᴀᴛᴜꜱ 📊\n\nᴡᴇʙꜱɪᴛᴇ: <code>{su}</code>\n\nᴀᴘɪ: <code>{sa}</code>\n\nᴛᴜᴛᴏʀɪᴀʟ: {st}</b>")
         elif 'shortlink' in settings.keys() and 'tutorial' not in settings.keys():
             su = settings['shortlink']
             sa = settings['shortlink_api']
