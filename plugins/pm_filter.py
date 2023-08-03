@@ -1276,13 +1276,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('⇄ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⇆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🦢 ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
-            InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
+            InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ​', callback_data='owner_info'),
+            InlineKeyboardButton('🌿 ꜱᴜᴘᴘᴏʀᴛ', callback_data='smrati')
             ],[      
-            InlineKeyboardButton('🍁 ʜᴇʟᴘ', callback_data='help2'),
-            InlineKeyboardButton('🍂 ᴀʙᴏᴜᴛ', callback_data='about')
+            InlineKeyboardButton('💠 ʜᴇʟᴘ 💠', callback_data='help2'),
+            InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
             ],[
             InlineKeyboardButton('💰 ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ᴛʜɪꜱ ʙᴏᴛ 💸', callback_data='money_bot')
         ]] 
@@ -1325,8 +1325,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "smrati":
         buttons = [[
-            InlineKeyboardButton('ʜɪɴᴅɪ', callback_data='smrat'),
-            InlineKeyboardButton('ᴇɴɢʟɪsʜ',callback_data='english'),
+            InlineKeyboardButton('ꜱᴜʙꜱᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@crazyshivam_')
+        ],[
+            InlineKeyboardButton('ʙᴏᴛꜱ', url='t.me/crazybotz'),
+            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url='t.me/snfilmy')
         ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
@@ -1419,6 +1421,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "owner_info":
         buttons = [[
+            InlineKeyboardButton('💶 ᴘʟᴇᴀꜱᴇ ᴅᴏɴᴀᴛᴇ 💶', url='https://telegra.ph/SUPPORT-08-03-2')
+            ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('💭 ᴄᴏɴᴛᴀᴄᴛ​', url='t.me/heartlesssn')
         ]]
