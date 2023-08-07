@@ -174,9 +174,9 @@ Nᴀᴍᴇ - {}
 
 ᚜ ᴘᴀʏᴍᴇɴᴛ ᴍᴇᴛʜᴏᴅs ᚛
 
-💵<a href=https://telegra.ph/SUPPORT-08-03-2>𝗚𝗼𝗼𝗴𝗹𝗲 𝗣𝗮𝘆</a>
-💸<a href=https://telegra.ph/SUPPORT-08-03-2>𝗣𝗮𝘆𝘁𝗺</a>
-💶<a href=https://telegra.ph/SUPPORT-08-03-2>𝗣𝗵𝗼𝗻𝗲𝗣𝗲</a> 
+💵<a href=http://bit.ly/IMDBdonate>𝗚𝗼𝗼𝗴𝗹𝗲 𝗣𝗮𝘆</a>
+💸<a href=http://bit.ly/IMDBdonate>𝗣𝗮𝘆𝘁𝗺</a>
+💶<a href=http://bit.ly/IMDBdonate>𝗣𝗵𝗼𝗻𝗲𝗣𝗲</a> 
 
 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 𝐅𝐨𝐫 𝐊𝐧𝐨𝐰 𝐀𝐛𝐨𝐮𝐭 𝐓𝐡𝐞 𝐏𝐚𝐲𝐦𝐞𝐧𝐭 𝐈𝐧𝐟𝐨
 
