@@ -22,7 +22,7 @@ API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
 
 # Log
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6249148586').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
@@ -40,7 +40,7 @@ USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 BOT_START_TIME = time()
 
 MONYPIC = (environ.get('AREBHAI', 'https://telegra.ph/file/2c0b5da010673914324ad.jpg')).split()
-PICS = (environ.get('PICS', 'https://www.google.com/search?q=ultra%20instinct%20goku%20wallpaper%204k&tbm=isch&hl=en&rlz=1C1YTUH_enIN1061IN1061&sa=X&ved=0CCAQtI8BKAJqFwoTCLjd2uHvv4ADFQAAAAAdAAAAABAf&biw=1349&bih=619#imgrc=bEOvSIeV36yaMM&imgdii=zTKfBcTPt9UgLM')).split()
+PICS = (environ.get('PICS', 'https://telegra.ph/file/d231ea763a020b98ea193.jpg https://telegra.ph/file/9bfdcf00203e30690fe1b.jpg https://telegra.ph/file/6c1beaa516cc0908706f3.jpg https://telegra.ph/file/c60c61e9818ca1943c468.jpg https://telegra.ph/file/5595dbaf948d8a6465e67.jpg https://telegra.ph/file/6b003c4f05cb8609627d7.jpg')).split()
 MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/f7f2a532fe4b990044507.mp4")
 NOR_IMG = (environ.get('NOR_IMG', 'https://telegra.ph/file/8ab607a0ae37243d3e5eb.jpg https://telegra.ph/file/665820de1242714c1cb76.jpg https://telegra.ph/file/307a6c01601a8ef80b9bd.jpg https://telegra.ph/file/a416127d2fe5b6197da6c.jpg https://telegra.ph/file/ed9db200b03a691f303c8.jpg https://telegra.ph/file/4fe268a606d0d5f4a8d72.jpg https://telegra.ph/file/a7ea55f5e27e90f81a681.jpg https://telegra.ph/file/529d31175604a625fd1ae.jpg')).split()
 NEWGRP = environ.get("NEWGRP", "https://telegra.ph/file/732a9f89be5a9cd63289b.jpg")
