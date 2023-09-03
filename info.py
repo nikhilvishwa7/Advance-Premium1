@@ -139,6 +139,11 @@ LANGUAGES = ["malayalam", "tamil", "english", "hindi", "telugu", "kannada"]
 DELETE_TIME = int(environ.get('DELETE_TIME', 300))
 IMDB_DLT_TIME = int(environ.get('IMDB_DLT_TIME', 300))
 
+# stream features vars
+F2LINK_C = environ.get("F2LINK_C", "-1001876507111")
+ON_DWNLD = environ.get("ON_DWNLD", "newimdbvoysdjs-mlvt.onrender.com")
+ON_WATCH = environ.get("ON_WATCH", "newimdbvoysdjs-mlvt.onrender.com")
+
 LOG_STR = "Current Cusomized Configurations are:-\n"
 LOG_STR += ("IMDB Results are enabled, Bot will be showing imdb details for you queries.\n" if IMDB else "IMBD Results are disabled.\n")
 LOG_STR += ("P_TTI_SHOW_OFF found , Users will be redirected to send /start to Bot PM instead of sending file file directly\n" if P_TTI_SHOW_OFF else "P_TTI_SHOW_OFF is disabled files will be send in PM, instead of sending start.\n")
