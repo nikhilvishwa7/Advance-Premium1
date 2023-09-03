@@ -11,12 +11,12 @@ from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import LANGUAGES, IMDB_DLT_TIME, BOT_START_TIME, MAX_BTN, ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, MONYPIC, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, MAX_B_TN, IMDB, \
+from info import LANGUAGES, IMDB_DLT_TIME, BOT_START_TIME, MAX_BTN, ADMINS, ON_WATCH, ON_DWNLD, F2LINK_C, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, MONYPIC, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, MAX_B_TN, IMDB, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, REQ_CHANNEL, MAIN_CHANNEL, TUTORIAL, FILE_CHANNEL, FILE_CHANNEL_LINK, CLOSE_IMG, DELETE_TIME, LOGIN_CHANNEL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto, ChatPermissions
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink
+from utils import get_size, is_subscribed, get_hash, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
 from database.filters_mdb import (
@@ -41,11 +41,32 @@ req_channel = int(os.environ.get('CRAZY_REQUEST','-1001915834318'))
 BUTTONS = {}
 SPELL_CHECK = {}
 
-#@Client.on_message(filters.private & filters.text & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.private & filters.text & filters.incoming)
-#async def pv_filter(client, message):
-    #kd = await global_filters(client, message)
-    #if kd == False:
-        #await auto_filter(client, message)
+@Client.on_callback_query(filters.regex(r"^stream"))
+async def stream_downloader(bot, query):
+    file_id = query.data.split('#', 1)[1]
+    files_ = await get_file_details(file_id)
+    files = files_[0]
+    log_channel = F2LINK_C
+    f_caption = f"{files.file_name}"
+    msg = await bot.send_cached_media(
+        chat_id=log_channel,
+        file_id=file_id,
+        caption=f_caption)
+    
+    online = f"https://{ON_WATCH}/watch/{msg.id}?hash={get_hash(msg)}"
+    download = f"https://{ON_DWNLD}/{msg.id}?hash={get_hash(msg)}"
+    
+    await query.edit_message_reply_markup(
+        reply_markup=InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton("ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ", url=online),
+                InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ", url=download)
+            ],[
+                InlineKeyboardButton("🍂 ᴄʜᴀɴɴᴇʟ", url='https://t.me/crazybotz')
+            ]
+        ]
+    ))
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
