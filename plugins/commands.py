@@ -144,7 +144,7 @@ async def start(client, message):
                          [
                           
 
-                           InlineKeyboardButton("📺 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 📺", callback_data=f"stream#{file_id}")
+                           InlineKeyboardButton("💠 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 💠", callback_data=f"stream#{file_id}")
                          ]
                         ]
                     )
@@ -160,7 +160,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton("📺 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 📺", callback_data=f"stream#{file_id}")
+                          InlineKeyboardButton("💠 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 💠", callback_data=f"stream#{file_id}")
                          ]
                         ]
                     )
@@ -258,7 +258,7 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                          [
-                          InlineKeyboardButton("📺 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 📺", callback_data=f"stream#{file_id}")
+                          InlineKeyboardButton("💠 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 💠", callback_data=f"stream#{file_id}")
                          ]
                         ]
                     )
@@ -308,7 +308,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton("📺 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 📺", callback_data=f"stream#{file_id}")
+              InlineKeyboardButton("💠 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 💠", callback_data=f"stream#{file_id}")
              ]
               ]
        )
