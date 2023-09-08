@@ -63,7 +63,7 @@ async def stream_downloader(bot, query):
                 InlineKeyboardButton("ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ", url=online),
                 InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ", url=download)
             ],[
-                InlineKeyboardButton("🍂 ᴄʜᴀɴɴᴇʟ", url='https://t.me/crazybotz')
+                InlineKeyboardButton("❤️‍🔥 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ❤️‍🔥", url='https://t.me/crazybotz')
             ]
         ]
     ))
