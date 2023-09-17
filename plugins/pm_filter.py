@@ -60,8 +60,8 @@ async def stream_downloader(bot, query):
         reply_markup=InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ", url=online),
-                InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ", url=download)
+                InlineKeyboardButton("🖥️ ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ", url=online),
+                InlineKeyboardButton("📥 ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ", url=download)
             ],[
                 InlineKeyboardButton("❤️‍🔥 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ❤️‍🔥", url='https://t.me/crazybotz')
             ]
@@ -205,18 +205,18 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {len(files)}', 'dupe'),
+                    InlineKeyboardButton(f'♻️ ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🍂 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'⁉️ ᴛɪᴘs', 'tips')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {len(files)}', 'dupe'),
+                    InlineKeyboardButton(f'♻️ ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🍂 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'⁉️ ᴛɪᴘs', 'tips')
                 ]
             )
                 
@@ -227,18 +227,18 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {len(files)}', 'dupe'),
+                    InlineKeyboardButton(f'♻️ ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🍂 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'⁉️ ᴛɪᴘs', 'tips')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {len(files)}', 'dupe'),
+                    InlineKeyboardButton(f'♻️ ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🍂 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'⁉️ ᴛɪᴘs', 'tips')
                 ]
             )
     try:
@@ -2005,18 +2005,18 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {len(files)}', 'dupe'),
+                    InlineKeyboardButton(f'♻️ ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🍂 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'⁉️ ᴛɪᴘs', 'tips')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {len(files)}', 'dupe'),
+                    InlineKeyboardButton(f'♻️ ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🍂 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'⁉️ ᴛɪᴘs', 'tips')
                 ]
             )
                 
@@ -2027,18 +2027,18 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {len(files)}', 'dupe'),
+                    InlineKeyboardButton(f'♻️ ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🍂 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'⁉️ ᴛɪᴘs', 'tips')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {len(files)}', 'dupe'),
+                    InlineKeyboardButton(f'♻️ ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🍂 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'⁉️ ᴛɪᴘs', 'tips')
                 ]
             )
 
@@ -2057,7 +2057,7 @@ async def auto_filter(client, msg, spoll=False):
         ])
 
    # await message.delete()
-    m=await message.reply_text("📝") 
+    m=await message.reply_text("🔐") 
     await asyncio.sleep(1)
     await m.delete()
    
