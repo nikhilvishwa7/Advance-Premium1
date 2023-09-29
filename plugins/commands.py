@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, MAX_B_TN, VERIFY
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, MAX_B_TN, VERIFY, IS_STREAM
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token
 from database.connections_mdb import active_connection
 from plugins.fsub import ForceSub
@@ -23,10 +23,7 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                  ],[
-                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url='https://t.me/crazybotz'),
-                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url='https://t.me/crazysupportz')
+                    InlineKeyboardButton("〆 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ʙᴏᴛ 〆", url=f"https://telegram.me/{temp.U_NAME}"),
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kd = await message.reply_photo(
@@ -46,13 +43,13 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('⇄ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⇆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🦢 ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
-            InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
+            InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ​', callback_data='owner_info'),
+            InlineKeyboardButton('🌿 ꜱᴜᴘᴘᴏʀᴛ', callback_data='smrati')
             ],[      
-            InlineKeyboardButton('🍁 ʜᴇʟᴘ', callback_data='help2'),
-            InlineKeyboardButton('🍂 ᴀʙᴏᴜᴛ', callback_data='about')
+            InlineKeyboardButton('💠 ʜᴇʟᴘ 💠', callback_data='help2'),
+            InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
             ],[
             InlineKeyboardButton('💰 ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ᴛʜɪꜱ ʙᴏᴛ 💸', callback_data='money_bot')
         ]] 
@@ -76,13 +73,13 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('⇄ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⇆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🦢 ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
-            InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
+            InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ​', callback_data='owner_info'),
+            InlineKeyboardButton('🌿 ꜱᴜᴘᴘᴏʀᴛ', callback_data='smrati')
             ],[      
-            InlineKeyboardButton('🍁 ʜᴇʟᴘ', callback_data='help2'),
-            InlineKeyboardButton('🍂 ᴀʙᴏᴜᴛ', callback_data='about')
+            InlineKeyboardButton('💠 ʜᴇʟᴘ 💠', callback_data='help2'),
+            InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
             ],[
             InlineKeyboardButton('💰 ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ᴛʜɪꜱ ʙᴏᴛ 💸', callback_data='money_bot')
         ]] 
@@ -142,16 +139,25 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                          
-
-                           InlineKeyboardButton("🍂 ᴄʜᴀɴɴᴇʟ", url='https://t.me/crazybotz')
-                         ]
-                        ]
+                    reply_markup=(
+                        InlineKeyboardMarkup(
+                            [
+                                [
+                                    InlineKeyboardButton('🔻 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 🔻', callback_data=f'gen_stream_link:{file_id}')
+                                ]
+                            ]
+                        )
+                        if IS_STREAM
+                        else InlineKeyboardMarkup(
+                            [
+                                [
+                                    InlineKeyboardButton('🍂 ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                                ]
+                            ]
+                        )
                     )
                 )
+                        
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
@@ -160,12 +166,22 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                          InlineKeyboardButton("🍂 ᴄʜᴀɴɴᴇʟ", url='https://t.me/crazybotz')
-                         ]
-                        ]
+                    reply_markup=(
+                        InlineKeyboardMarkup(
+                            [
+                                [
+                                    InlineKeyboardButton('🔻 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 🔻', callback_data=f'gen_stream_link:{file_id}')
+                                ]
+                            ]
+                        )
+                        if IS_STREAM
+                        else InlineKeyboardMarkup(
+                            [
+                                [
+                                    InlineKeyboardButton('🍂 ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                                ]
+                            ]
+                        )
                     )
                 )
             except Exception as e:
@@ -258,12 +274,22 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                         [
-                          InlineKeyboardButton("🍂 ᴄʜᴀɴɴᴇʟ", url='https://t.me/crazybotz')
-                         ]
-                        ]
+                reply_markup=(
+                        InlineKeyboardMarkup(
+                            [
+                                [
+                                    InlineKeyboardButton('🔻 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 🔻', callback_data=f'gen_stream_link:{file_id}')
+                                ]
+                            ]
+                        )
+                        if IS_STREAM
+                        else InlineKeyboardMarkup(
+                            [
+                                [
+                                    InlineKeyboardButton('🍂 ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                                ]
+                            ]
+                        )
                     )
                 )
             filetype = msg.media
@@ -308,15 +334,24 @@ async def start(client, message):
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
-        reply_markup=InlineKeyboardMarkup(
-            [
-             [
-              InlineKeyboardButton("🍂 ᴄʜᴀɴɴᴇʟ", url='https://t.me/crazybotz')
-             ]
-              ]
-       )
-  )
-                    
+        reply_markup=(
+            InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🔻 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 🔻', callback_data=f'gen_stream_link:{file_id}')
+                    ]
+                ]
+            )
+            if IS_STREAM
+            else InlineKeyboardMarkup(
+                [
+                    [
+                         InlineKeyboardButton('🍂 ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                    ]
+               ]
+            )
+        )
+    )
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
