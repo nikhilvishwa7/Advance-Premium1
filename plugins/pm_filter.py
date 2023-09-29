@@ -1422,31 +1422,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "owner_info":
-        buttons = [[
-            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
-            InlineKeyboardButton('💭 ᴄᴏɴᴛᴀᴄᴛ​', url='t.me/heartlesssn')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text="● ○ ○"
-        )
-        await query.message.edit_text(
-            text="● ● ○"
-        )
-        await query.message.edit_text(
-            text="● ● ●"
-        )
-        await query.message.edit_text(
-            text=script.OWNER_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+    
     elif query.data == "money_bot":
         buttons = [[
             InlineKeyboardButton('👨‍🏫 ​ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ', url='https://t.me/crazybotz/43')
