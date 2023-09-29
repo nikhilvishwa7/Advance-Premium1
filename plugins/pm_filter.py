@@ -140,7 +140,7 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"🔖 {get_size(file.file_size)} {file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"▫️ {get_size(file.file_size)} {file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                 ]
                 for file in files
@@ -163,7 +163,7 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"🔖 {get_size(file.file_size)} {file.file_name}", callback_data=f'files#{file.file_id}'
+                        text=f"▫️ {get_size(file.file_size)} {file.file_name}", callback_data=f'files#{file.file_id}'
                     ),
                 ]
                 for file in files
@@ -432,7 +432,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        text=f"🔖 {get_size(file.file_size)} {file.file_name}",
+                        text=f"▫️ {get_size(file.file_size)} {file.file_name}",
                         url=await get_shortlink(
                             message.chat.id,
                             f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
@@ -466,7 +466,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"🔖 {get_size(file.file_size)} {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"▫️ {get_size(file.file_size)} {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -1334,13 +1334,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('⇄ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⇆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🦢 ᴜᴘᴅᴀᴛᴇs', callback_data='smrati'),
-            InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
+            InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ​', callback_data='owner_info'),
+            InlineKeyboardButton('🌿 ꜱᴜᴘᴘᴏʀᴛ', callback_data='smrati')
             ],[      
-            InlineKeyboardButton('🍁 ʜᴇʟᴘ', callback_data='help2'),
-            InlineKeyboardButton('🍂 ᴀʙᴏᴜᴛ', callback_data='about')
+            InlineKeyboardButton('💠 ʜᴇʟᴘ 💠', callback_data='help2'),
+            InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
             ],[
             InlineKeyboardButton('💰 ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ᴛʜɪꜱ ʙᴏᴛ 💸', callback_data='money_bot')
         ]] 
@@ -1383,8 +1383,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "smrati":
         buttons = [[
-            InlineKeyboardButton('ʜɪɴᴅɪ', callback_data='smrat'),
-            InlineKeyboardButton('ᴇɴɢʟɪsʜ',callback_data='english'),
+            InlineKeyboardButton('ꜱᴜʙꜱᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@crazyshivam_')
+        ],[
+            InlineKeyboardButton('ʙᴏᴛꜱ', url='t.me/crazybotz'),
+            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url='t.me/snfilmy')
         ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
@@ -1406,61 +1408,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         await query.message.edit_text(
             text=script.HELPZ_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-        
-    elif query.data == "english":
-        buttons = [[
-            InlineKeyboardButton('🌹 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🌹', url='t.me/snfilmy')
-            ],[
-            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='smrati'),
-            InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text="● ○ ○"
-        )
-        await query.message.edit_text(
-            text="● ● ○"
-        )
-        await query.message.edit_text(
-            text="● ● ●"
-        )
-        await query.message.edit_text(
-            text=script.EARN2_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )    
-    elif query.data == "smrat":
-        buttons = [[
-            InlineKeyboardButton('🌹 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🌹', url='t.me/snfilmy')
-            ],[
-            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='smrati'),
-            InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text="● ○ ○"
-        )
-        await query.message.edit_text(
-            text="● ● ○"
-        )
-        await query.message.edit_text(
-            text="● ● ●"
-        )
-        await query.message.edit_text(
-            text=script.CRAZY_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -1620,6 +1567,35 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+
+    elif query.data == "owner_info":
+        buttons = [[
+            InlineKeyboardButton('💶 ᴘʟᴇᴀꜱᴇ ᴅᴏɴᴀᴛᴇ 💶', url='http://bit.ly/IMDBdonate')
+            ],[
+            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
+            InlineKeyboardButton('💭 ᴄᴏɴᴛᴀᴄᴛ​', url='t.me/heartlesssn')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text="● ○ ○"
+        )
+        await query.message.edit_text(
+            text="● ● ○"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
+        )
+        await query.message.edit_text(
+            text=script.OWNER_INFO,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
     elif query.data == "source":
         buttons = [[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='about')
@@ -1721,12 +1697,45 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='about'),
             InlineKeyboardButton('⟲ Rᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
-        reply_markup = InlineKeyboardMarkup(buttons) 
+        await query.message.edit_text(
+            text="▭▭ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭ LOADING ...     10/100%   ▭▭ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▭ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭ LOADING ...     20/100%   ▬▭ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭ LOADING ...     30/100%   ▬▬ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▭ ▭▭ ▭▭ ▭▭ ▭▭ LOADING ...     40/100%   ▬▬ ▬▭ ▭▭ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▭▭ ▭▭ ▭▭ LOADING...     50/100%   ▬▬ ▬▬ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▭ ▭▭ ▭▭ LOADING...     55/100%   ▬▬ ▬▬ ▬▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▭▭ ▭▭ LOADING...     60/100%   ▬▬ ▬▬ ▬▬ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▬▭ ▭▭ LOADING...     70/100%   ▬▬ ▬▬ ▬▬ ▬▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▬▬ ▭▭ LOADING...     80/100%   ▬▬ ▬▬ ▬▬ ▬▬ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▬▬ ▬▭ LOADING...     90/100%   ▬▬ ▬▬ ▬▬ ▬▬ ▬▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▬▬ ▬▬ LOADING...     100/100%   ▬▬ ▬▬ ▬▬ ▬▬ ▬▬"
+        ) 
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
         )
+        reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
         users = await db.total_users_count()
         chats = await db.total_chat_count()
@@ -1745,6 +1754,44 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='about'),
             InlineKeyboardButton('⟲ Rᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
+        await query.message.edit_text(
+            text="▭▭ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭ LOADING ...     10/100%   ▭▭ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▭ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭ LOADING ...     20/100%   ▬▭ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭ LOADING ...     30/100%   ▬▬ ▭▭ ▭▭ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▭ ▭▭ ▭▭ ▭▭ ▭▭ LOADING ...     40/100%   ▬▬ ▬▭ ▭▭ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▭▭ ▭▭ ▭▭ LOADING...     50/100%   ▬▬ ▬▬ ▭▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▭ ▭▭ ▭▭ LOADING...     55/100%   ▬▬ ▬▬ ▬▭ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▭▭ ▭▭ LOADING...     60/100%   ▬▬ ▬▬ ▬▬ ▭▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▬▭ ▭▭ LOADING...     70/100%   ▬▬ ▬▬ ▬▬ ▬▭ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▬▬ ▭▭ LOADING...     80/100%   ▬▬ ▬▬ ▬▬ ▬▬ ▭▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▬▬ ▬▭ LOADING...     90/100%   ▬▬ ▬▬ ▬▬ ▬▬ ▬▭"
+        )
+        await query.message.edit_text(
+            text="▬▬ ▬▬ ▬▬ ▬▬ ▬▬ LOADING...     100/100%   ▬▬ ▬▬ ▬▬ ▬▬ ▬▬"
+        )
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         reply_markup = InlineKeyboardMarkup(buttons) 
         total = await Media.count_documents()
         users = await db.total_users_count()
@@ -2069,7 +2116,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"🔖 {get_size(file.file_size)} {file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"▫️ {get_size(file.file_size)} {file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                 ]
                 for file in files
@@ -2093,7 +2140,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"🔖 {get_size(file.file_size)} {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                        text=f"▫️ {get_size(file.file_size)} {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                     ),
                 ]
                 for file in files
@@ -2307,7 +2354,7 @@ async def auto_filter(client, msg, spoll=False):
                 text=f"<b>Hᴇʏ {message.from_user.mention}\n\n{str(total_results)} Rᴇsᴜʟᴛs Aʀᴇ Aʟʀᴇᴀᴅʏ Aᴠᴀɪʟᴀʙʟᴇ Bᴜᴛ I Cᴀɴ'ᴛ Gɪᴠᴇ Fɪʟᴇꜱ,\nBᴇᴄᴀᴜꜱᴇ Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ\nPʟᴇᴀꜱᴇ Rᴇǫᴜᴇꜱᴛ Oɴ Oᴜʀ Mᴏᴠɪᴇ Gʀᴏᴜᴘ</b>",
                 reply_markup=InlineKeyboardMarkup(
                     [[
-                        InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url ='https://t.me/smovierequestgroup')
+                        InlineKeyboardButton('✧ ᴛᴀᴋᴇ ᴍᴏᴠɪᴇ ꜰʀᴏᴍ ʜᴇʀᴇ ✧', url ='https://t.me/smovierequestgroup')
                     ]]
                 )
             )     
