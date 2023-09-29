@@ -138,6 +138,12 @@ LANGUAGES = ["malayalam", "tamil", "english", "hindi", "telugu", "kannada"]
 DELETE_TIME = int(environ.get('DELETE_TIME', 300))
 IMDB_DLT_TIME = int(environ.get('IMDB_DLT_TIME', 300))
 
+#stream feature
+STREAM_BIN = environ.get("STREAM_BIN", "") #Log channel/Bin Channel id -100xxxxxxx
+STREAM_URL = environ.get("STREAM_URL", "") # https://example.com/ (Your Stream Url)
+IS_STREAM = bool(STREAM_BIN and STREAM_URL)
+#Use this feature, if you have deployed file to link bot. paste the app url with stream url and add filter bot as admin in bin channel and add id in stream bin
+
 LOG_STR = "Current Cusomized Configurations are:-\n"
 LOG_STR += ("IMDB Results are enabled, Bot will be showing imdb details for you queries.\n" if IMDB else "IMBD Results are disabled.\n")
 LOG_STR += ("P_TTI_SHOW_OFF found , Users will be redirected to send /start to Bot PM instead of sending file file directly\n" if P_TTI_SHOW_OFF else "P_TTI_SHOW_OFF is disabled files will be send in PM, instead of sending start.\n")
