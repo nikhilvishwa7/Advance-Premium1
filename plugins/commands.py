@@ -25,13 +25,9 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton("〆 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ʙᴏᴛ 〆", url=f"https://telegram.me/{temp.U_NAME}"),
                   ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        kd = await message.reply_photo(
-        photo=random.choice(PICS),
-        caption=script.STARTER_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
-        await asyncio.sleep(20)
-        await kd.delete()
-        await message.delete()
+        s = await message.reply_sticker(sticker=random.choice(STICKERS), reply_markup=InlineKeyboardMarkup(buttons))
+        await asyncio.sleep(30)
+        await s.delete()
         
         if not await db.get_chat(message.chat.id):
             total=await client.get_chat_members_count(message.chat.id)
