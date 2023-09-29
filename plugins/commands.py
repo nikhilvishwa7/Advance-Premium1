@@ -329,7 +329,7 @@ async def start(client, message):
             reply_markup=InlineKeyboardMarkup(btn)
         )
         return
-    await client.send_cached_media(
+    msg = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
@@ -352,6 +352,14 @@ async def start(client, message):
             )
         )
     )
+    btn = [[
+        InlineKeyboardButton("🔁 ᴄʟɪᴄᴋ ᴛᴏ ɢᴇᴛ ᴅᴇʟᴇᴛᴇᴅ ꜰɪʟᴇ ᴀɢᴀɪɴ 🔁", callback_data=f'delfile#{file_id}')
+    ]]
+    k = await msg.reply("<b>🗑 ᴛʜɪꜱ ꜰɪʟᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ɪɴ 10 ᴍɪɴᴜᴛᴇꜱ, ꜱᴏ ꜰᴏʀᴡᴀʀᴅ ɪᴛ ᴛᴏ ʏᴏᴜʀ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇꜱ 👀\n\n⚠️ यह फ़ाइल 10 मिनट में स्वचालित रूप से हटा दी जाएगी, इसलिए इसे अपने सहेजे गए संदेश पर अग्रेषित करें</b>",quote=True)
+    await asyncio.sleep(600)
+    await msg.delete()
+    await k.edit_text("<b>ʏᴏᴜʀ ꜰɪʟᴇ/ᴠɪᴅᴇᴏ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ!!!\n\nᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴅᴇʟᴇᴛᴇᴅ ꜰɪʟᴇ 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
+    return
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
