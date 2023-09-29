@@ -12,11 +12,11 @@ import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
 from info import LANGUAGES, IMDB_DLT_TIME, BOT_START_TIME, MAX_BTN, ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, MAX_B_TN, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, REQ_CHANNEL, MAIN_CHANNEL, TUTORIAL, FILE_CHANNEL, FILE_CHANNEL_LINK, CLOSE_IMG, DELETE_TIME, LOGIN_CHANNEL
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, REQ_CHANNEL, MAIN_CHANNEL, TUTORIAL, FILE_CHANNEL, FILE_CHANNEL_LINK, CLOSE_IMG, DELETE_TIME, LOGIN_CHANNEL, STREAM_BIN, STREAM_URL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto, ChatPermissions
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink
+from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink, get_hash, get_name
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
 from database.filters_mdb import (
@@ -34,6 +34,7 @@ import time
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
+from urllib.parse import quote_plus
 
 import os
 req_channel = int(os.environ.get('CRAZY_REQUEST','-1001915834318'))
@@ -820,6 +821,41 @@ async def cb_handler(client: Client, query: CallbackQuery):
             del mh8, mh
         except Exception as e:
             logger.exception(e, exc_info=True)
+
+    elif query.data.startswith("gen_stream_link"):
+        _, file_id = query.data.split(":")
+        try:
+            user_id = query.from_user.id
+            username =  query.from_user.mention 
+            log_msg = await client.send_cached_media(
+                chat_id=int(STREAM_BIN),
+                file_id=file_id,
+            )
+            fileName = {quote_plus(get_name(log_msg))}
+            page_link = f"{STREAM_URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+            stream_link = f"{STREAM_URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+
+            g = await query.message.reply_text("<b>Link Generating...</b>")
+            await asyncio.sleep(1)
+            await g.delete()
+
+            await log_msg.reply_text(
+                text=f"Usᴇʀ ID: {user_id}\n\nUsᴇʀ Nᴀᴍᴇ: {username} 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞: {fileName}",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=stream_link),
+                                                    InlineKeyboardButton('🖥️ ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=page_link)]]))
+            return await query.message.reply_text(
+                text="<b>Sᴛʀᴇᴀᴍ Lɪɴᴋ Gᴇɴᴇʀᴀᴛᴇᴅ...😁</b>",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=stream_link),
+                                                    InlineKeyboardButton('🖥️ ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=page_link)]]))
+        except Exception as e:
+            print(e)  # print the error message
+            await query.answer(f"☣something went wrong. Check error:\n\n{e}", show_alert=True)
+            return
+        return
             
     elif query.data.startswith("check_subscribed"):
         userid = query.message.reply_to_message.from_user.id
