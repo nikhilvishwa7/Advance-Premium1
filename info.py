@@ -39,6 +39,9 @@ CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 BOT_START_TIME = time()
 
+STICKERS = (environ.get('STICKERS', 'CAACAgIAAxkBAAEGm9hjhf69CtQmXoeQ2HidYCGBFeZ4gAACxgEAAhZCawpKI9T0ydt5RysE CAACAgIAAxkBAAEGm9pjhf7I9jCDh3PpkocMNFcPJfisvwAC0wADVp29CvUyj5fVEvk9KwQ CAACAgIAAxkBAAEGm9xjhf7SH4Yc8EP5yI4e8BTH968ClwACGAADDbbSGX671giQDJU8KwQ')).split()
+
+
 MONYPIC = (environ.get('AREBHAI', 'https://telegra.ph/file/2c0b5da010673914324ad.jpg')).split()
 PICS = (environ.get('PICS', 'https://telegra.ph/file/d231ea763a020b98ea193.jpg https://telegra.ph/file/9bfdcf00203e30690fe1b.jpg https://telegra.ph/file/6c1beaa516cc0908706f3.jpg https://telegra.ph/file/c60c61e9818ca1943c468.jpg https://telegra.ph/file/5595dbaf948d8a6465e67.jpg https://telegra.ph/file/6b003c4f05cb8609627d7.jpg')).split()
 MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/f7f2a532fe4b990044507.mp4")
