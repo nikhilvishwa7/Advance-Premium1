@@ -2126,7 +2126,7 @@ async def auto_filter(client, msg, spoll=False):
         ])
 
    # await message.delete()
-    m=await message.reply_text("📝") 
+    m=await message.reply_sticker("CAACAgIAAxkBAAEBUxhlF_3xP68-r1W66p5ckVPayyDhKQACcQgAAoSUQUlvaAkaprvOcx4E")
     await asyncio.sleep(1)
     await m.delete()
    
