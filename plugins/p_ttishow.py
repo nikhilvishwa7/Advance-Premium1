@@ -1,20 +1,14 @@
-import asyncio
-import math
-import os
-import psutil
 from pyrogram import Client, filters, enums
+import psutil
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import ADMINS, LOG_CHANNEL, BOT_START_TIME, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_VID, CHNL_LNK, GRP_LNK, NEWGRP
+from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_VID, CHNL_LNK, GRP_LNK
 from database.users_chats_db import db
 from database.ia_filterdb import Media
-from utils import get_size, temp, get_settings, get_readable_time
+from utils import get_size, temp, get_settings
 from Script import script
 from pyrogram.errors import ChatAdminRequired
 import asyncio 
-from datetime import datetime
-from utils import get_size, temp, get_settings, get_readable_time
-import time
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 
@@ -34,7 +28,7 @@ async def save_group(bot, message):
             ]]
             reply_markup=InlineKeyboardMarkup(buttons)
             k = await message.reply(
-                text='<b>🚫 CHAT NOT ALLOWED 🚫\n\nMʏ Aᴅᴍɪɴs Hᴀs Rᴇsᴛʀɪᴄᴛᴇᴅ Mᴇ Fʀᴏᴍ Wᴏʀᴋɪɴɢ Hᴇʀᴇ ! Iғ Yᴏᴜ Wᴀɴᴛ Tᴏ Kɴᴏᴡ Mᴏʀᴇ Aʙᴏᴜᴛ Iᴛ Cᴏɴᴛᴀᴄᴛ Sᴜᴘᴘᴏʀᴛ..</b>',
+                text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..</b>',
                 reply_markup=reply_markup,
             )
 
@@ -49,9 +43,8 @@ async def save_group(bot, message):
                     InlineKeyboardButton('❓ Hᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help")
                   ]]
         reply_markup=InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=NEWGRP,
-            caption=f"<b>Tʜᴀɴᴋ Yᴏᴜ Fᴏʀ Aᴅᴅɪɴɢ Mᴇ Iɴ {message.chat.title} ❣️\n\n➪ Dᴏɴ'ᴛ Fᴏʀɢᴇᴛ Tᴏ Mᴀᴋᴇ Mᴇ Aᴅᴍɪɴ ⚠️\n➪ Iғ Yᴏᴜ Hᴀᴠᴇ Aɴʏ Dᴏᴜʙᴛ Yᴏᴜ Cʟᴇᴀʀ Iᴛ Usɪɴɢ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴs</b>",
+        await message.reply_text(
+            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
@@ -67,15 +60,14 @@ async def save_group(bot, message):
                                                  caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                             InlineKeyboardButton('🍁 sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ​ 🍁', url='https://t.me/crazybotz')
-                                                                        
-                                                                        ]]
+                                                                           InlineKeyboardButton('🍁 Uᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ 🍁', url=CHNL_LNK)
+                                                                         ]]
                                                  ),
                                                  parse_mode=enums.ParseMode.HTML
                 )
                 
         if settings["auto_delete"]:
-            await asyncio.sleep(120)
+            await asyncio.sleep(600)
             await (temp.MELCOW['welcome']).delete()
                 
                
@@ -93,12 +85,12 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('Owner', url="https://t.me/heartlesssn")
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hᴇʟʟᴏ Fʀɪᴇɴᴅs,\n\nMʏ Aᴅᴍɪɴs Hᴀs Tᴏʟᴅ Mᴇ Tᴏ Lᴇᴀᴠᴇ Fʀᴏᴍ Gʀᴏᴜᴘ Sᴏ I Gᴏ! Iғ Yᴏᴜ Wᴀɴɴᴀ Aᴅᴅ Mᴇ Aɢᴀɪɴ Cᴏɴᴛᴀᴄᴛ Mʏ Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ.</b>',
+            text='<b>Hello Friends, \nMy admin has told me to leave from group, so i go! If you wanna add me again contact my Support Group or My Owner</b>',
             reply_markup=reply_markup,
         )
 
@@ -132,12 +124,12 @@ async def disable_chat(bot, message):
     await message.reply('Chat Successfully Disabled')
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('Support', url="https://t.me/heartlesssn")
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat_, 
-            text=f'<b>Hᴇʟʟᴏ Fʀɪᴇɴᴅs,\n\nMʏ Aᴅᴍɪɴs Hᴀs Tᴏʟᴅ Mᴇ Tᴏ Lᴇᴀᴠᴇ Fʀᴏᴍ Gʀᴏᴜᴘ Sᴏ I Gᴏ! Iғ Yᴏᴜ Wᴀɴɴᴀ Aᴅᴅ Mᴇ Aɢᴀɪɴ Cᴏɴᴛᴀᴄᴛ Mʏ Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ.\n\nRᴇᴀsᴏɴ :</b> <code>{reason}</code>',
+            text=f'<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b> \nReason : <code>{reason}</code>',
             reply_markup=reply_markup)
         await bot.leave_chat(chat_)
     except Exception as e:
@@ -162,8 +154,7 @@ async def re_enable_chat(bot, message):
     temp.BANNED_CHATS.remove(int(chat_))
     await message.reply("Chat Successfully re-enabled")
 
-    
-#@Client.on_message(filters.command('stats') & filters.incoming)
+
 @Client.on_message(filters.command('stats') & filters.user(ADMINS) & filters.incoming)
 async def get_ststs(bot, message):
     buttons = [[
@@ -171,9 +162,6 @@ async def get_ststs(bot, message):
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     kdbotz = await message.reply('Fetching stats..')
-    now = datetime.now()
-    delta = now - bot.uptime
-    uptime = get_readable_time(delta.seconds)
     ram = psutil.virtual_memory().percent
     cpu = psutil.cpu_percent()
     total_users = await db.total_users_count()
@@ -184,11 +172,12 @@ async def get_ststs(bot, message):
     size = get_size(size)
     free = get_size(free)
     await kdbotz.edit_text(
-            text=script.ADMIN_STATUS_TXT.format(uptime, cpu, ram, files, total_users, totl_chats, size, free),
+            text=script.ADMIN_STATUS_TXT.format(cpu, ram, files, total_users, totl_chats, size, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    
+
+
 @Client.on_message(filters.command('invite') & filters.user(ADMINS))
 async def gen_invite(bot, message):
     if len(message.command) == 1:
