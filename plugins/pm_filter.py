@@ -34,6 +34,9 @@ from database.gfilters_mdb import (
 import logging
 from urllib.parse import quote_plus
 
+import os
+req_channel = int(os.environ.get('CRAZY_REQUEST','-1001915834318'))
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
@@ -1828,6 +1831,8 @@ async def auto_filter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(message.chat.id ,search, offset=0, filter=True)
             settings = await get_settings(message.chat.id)
             if not files:
+                await client.send_message(req_channel,f"**#ʀᴇQᴜᴇꜱᴛᴇᴅ_ᴄᴏɴᴛᴇɴᴛ 🥰\n\n💭 ᴄᴏɴᴛᴇɴᴛ ɴᴀᴍᴇ :`{search}`\n🙋‍♂️ ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ**: {message.from_user.first_name}\n👨‍💻 ᴜꜱᴇʀ ɪᴅ :{message.from_user.id}\n🚩**",
+                                                                                                       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ ᴅᴇʟᴇᴛᴇ ❌", callback_data="close_data")]]))
                 await m.delete()
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, msg)
