@@ -26,6 +26,9 @@ NOR_IMG = environ.get("NOR_IMG", "https://te.legra.ph/file/a27dc8fe434e6b846b0f8
 MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/f7f2a532fe4b990044507.mp4")
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
 
+# stickers
+STICKERS = (environ.get('STICKERS', 'CAACAgUAAxkBAAIKqWP81BZ6YnpWEFoF_4JPR0EbjsO3AAIvBwACnMjpV9YvaONl41IBHgQ CAACAgUAAxkBAAIKrmP81GnWQ0d_BAZhre0dMc5SwJKOAAJ0DgACgr3gVwrjYuxSJxn7HgQ')).split()
+
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6249148586').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001956475641').split()]
@@ -52,6 +55,9 @@ STREAM_BIN = environ.get("STREAM_BIN", "-1001890815456") #Log channel/Bin Channe
 STREAM_URL = environ.get("STREAM_URL", "https://master-shivam31635.koyeb.app/") # https://example.com/ (Your Stream Url)
 IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 #Use this feature, if you have deployed file to link bot. paste the app url with stream url and add filter bot as admin in bin channel and add id in stream bin
+
+# add premium logs channel id
+PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1001876507111'))
 
 # Others
 VERIFY = bool(environ.get('VERIFY', False))
