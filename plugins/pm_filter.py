@@ -919,9 +919,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             fileName = {quote_plus(get_name(log_msg))}
             page_link = f"{STREAM_URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
             stream_link = f"{STREAM_URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-
             hp_link = await get_shortlink(stream_link)
             ph_link = await get_shortlink(page_link)
+            is_premium_user = await db.has_premium_access(user_id)
 
             g = await query.message.reply_text("<b>Link Generating...</b>")
             await asyncio.sleep(1)
@@ -937,8 +937,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 text="<u><b>ʏᴏᴜʀ ʟɪɴᴋ ɪꜱ ɢᴇɴᴇʀᴀᴛᴇᴅ</u> 😁\n\n🔻 ᴛʜɪꜱ ʟɪɴᴋ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ɪɴ 5 ᴍɪɴᴜᴛᴇꜱ</b>",
                 quote=True,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=hp_link),
-                                                    InlineKeyboardButton('🖥️ ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=ph_link)
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=stream_link if is_premium_user else hp_link),
+                                                    InlineKeyboardButton('🖥️ ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=page_link if is_premium_user else ph_link)
                                                     ],[
                                                     InlineKeyboardButton("🎪  ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ  🎪", url=STREAM_HOW_DOWNLOAD)]]))
             await asyncio.sleep(300)
