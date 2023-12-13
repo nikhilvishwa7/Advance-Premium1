@@ -48,6 +48,11 @@ DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Shivam31:Shivam31@clus
 DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
+#stream link shortner
+STREAM_SITE = (environ.get('STREAM_SITE', 'ziplinker.net'))
+STREAM_API = (environ.get('STREAM_API', '329ca4eb57d4ce6353446833e2c109f4503e7935'))
+STREAM_HOW_DOWNLOAD = environ.get('STREAM_HOW_DOWNLOAD', 'https://t.me/jarrydow/2062')
+
 #stream feature - @TeamHMT_Bots
 STREAM_BIN = environ.get("STREAM_BIN", "-1001890815456") #Log channel/Bin Channel id -100xxxxxxx
 STREAM_URL = environ.get("STREAM_URL", "https://master-official-7054b073b7c5.herokuapp.com/") # https://example.com/ (Your Stream Url)
