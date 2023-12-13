@@ -28,6 +28,18 @@ async def extra(_, message):
             parse_mode=enums.ParseMode.HTML
         )    
     
+@Client.on_message(filters.command("admin", CMD))
+async def admin(_, message):
+    buttons = [[
+            InlineKeyboardButton('✘ ᴄʟᴏsᴇ ✘', callback_data='close_data')
+    ]]
+    reply_markup = InlineKeyboardMarkup(buttons)
+    await message.reply_text(
+            text=(script.PRIM_ADMIN_TXT),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    
 @Client.on_message(filters.command("tutorial", CMD))
 async def tutorial(_, message):
     buttons = [[
