@@ -36,7 +36,8 @@ async def myplan(client, message):
         #expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=data)
         expiry = data.get("expiry_time") 
         expiry_ist = expiry.astimezone(pytz.timezone("Asia/Kolkata"))
-        expiry_str time difference
+        expiry_str_in_ist = expiry.astimezone(pytz.timezone("Asia/Kolkata")).strftime("%d-%m-%Y  ⏰: %I:%M:%S %p")            
+        # Calculate time difference
         current_time = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
         time_left = expiry_ist - current_time
             
@@ -46,8 +47,7 @@ async def myplan(client, message):
         minutes, seconds = divmod(remainder, 60)
             
         # Format time left as a string
-        time_left_str =_in_ist = expiry.astimezone(pytz.timezone("Asia/Kolkata")).strftime("%d-%m-%Y  ⏰: %I:%M:%S %p")            
-        # Calculate f"{days} days, {hours} hours, {minutes} minutes"
+        time_left_str = f"{days} days, {hours} hours, {minutes} minutes"
         await message.reply_text(f"<b><u>ʏᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴ ɪꜱ ᴀᴄᴛɪᴠᴇ. ✅</u>\n\n👤 ʏᴏᴜʀ ɴᴀᴍᴇ : {user}\n\n❗ ᴜꜱᴇʀ ɪᴅ : <code>{user_id}</code>\n\n⏰ ᴛɪᴍᴇ ʟᴇꜰᴛ : <code>{time_left_str}</code>\n\n⌛️ ᴇxᴘɪʀʏ: <code>{expiry_str_in_ist}</code>.</b>")   
     else:
 	sticker_file_id = "CAACAgIAAxkBAAL_SGWXrDBlAAH_NWhS0y6dVj_qAkiKWAACfhoAAoJV2El4Aq6LUB44mx4E"
