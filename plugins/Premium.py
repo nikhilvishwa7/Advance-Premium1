@@ -50,7 +50,9 @@ async def myplan(client, message):
         time_left_str = f"{days} days, {hours} hours, {minutes} minutes"
         await message.reply_text(f"<b><u>ʏᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴ ɪꜱ ᴀᴄᴛɪᴠᴇ. ✅</u>\n\n👤 ʏᴏᴜʀ ɴᴀᴍᴇ : {user}\n\n❗ ᴜꜱᴇʀ ɪᴅ : <code>{user_id}</code>\n\n⏰ ᴛɪᴍᴇ ʟᴇꜰᴛ : <code>{time_left_str}</code>\n\n⌛️ ᴇxᴘɪʀʏ: <code>{expiry_str_in_ist}</code>.</b>")   
     else:
-        await message.reply_text(f"**ʜᴀʏ {user}.., 👋\n\nʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴀɴʏ ᴀᴄᴛɪᴠᴇ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴꜱ, ɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴛᴀᴋᴇ ᴘʀᴇᴍɪᴜᴍ ᴛʜᴇɴ\nᴄʟɪᴄᴋ ᴏɴ /plan ᴛᴏ ᴋɴᴏᴡ ᴀʙᴏᴜᴛ ᴛʜᴇ ᴘʟᴀɴ**")
+        await message.reply_text(f"**ʜᴀʏ {user}.., 👋\n\nʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴀɴʏ ᴀᴄᴛɪᴠᴇ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴꜱ, ɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴛᴀᴋᴇ ᴘʀᴇᴍɪᴜᴍ ᴛʜᴇɴ\nᴄʟɪᴄᴋ ᴏɴ /plan ᴛᴏ ᴋɴᴏᴡ ᴀʙᴏᴜᴛ ᴛʜᴇ ᴘʟᴀɴ**",   
+         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("✨ ʙᴜʏ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ : ʀᴇᴍᴏᴠᴇ ᴀᴅꜱ ✨", callback_data='plans')]])
+    )
 
 @Client.on_message(filters.command("get_premium") & filters.user(ADMINS))
 async def get_premium(client, message):
