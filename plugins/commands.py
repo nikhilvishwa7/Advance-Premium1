@@ -1145,7 +1145,7 @@ async def removetutorial(bot, message):
     await save_group_settings(grpid, 'is_tutorial', False)
     await reply.edit_text(f"<b>✧ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ʏᴏᴜʀ ᴛᴜᴛᴏʀɪᴀʟ ʟɪɴᴋ!!!</b>")
 
-@Client.on_message(Filters.command("verify"))
+@Client.on_message(filters.command("verify"))
 async def verify_command(client, message):
     try:
         chatID = message.chat.id
