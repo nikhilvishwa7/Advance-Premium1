@@ -1158,9 +1158,7 @@ async def verify_command(client, message):
                 InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
             ]]
         crazy_markup = InlineKeyboardMarkup(cz_buttons)
-
-        # Send verification request to log channel
-        await bot.send_message(GROUP_LOGS,
+        await client.send_message(GROUP_LOGS,
                                text=f"Verification request for the group {chatTitle} ({chatID})",
                                reply_markup=crazy_markup)
 
