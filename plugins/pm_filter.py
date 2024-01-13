@@ -75,50 +75,26 @@ async def get_shortlink(url):
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
-    try:
-        chatID = message.chat.id
-        crazy_chatID = await db.get_chat(int(chatID))
-
-        is_verified = crazy_chatID.get('is_crazy_verified', False)
-
-        if is_verified:
-            if message.chat.id != SUPPORT_CHAT_ID:
-                manual = await manual_filters(client, message)
-
-                if not manual:
-                    try:
-                        chatID = message.chat.id
-                        crazy_chatID = await db.get_chat(int(chatID))
-
-                        is_verified = crazy_chatID.get('is_crazy_verified', False)
-
-                        if is_verified:
-                            settings = await get_settings(message.chat.id)
-
-                            try:
-                                if settings['auto_ffilter']:
-                                    await auto_filter(client, message)
-                            except KeyError:
-                                grpid = await active_connection(str(message.from_user.id))
-                                await save_group_settings(grpid, 'auto_ffilter', True)
-                                settings = await get_settings(message.chat.id)
-
-                                if settings['auto_ffilter']:
-                                    await auto_filter(client, message)
-                    except Exception as e:
-                        logger.error(f"Error in processing message: {e}")
-
-            else:
-                search = message.text
-                temp_files, temp_offset, total_results = await get_search_results(chat_id=message.chat.id, query=search.lower(), offset=0, filter=True)
-
-                if total_results != 0:
-                    await client.send_message(message.chat.id, f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. \n\nTʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\nJᴏɪɴ ᴀɴᴅ Sᴇᴀʀᴄʜ Hᴇʀᴇ - @TeamHMT_Movie</b>")
+    if message.chat.id != SUPPORT_CHAT_ID:
+        manual = await manual_filters(client, message)
+        if manual == False:
+            settings = await get_settings(message.chat.id)
+            try:
+                if settings['auto_ffilter']:
+                    await auto_filter(client, message)
+            except KeyError:
+                grpid = await active_connection(str(message.from_user.id))
+                await save_group_settings(grpid, 'auto_ffilter', True)
+                settings = await get_settings(message.chat.id)
+                if settings['auto_ffilter']:
+                    await auto_filter(client, message) 
+    else: #a better logic to avoid repeated lines of code in auto_filter function
+        search = message.text
+        temp_files, temp_offset, total_results = await get_search_results(chat_id=message.chat.id, query=search.lower(), offset=0, filter=True)
+        if total_results == 0:
+            return
         else:
-            await client.send_message(message.chat.id, "<u>⁉️ 𝐍𝐨𝐭𝐢𝐜𝐞 𝐀𝐥𝐞𝐫𝐭 </u> \n\n<b>⚜️ ᴛʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ ʏᴇᴛ. ɪꜰ ʏᴏᴜ ᴀʀᴇ ᴀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀ ᴏʀ ᴀᴅᴍɪɴ, ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ /verify ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ʀᴇQᴜᴇꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ. ᴀꜰᴛᴇʀ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ ᴠᴇʀɪꜰɪᴇꜱ ɪᴛ, ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪʟʟ ʙᴇ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴜꜱᴇ ᴛʜᴇ ʙᴏᴛ'ꜱ ꜰᴇᴀᴛᴜʀᴇꜱ.</b>")
-
-    except Exception as e:
-        logger.error(f"Error in processing message: {e}")
+            return await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. \n\nTʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\nJᴏɪɴ ᴀɴᴅ Sᴇᴀʀᴄʜ Hᴇʀᴇ - @TeamHMT_Movie</b>")
 
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
