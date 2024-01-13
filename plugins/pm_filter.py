@@ -1301,11 +1301,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         await query.answer("You are not authorized to perform this action.", show_alert=True)
                 else:
                     print(f"Error: Not enough values in query.data: {query.data}")
-            except Exception as e:
-                if ms:
-                    await ms.edit(f"error - {e}")
-                else:
-                    print(f"Error during verify_crazy_group handling: {e}")
+        except Exception as e:
+            if ms:
+                await ms.edit(f"error - {e}")
+            else:
+                print(f"Error during verify_crazy_group handling: {e}")
 
     elif query.data.startswith("alalert"):
         ident, from_user = query.data.split("#")
@@ -1335,9 +1335,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} </b>", reply_markup=reply_markup)
                 else:
                     await query.answer("You are not authorized to perform this action.", show_alert=True)
-            except Exception as e:
-                ms.edit(f"error - {e} ")
-                logger.error(f"error - {e} ")
+        except Exception as e:
+            ms.edit(f"error - {e} ")
+            logger.error(f"error - {e} ")
 
     elif query.data.startswith("upalert"):
         ident, from_user = query.data.split("#")
@@ -1371,9 +1371,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n🌅 ᴄʜᴀᴛ ɪᴅ - {chatID}</b>", reply_markup=reply_markup)
                 else:
                     await query.answer("You are not authorized to perform this action.", show_alert=True)
-            except Exception as e:
-                ms.edit(f"error - {e} ")
-                logger.error(f"error - {e} ")
+        except Exception as e:
+            ms.edit(f"error - {e} ")
+            logger.error(f"error - {e} ")
         
     elif query.data.startswith("unalert"):
         ident, from_user = query.data.split("#")
