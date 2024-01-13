@@ -1145,10 +1145,6 @@ async def removetutorial(bot, message):
     await save_group_settings(grpid, 'is_tutorial', False)
     await reply.edit_text(f"<b>✧ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ʏᴏᴜʀ ᴛᴜᴛᴏʀɪᴀʟ ʟɪɴᴋ!!!</b>")
 
-from pyrogram import Client, InlineKeyboardButton, InlineKeyboardMarkup
-
-# Assuming 'bot' is an instance of the Pyrogram Client
-
 @Client.on_message(Filters.command("verify"))
 async def verify_command(client, message):
     try:
@@ -1156,8 +1152,7 @@ async def verify_command(client, message):
         chatTitle = message.chat.title
         cz_buttons = [
             [
-                InlineKeyboardButton("ᴠᴇʀɪꜰʏ  ᴄʜᴀᴛ ✅", callback_data=f"verify_crazy_group:{chatTitle}:{chatID}")
-            ],[
+                InlineKeyboardButton("ᴠᴇʀɪꜰʏ  ᴄʜᴀᴛ ✅", callback_data=f"verify_crazy_group:{chatTitle}:{chatID}"),
                 InlineKeyboardButton("ʙᴀɴ  ᴄʜᴀᴛ 😡", callback_data=f"bangrpchat:{chatTitle}:{chatID}")
             ],[
                 InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
