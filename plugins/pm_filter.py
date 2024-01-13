@@ -1297,7 +1297,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup = InlineKeyboardMarkup(btn)
                     ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} </b>", reply_markup=reply_markup)
                 else:
-                    await query.answer("You are not authorized to perform this action.", show_alert=True))
+                    await query.answer("You are not authorized to perform this action.", show_alert=True)
             else:
                 print(f"Error: Not enough values in query.data: {query.data}")
         except Exception as e:
