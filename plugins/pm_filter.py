@@ -76,6 +76,7 @@ async def get_shortlink(url):
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
     try:
+        print("Message Received:", message.text)
         chatID = message.chat.id
         crazy_chatID = await db.get_chat(int(chatID))
 
