@@ -76,11 +76,12 @@ async def get_shortlink(url):
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
     try:
-        print("Message Received:", message.text)
         chatID = message.chat.id
         crazy_chatID = await db.get_chat(int(chatID))
 
-        if crazy_chatID['is_crazy_verified']:
+        is_verified = crazy_chatID.get('is_crazy_verified', False)
+
+        if is_verified:
             if message.chat.id != SUPPORT_CHAT_ID:
                 manual = await manual_filters(client, message)
 
@@ -89,7 +90,9 @@ async def give_filter(client, message):
                         chatID = message.chat.id
                         crazy_chatID = await db.get_chat(int(chatID))
 
-                        if crazy_chatID['is_crazy_verified']:
+                        is_verified = crazy_chatID.get('is_crazy_verified', False)
+
+                        if is_verified:
                             settings = await get_settings(message.chat.id)
 
                             try:
@@ -103,21 +106,19 @@ async def give_filter(client, message):
                                 if settings['auto_ffilter']:
                                     await auto_filter(client, message)
                     except Exception as e:
-                        logger.error(f"Error: {e}")
+                        logger.error(f"Error in processing message: {e}")
 
-            else:  # A better logic to avoid repeated lines of code in auto_filter function
+            else:
                 search = message.text
                 temp_files, temp_offset, total_results = await get_search_results(chat_id=message.chat.id, query=search.lower(), offset=0, filter=True)
 
                 if total_results != 0:
-                    await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. \n\nTʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\nJᴏɪɴ ᴀɴᴅ Sᴇᴀʀᴄʜ Hᴇʀᴇ - @TeamHMT_Movie</b>")
-
+                    await client.send_message(message.chat.id, f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. \n\nTʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\nJᴏɪɴ ᴀɴᴅ Sᴇᴀʀᴄʜ Hᴇʀᴇ - @TeamHMT_Movie</b>")
         else:
             await client.send_message(message.chat.id, "Your chat is not verified.")
-    
-    except Exception as e:
-        logger.error(f"Error: {e}")
 
+    except Exception as e:
+        logger.error(f"Error in processing message: {e}")
 
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
