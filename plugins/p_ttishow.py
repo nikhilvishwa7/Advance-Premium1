@@ -90,7 +90,7 @@ async def save_group(bot, message):
 
             # Reply to the user in the group
             await message.reply_text("<b>🔒 <u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ꜱᴇɴᴛ! </u> \n\n ᴡᴇ ʜᴀᴠᴇ ꜱᴜʙᴍɪᴛᴛᴇᴅ ᴀ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ꜰᴏʀ ᴛʜɪꜱ ɢʀᴏᴜᴘ. ᴘʟᴇᴀꜱᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ᴡʜɪʟᴇ ᴏᴜʀ ᴛᴇᴀᴍ ʀᴇᴠɪᴇᴡꜱ ᴀɴᴅ ᴀᴘᴘʀᴏᴠᴇꜱ ɪᴛ. \n\n⌛ ɪꜰ ʏᴏᴜ ᴡᴏᴜʟᴅ ʟɪᴋᴇ ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘʀᴏɢʀᴇꜱꜱ ᴏʀ ʀᴇᴄᴇɪᴠᴇ ᴜᴘᴅᴀᴛᴇꜱ ᴏɴ ᴛʜᴇ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴘʀᴏᴄᴇꜱꜱ, ʏᴏᴜ ᴄᴀɴ ᴊᴏɪɴ ᴏᴜʀ 𝗩𝗲𝗿𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻 𝗦𝘁𝗮𝘁𝘂𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹. \n\n.ᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ʏᴏᴜʀ ᴄᴏᴏᴘᴇʀᴀᴛɪᴏɴ! 🙏</b>",
-                                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔺 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱᴛᴀᴛᴜꜱ ᴄʜᴀɴɴᴇʟ 🔺", url=f"https://telegram.me/CrazydeveloperRBot")],[InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')]]))
+                                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔺 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱᴛᴀᴛᴜꜱ ᴄʜᴀɴɴᴇʟ 🔺", url=f"https://t.me/+nkscY_k6wdk4Y2E1")],[InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')]]))
 
     else:
         settings = await get_settings(message.chat.id)
