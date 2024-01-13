@@ -1149,23 +1149,30 @@ async def removetutorial(bot, message):
 async def verify_command(client, message):
     try:
         chatID = message.chat.id
+
+        # Check if the chat is already verified
+        if await db.is_chat_verified(chatID):
+            await message.reply_text("This chat is already verified.")
+            return
+            
         callback_data = f"verify_crazy_group:{chatID}"
         cz_buttons = [
             [
                 InlineKeyboardButton("ᴠᴇʀɪꜰʏ  ᴄʜᴀᴛ ✅", callback_data=callback_data),
                 InlineKeyboardButton("ʙᴀɴ  ᴄʜᴀᴛ 😡", callback_data=f"bangrpchat:{chatID}")
-            ],[
+            ], [
                 InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
             ]]
         crazy_markup = InlineKeyboardMarkup(cz_buttons)
         await client.send_message(GROUP_LOGS,
-                               text=f"<b><u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ </u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code></b>",
-                               reply_markup=crazy_markup)
+                                   text=f"<b><u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ </u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code></b>",
+                                   reply_markup=crazy_markup)
 
         # Reply to the user in the group
         await message.reply_text("Verification request sent. Please wait for approval.")
-    
+
     except Exception as e:
         print(f"Error in processing /verify command: {e}")
+
 
 
