@@ -1150,7 +1150,7 @@ async def verify_command(client, message):
     try:
         chatID = message.chat.id
         chatTitle = message.chat.title
-        callback_data = f"verify_crazy_group:{chatID}"
+        callback_data = f"verify_crazy_group:{chatTitle}:{chatID}"
         cz_buttons = [
             [
                 InlineKeyboardButton("ᴠᴇʀɪꜰʏ  ᴄʜᴀᴛ ✅", callback_data=callback_data),
