@@ -98,6 +98,10 @@ class Database:
         chat = await self.grp.find_one({'id': int(chat_id)})
         return chat and chat.get('chat_status', {}).get('is_crazy_verified', False)
 
+    async def unverify_crazy_chat(self, chat_id):
+        chat_status = dict(is_crazy_verified=False)
+        await self.grp.update_one({'id': int(chat_id)}, {'$set': {'chat_status': chat_status}})
+
     async def add_chat(self, chat, title):
         chat = self.new_group(chat, title)
         await self.grp.insert_one(chat)
