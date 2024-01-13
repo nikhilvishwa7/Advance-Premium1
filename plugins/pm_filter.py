@@ -1297,7 +1297,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup = InlineKeyboardMarkup(btn)
                     ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} </b>", reply_markup=reply_markup)
                 else:
-                    await query.answer("You are not authorized to perform this action.")
+                    await query.answer("You are not authorized to perform this action.", show_alert=True))
             else:
                 print(f"Error: Not enough values in query.data: {query.data}")
         except Exception as e:
@@ -1318,18 +1318,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         _, chatID = query.data.split(":")
         print(f"debuge: query.data={query.data}, chatID={chatID}")
         try:
-            await client.send_message(chatID, text=f"<b><u> ɢʀᴏᴜᴘ ʙᴀɴɴᴇᴅ 🚫</u> \n\n ᴜɴꜰᴏʀᴛᴜɴᴀᴛᴇʟʏ, ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ ʙᴀɴɴᴇᴅ ꜰʀᴏᴍ ᴜꜱɪɴɢ ᴛʜᴇ ʙᴏᴛ'ꜱ ꜱᴇʀᴠɪᴄᴇꜱ. ɪꜰ ʏᴏᴜ ʙᴇʟɪᴇᴠᴇ ᴛʜɪꜱ ɪꜱ ᴀ ᴍɪꜱᴛᴀᴋᴇ ᴏʀ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ, ᴘʟᴇᴀꜱᴇ ᴄᴏɴᴛᴀᴄᴛ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ ꜰᴏʀ ꜰᴜʀᴛʜᴇʀ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ.</b>")
-            await db.disable_chat(int(chatID))
-            temp.BANNED_CHATS.append(int(chatID))
-            btn = [
-                [
-                    InlineKeyboardButton("ᴇɴᴀʙʟᴇ ᴄʜᴀᴛ ✔️", callback_data=f"enblegrpchat:{chatID}")
-             ],[
-                    InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
+            if query.from_user.id in ADMINS:
+                await client.send_message(chatID, text=f"<b><u> ɢʀᴏᴜᴘ ʙᴀɴɴᴇᴅ 🚫</u> \n\n ᴜɴꜰᴏʀᴛᴜɴᴀᴛᴇʟʏ, ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ ʙᴀɴɴᴇᴅ ꜰʀᴏᴍ ᴜꜱɪɴɢ ᴛʜᴇ ʙᴏᴛ'ꜱ ꜱᴇʀᴠɪᴄᴇꜱ. ɪꜰ ʏᴏᴜ ʙᴇʟɪᴇᴠᴇ ᴛʜɪꜱ ɪꜱ ᴀ ᴍɪꜱᴛᴀᴋᴇ ᴏʀ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ, ᴘʟᴇᴀꜱᴇ ᴄᴏɴᴛᴀᴄᴛ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ ꜰᴏʀ ꜰᴜʀᴛʜᴇʀ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ.</b>")
+                await db.disable_chat(int(chatID))
+                temp.BANNED_CHATS.append(int(chatID))
+                btn = [
+                    [
+                        InlineKeyboardButton("ᴇɴᴀʙʟᴇ ᴄʜᴀᴛ ✔️", callback_data=f"enblegrpchat:{chatID}")
+                 ],[
+                        InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
+                    ]
                 ]
-            ]
-            reply_markup = InlineKeyboardMarkup(btn)
-            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} </b>", reply_markup=reply_markup)
+                reply_markup = InlineKeyboardMarkup(btn)
+                ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} </b>", reply_markup=reply_markup)
+            else:
+                await query.answer("You are not authorized to perform this action.", show_alert=True)
         except Exception as e:
             ms.edit(f"error - {e} ")
             logger.error(f"error - {e} ")
@@ -1351,17 +1354,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return await query.answer("chat not found !", show_alert=True)
             if not sts.get("is_disabled"):
                 return await query.answer("chat not found !", show_alert=True)
-            await db.re_enable_chat(int(chatID))
-            temp.BANNED_CHATS.remove(int(chatID))
-            btn = [
-                [
-                    InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatID}")
-             ],[
-                    InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
+            if query.from_user.id in ADMINS:
+                await db.re_enable_chat(int(chatID))
+                temp.BANNED_CHATS.remove(int(chatID))
+                btn = [
+                    [
+                        InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatID}")
+                 ],[
+                        InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
+                    ]
                 ]
-            ]
-            reply_markup = InlineKeyboardMarkup(btn)
-            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n🌅 ᴄʜᴀᴛ ɪᴅ - {chatID}</b>", reply_markup=reply_markup)
+                reply_markup = InlineKeyboardMarkup(btn)
+                ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n🌅 ᴄʜᴀᴛ ɪᴅ - {chatID}</b>", reply_markup=reply_markup)
+            else:
+                await query.answer("You are not authorized to perform this action.", show_alert=True)
         except Exception as e:
             ms.edit(f"error - {e} ")
             logger.error(f"error - {e} ")
