@@ -115,7 +115,7 @@ async def give_filter(client, message):
                 if total_results != 0:
                     await client.send_message(message.chat.id, f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. \n\nTʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\nJᴏɪɴ ᴀɴᴅ Sᴇᴀʀᴄʜ Hᴇʀᴇ - @TeamHMT_Movie</b>")
         else:
-            await client.send_message(message.chat.id, "Your chat is not verified.")
+            await client.send_message(message.chat.id, "<u>⁉️ 𝐍𝐨𝐭𝐢𝐜𝐞 𝐀𝐥𝐞𝐫𝐭 </u> \n\n<b>⚜️ ᴛʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ ʏᴇᴛ. ɪꜰ ʏᴏᴜ ᴀʀᴇ ᴀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀ ᴏʀ ᴀᴅᴍɪɴ, ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ /verify ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ʀᴇQᴜᴇꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ. ᴀꜰᴛᴇʀ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ ᴠᴇʀɪꜰɪᴇꜱ ɪᴛ, ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪʟʟ ʙᴇ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴜꜱᴇ ᴛʜᴇ ʙᴏᴛ'ꜱ ꜰᴇᴀᴛᴜʀᴇꜱ.</b>")
 
     except Exception as e:
         logger.error(f"Error in processing message: {e}")
@@ -1305,16 +1305,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
         _, chatTitle, chatID = query.data.split(":")
         print(f"debuge: query.data={query.data}, chatID={chatID}, chatTitle={chatTitle}")
         try:
-            await client.send_message(chatID, text=f"xyz")
-            await db.verify_crazy_chat(int(chatID))
-            temp.CRAZY_VERIFIED_CHATS.append(int(chatID))
-            btn = [[
-                InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatTitle}:{chatID}")
-                ],[
-                InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
-                ]]
-            reply_markup = InlineKeyboardMarkup(btn)
-            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} \n 🌅 ᴄʜᴀᴛ ᴛɪᴛʟᴇ - {chatTitle} </b>", reply_markup=reply_markup)
+            if query.from_user.id in ADMINS:
+                await client.send_message(chatID, text=f"<b><u> ᴠᴇʀɪꜰɪᴇᴅ ✅</u>\n\n  ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ! 🎉 ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ. ʏᴏᴜ ᴄᴀɴ ɴᴏᴡ ᴇɴᴊᴏʏ ᴛʜᴇ ꜰᴜʟʟ ʀᴀɴɢᴇ ᴏꜰ ꜰᴇᴀᴛᴜʀᴇꜱ ᴘʀᴏᴠɪᴅᴇᴅ ʙʏ ᴛʜᴇ ʙᴏᴛ. ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ ᴏʀ ɴᴇᴇᴅ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ, ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ. 😊</b>")
+                await db.verify_crazy_chat(int(chatID))
+                temp.CRAZY_VERIFIED_CHATS.append(int(chatID))
+                btn = [[
+                    InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatTitle}:{chatID}")
+                    ],[
+                    InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
+                    ]]
+                reply_markup = InlineKeyboardMarkup(btn)
+                ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} \n 🌅 ᴄʜᴀᴛ ᴛɪᴛʟᴇ - {chatTitle} </b>", reply_markup=reply_markup)
+            else:
+                await query.answer("You are not authorized to perform this action.")
         except Exception as e:
             ms.edit(f"error - {e} ")
             logger.error(f"error - {e} ")
@@ -1331,7 +1334,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         _, chatTitle, chatID = query.data.split(":")
         print(f"debuge: query.data={query.data}, chatID={chatID}, chatTitle={chatTitle}")
         try:
-            await client.send_message(chatID, text=f"xyz")
+            await client.send_message(chatID, text=f"<b><u> ɢʀᴏᴜᴘ ʙᴀɴɴᴇᴅ 🚫</u> \n\n ᴜɴꜰᴏʀᴛᴜɴᴀᴛᴇʟʏ, ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ ʙᴀɴɴᴇᴅ ꜰʀᴏᴍ ᴜꜱɪɴɢ ᴛʜᴇ ʙᴏᴛ'ꜱ ꜱᴇʀᴠɪᴄᴇꜱ. ɪꜰ ʏᴏᴜ ʙᴇʟɪᴇᴠᴇ ᴛʜɪꜱ ɪꜱ ᴀ ᴍɪꜱᴛᴀᴋᴇ ᴏʀ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ, ᴘʟᴇᴀꜱᴇ ᴄᴏɴᴛᴀᴄᴛ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ ꜰᴏʀ ꜰᴜʀᴛʜᴇʀ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ.</b>")
             await db.disable_chat(int(chatID))
             temp.BANNED_CHATS.append(int(chatID))
             btn = [
