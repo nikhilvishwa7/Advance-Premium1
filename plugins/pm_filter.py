@@ -1292,7 +1292,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     btn = [[
                         InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatID}")
                         ]]
-                reply_markup = InlineKeyboardMarkup(btn)
+                    
+                    reply_markup = InlineKeyboardMarkup(btn)
                     ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} </b>", reply_markup=reply_markup)
                 else:
                     await query.answer("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ sᴜғғɪᴄɪᴀɴᴛ ʀɪɢᴛs ᴛᴏ ᴅᴏ ᴛʜɪs !", show_alert=True)
