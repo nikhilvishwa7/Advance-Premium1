@@ -298,13 +298,16 @@ async def list_chats(bot, message):
     chats = await db.get_all_chats()
     out = "Chats Saved In DB Are:\n\n"
     async for chat in chats:
-        out += f"**Title:** `{chat['title']}`\n**- ID:** `{chat['id']}`"
-        if chat['chat_status']['is_disabled']:
-            out += '( Disabled Chat )'
-        out += '\n'
+        if not chat['chat_status']['is_disabled']:
+            out += f"**Title:** `{chat['title']}`\n**- ID:** `{chat['id']}`\n" 
+            # Additional logic to include whether the chat is disabled
+            if chat['chat_status']['is_disabled']:
+                out += '( Disabled Chat )\n'     
     try:
         await raju.edit_text(out)
     except MessageTooLong:
         with open('chats.txt', 'w+') as outfile:
             outfile.write(out)
         await message.reply_document('chats.txt', caption="List Of Chats")
+        await db.remove_disabled_chats()
+
