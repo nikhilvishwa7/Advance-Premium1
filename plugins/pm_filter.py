@@ -1282,7 +1282,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         try:
             parts = query.data.split(":")
             if len(parts) >= 3:
-                _, chatTitle, chatID = parts[0], parts[1], ":".join(parts[2:])
+                _, chatID = parts
+                chatTitle = "Unknown" 
                 print(f"Debug: query.data={query.data}, chatID={chatID}, chatTitle={chatTitle}")
                 if query.from_user.id in ADMINS:
                     await client.send_message(chatID, text=f"<b><u> ᴠᴇʀɪꜰɪᴇᴅ ✅</u>\n\n  ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ! 🎉 ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ. ʏᴏᴜ ᴄᴀɴ ɴᴏᴡ ᴇɴᴊᴏʏ ᴛʜᴇ ꜰᴜʟʟ ʀᴀɴɢᴇ ᴏꜰ ꜰᴇᴀᴛᴜʀᴇꜱ ᴘʀᴏᴠɪᴅᴇᴅ ʙʏ ᴛʜᴇ ʙᴏᴛ. ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ ᴏʀ ɴᴇᴇᴅ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ, ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ. 😊</b>")
@@ -1294,7 +1295,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
                         ]]
                     reply_markup = InlineKeyboardMarkup(btn)
-                    ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} \n 🌅 ᴄʜᴀᴛ ᴛɪᴛʟᴇ - {chatTitle} </b>", reply_markup=reply_markup)
+                    ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} \n 🌅 ᴄʜᴀᴛ ᴛɪᴛʟᴇ -  </b>", reply_markup=reply_markup)
                 else:
                     await query.answer("You are not authorized to perform this action.")
             else:
