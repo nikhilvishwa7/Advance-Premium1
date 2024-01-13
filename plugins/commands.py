@@ -1157,7 +1157,7 @@ async def verify_command(client, message):
             await message.reply_text("This chat is already verified.")
             return
 
-        current_time = datetime.now(timezone('UTC')).astimezone(timezone('Your_Timezone'))
+        current_time = datetime.now(timezone('UTC')).astimezone(timezone('TIMEZONE'))
         formatted_time = current_time.strftime('%Y-%m-%d %H:%M:%S %Z')
 
         # Check the number of members in the group
