@@ -1167,8 +1167,8 @@ async def verify_command(client, message):
             temp.CRAZY_VERIFIED_CHATS.append(chatID)
 
             # Notify the group about verification
-            verification_text = ("<b><u> ᴠᴇʀɪꜰɪᴇᴅ ✅</u>\n\n  ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ! 🎉 ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ "
-                                "ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ. \n ʏᴏᴜ ᴄᴀɴ ɴᴏᴡ ᴇɴᴊᴏʏ ᴛʜᴇ ꜰᴜʟʟ ʀᴀɴɢᴇ ᴏꜰ ꜰᴇᴀᴛᴜʀᴇꜱ "
+            verification_text = ("<b><u> ᴠᴇʀɪꜰɪᴇᴅ ✅</u>\n\n ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ! 🎉 ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ "
+                                "ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ. \n\n ʏᴏᴜ ᴄᴀɴ ɴᴏᴡ ᴇɴᴊᴏʏ ᴛʜᴇ ꜰᴜʟʟ ʀᴀɴɢᴇ ᴏꜰ ꜰᴇᴀᴛᴜʀᴇꜱ "
                                 "ᴘʀᴏᴠɪᴅᴇᴅ ʙʏ ᴛʜᴇ ʙᴏᴛ. ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ ᴏʀ ɴᴇᴇᴅ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ, ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ. 😊</b>")
             
             # Generate chat invite link
@@ -1201,11 +1201,11 @@ async def verify_command(client, message):
             ]
             crazy_markup = InlineKeyboardMarkup(cz_buttons)
             await client.send_message(GROUP_LOGS,
-                                   text=f"<b><u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ⁉️</u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code></b>",
+                                   text=f"<b>#ʀᴇQᴜᴇꜱᴛ\n\n<u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ⁉️</u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code></b>",
                                    reply_markup=crazy_markup)
 
             # Reply to the user in the group
-            await message.reply_text("<b>🔒 <u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ꜱᴇɴᴛ! </u> \n\n ᴡᴇ ʜᴀᴠᴇ ꜱᴜʙᴍɪᴛᴛᴇᴅ ᴀ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ꜰᴏʀ ᴛʜɪꜱ ɢʀᴏᴜᴘ. ᴘʟᴇᴀꜱᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ᴡʜɪʟᴇ ᴏᴜʀ ᴛᴇᴀᴍ ʀᴇᴠɪᴇᴡꜱ ᴀɴᴅ ᴀᴘᴘʀᴏᴠᴇꜱ ɪᴛ. \n⌛ ɪꜰ ʏᴏᴜ ᴡᴏᴜʟᴅ ʟɪᴋᴇ ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘʀᴏɢʀᴇꜱꜱ ᴏʀ ʀᴇᴄᴇɪᴠᴇ ᴜᴘᴅᴀᴛᴇꜱ ᴏɴ ᴛʜᴇ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴘʀᴏᴄᴇꜱꜱ, ʏᴏᴜ ᴄᴀɴ ᴊᴏɪɴ ᴏᴜʀ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱᴛᴀᴛᴜꜱ ᴄʜᴀɴɴᴇʟ. \n\n.ᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ʏᴏᴜʀ ᴄᴏᴏᴘᴇʀᴀᴛɪᴏɴ! 🙏</b>",
+            await message.reply_text("<b>🔒 <u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ꜱᴇɴᴛ! </u> \n\n ᴡᴇ ʜᴀᴠᴇ ꜱᴜʙᴍɪᴛᴛᴇᴅ ᴀ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ꜰᴏʀ ᴛʜɪꜱ ɢʀᴏᴜᴘ. ᴘʟᴇᴀꜱᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ᴡʜɪʟᴇ ᴏᴜʀ ᴛᴇᴀᴍ ʀᴇᴠɪᴇᴡꜱ ᴀɴᴅ ᴀᴘᴘʀᴏᴠᴇꜱ ɪᴛ. \n\n⌛ ɪꜰ ʏᴏᴜ ᴡᴏᴜʟᴅ ʟɪᴋᴇ ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘʀᴏɢʀᴇꜱꜱ ᴏʀ ʀᴇᴄᴇɪᴠᴇ ᴜᴘᴅᴀᴛᴇꜱ ᴏɴ ᴛʜᴇ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴘʀᴏᴄᴇꜱꜱ, ʏᴏᴜ ᴄᴀɴ ᴊᴏɪɴ ᴏᴜʀ 𝗩𝗲𝗿𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻 𝗦𝘁𝗮𝘁𝘂𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹. \n\n.ᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ʏᴏᴜʀ ᴄᴏᴏᴘᴇʀᴀᴛɪᴏɴ! 🙏</b>",
                                      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔺 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱᴛᴀᴛᴜꜱ ᴄʜᴀɴɴᴇʟ 🔺", url=f"https://telegram.me/CrazydeveloperRBot")]]))
 
     except Exception as e:
