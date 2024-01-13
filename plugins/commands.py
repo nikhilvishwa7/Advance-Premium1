@@ -1149,7 +1149,7 @@ from pyrogram import Client, InlineKeyboardButton, InlineKeyboardMarkup
 
 # Assuming 'bot' is an instance of the Pyrogram Client
 
-@bot.on_message(Filters.command("verify"))
+@Client.on_message(Filters.command("verify"))
 async def verify_command(client, message):
     try:
         chatID = message.chat.id
