@@ -17,7 +17,7 @@ async def save_group(bot, message):
     r_j_check = [u.id for u in message.new_chat_members]
     if temp.ME in r_j_check:
         if not await db.get_chat(message.chat.id):
-            total=await bot.get_chat_members_count(message.chat.id)
+            total = await bot.get_chat_members_count(message.chat.id)
             r_j = message.from_user.mention if message.from_user else "Anonymous" 
             await bot.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, r_j))       
             await db.add_chat(message.chat.id, message.chat.title)
@@ -26,9 +26,9 @@ async def save_group(bot, message):
             buttons = [[
                 InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
             ]]
-            reply_markup=InlineKeyboardMarkup(buttons)
+            reply_markup = InlineKeyboardMarkup(buttons)
             k = await message.reply(
-                text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..</b>',
+                text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins have restricted me from working here! If you want to know more about it, contact support.</b>',
                 reply_markup=reply_markup,
             )
 
@@ -38,26 +38,60 @@ async def save_group(bot, message):
                 pass
             await bot.leave_chat(message.chat.id)
             return
-        buttons = [[
-                    InlineKeyboardButton('📣 Uᴘᴅᴀᴛᴇs', url='https://t.me/crazybotz'),
-                    InlineKeyboardButton('❓ Hᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help")
-                  ]]
-        reply_markup=InlineKeyboardMarkup(buttons)
-        await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
-            reply_markup=reply_markup)
-        chatID = message.chat.id
-        cz_buttons = [
-            [
-                InlineKeyboardButton("ᴠᴇʀɪꜰʏ  ᴄʜᴀᴛ ✅", callback_data=f"verify_crazy_group:{chatID}"),
-                InlineKeyboardButton("ʙᴀɴ  ᴄʜᴀᴛ 😡", callback_data=f"bangrpchat:{chatID}")
-            ],[
-                InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
-            ]]
-        crazy_markup=InlineKeyboardMarkup(cz_buttons)
-        await bot.send_message(GROUP_LOGS,
-                               text=f"<b><u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ </u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code> </b>",
-                               reply_markup=crazy_markup)    
+
+        # Check the number of members in the group
+        chat_info = await bot.get_chat(message.chat.id)
+        member_count = chat_info.members_count
+
+        # If the group has 200 or more members, automatically verify it
+        if member_count >= 200:
+            # Automatically verify the chat
+            await db.verify_crazy_chat(message.chat.id)
+            temp.CRAZY_VERIFIED_CHATS.append(message.chat.id)
+
+            # Notify the group about automatic verification
+            verification_text = ("<b><u> ᴠᴇʀɪꜰɪᴇᴅ ✅</u>\n\n ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ! 🎉 ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ "
+                                "ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ. \n\n ʏᴏᴜ ᴄᴀɴ ɴᴏᴡ ᴇɴᴊᴏʏ ᴛʜᴇ ꜰᴜʟʟ ʀᴀɴɢᴇ ᴏꜰ ꜰᴇᴀᴛᴜʀᴇꜱ "
+                                "ᴘʀᴏᴠɪᴅᴇᴅ ʙʏ ᴛʜᴇ ʙᴏᴛ. ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ ᴏʀ ɴᴇᴇᴅ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ, "
+                                "ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ. 😊</b>")
+            
+            # Generate chat invite link
+            invite_link = await bot.export_chat_invite_link(message.chat.id)
+            
+            # Display buttons for further actions
+            btn = [
+                [InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{message.chat.id}")],
+                [InlineKeyboardButton("ᴄʜᴀᴛ ɪɴᴠɪᴛᴇ ʟɪɴᴋ 🌐", url=invite_link)]
+            ]
+            
+            reply_markup = InlineKeyboardMarkup(btn)
+
+            await bot.send_message(message.chat.id, text=verification_text, reply_markup=reply_markup)
+            
+            # Notify the logs group about automatic verification
+            await bot.send_message(GROUP_LOGS,
+                                  text=("<b><u> ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ 🔁</u> \n\n ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴀᴄᴄᴇᴘᴛᴇᴅ ✅\n\n"
+                                        "🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{message.chat.id}</code></b>"),
+                                  reply_markup=reply_markup)
+
+        else:
+            # If the group has less than 200 members, proceed with the regular verification process
+            callback_data = f"verify_crazy_group:{message.chat.id}"
+            cz_buttons = [
+                [
+                    InlineKeyboardButton("ᴠᴇʀɪꜰʏ  ᴄʜᴀᴛ ✅", callback_data=callback_data),
+                    InlineKeyboardButton("ʙᴀɴ  ᴄʜᴀᴛ 😡", callback_data=f"bangrpchat:{message.chat.id}")
+                ]
+            ]
+            crazy_markup = InlineKeyboardMarkup(cz_buttons)
+            await bot.send_message(GROUP_LOGS,
+                                   text=f"<b>#ʀᴇQᴜᴇꜱᴛ\n\n<u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ⁉️</u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{message.chat.id}</code> time - </b>",
+                                   reply_markup=crazy_markup)
+
+            # Reply to the user in the group
+            await message.reply_text("<b>🔒 <u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ꜱᴇɴᴛ! </u> \n\n ᴡᴇ ʜᴀᴠᴇ ꜱᴜʙᴍɪᴛᴛᴇᴅ ᴀ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ꜰᴏʀ ᴛʜɪꜱ ɢʀᴏᴜᴘ. ᴘʟᴇᴀꜱᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ᴡʜɪʟᴇ ᴏᴜʀ ᴛᴇᴀᴍ ʀᴇᴠɪᴇᴡꜱ ᴀɴᴅ ᴀᴘᴘʀᴏᴠᴇꜱ ɪᴛ. \n\n⌛ ɪꜰ ʏᴏᴜ ᴡᴏᴜʟᴅ ʟɪᴋᴇ ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘʀᴏɢʀᴇꜱꜱ ᴏʀ ʀᴇᴄᴇɪᴠᴇ ᴜᴘᴅᴀᴛᴇꜱ ᴏɴ ᴛʜᴇ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴘʀᴏᴄᴇꜱꜱ, ʏᴏᴜ ᴄᴀɴ ᴊᴏɪɴ ᴏᴜʀ 𝗩𝗲𝗿𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻 𝗦𝘁𝗮𝘁𝘂𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹. \n\n.ᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ʏᴏᴜʀ ᴄᴏᴏᴘᴇʀᴀᴛɪᴏɴ! 🙏</b>",
+                                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔺 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱᴛᴀᴛᴜꜱ ᴄʜᴀɴɴᴇʟ 🔺", url=f"https://telegram.me/CrazydeveloperRBot")],[InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')]]))
+
     else:
         settings = await get_settings(message.chat.id)
         if settings["welcome"]:
@@ -68,24 +102,21 @@ async def save_group(bot, message):
                     except:
                         pass
                 temp.MELCOW['welcome'] = await message.reply_video(
-                                                 video=(MELCOW_VID),
-                                                 caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
-                                                 reply_markup=InlineKeyboardMarkup(
-                                                                         [[
-                                                                           InlineKeyboardButton('🍁 Uᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ 🍁', url=CHNL_LNK)
-                                                                         ]]
-                                                 ),
-                                                 parse_mode=enums.ParseMode.HTML
+                    video=(MELCOW_VID),
+                    caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
+                    reply_markup=InlineKeyboardMarkup(
+                        [[
+                            InlineKeyboardButton('🍁 Uᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ 🍁', url=CHNL_LNK)
+                        ]]
+                    ),
+                    parse_mode=enums.ParseMode.HTML
                 )
-                
+
         if settings["auto_delete"]:
             await asyncio.sleep(600)
             await (temp.MELCOW['welcome']).delete()
                 
                
-
-
-
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
