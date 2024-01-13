@@ -1197,7 +1197,7 @@ async def verify_command(client, message):
         print(f"Error in processing /verify command: {e}")
 
 
-@Client.on_message(filters.command("unverify") & filters.user(ADMINS))
+@Client.on_message(filters.command("unverify"))
 async def unverify_command(client, message):
     try:
         chatID = message.chat.id
