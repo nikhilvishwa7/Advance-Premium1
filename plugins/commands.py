@@ -1154,25 +1154,73 @@ async def verify_command(client, message):
         if await db.is_chat_verified(chatID):
             await message.reply_text("This chat is already verified.")
             return
+
+        # Check the number of members in the group
+        chat_info = await client.get_chat(chatID)
+        member_count = chat_info.members_count
+
+        # If the group has 200 or more members, automatically verify it
+        if member_count >= 200:
+            # Automatically verify the chat
+            await db.verify_crazy_chat(chatID)
+            temp.CRAZY_VERIFIED_CHATS.append(chatID)
+
+            # Notify the group about verification
+            await client.send_message(chatID, text=f"<b><u> ᴠᴇʀɪꜰɪᴇᴅ ✅</u>\n\n  ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ! 🎉 ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ. \n ʏᴏᴜ ᴄᴀɴ ɴᴏᴡ ᴇɴᴊᴏʏ ᴛʜᴇ ꜰᴜʟʟ ʀᴀɴɢᴇ ᴏꜰ ꜰᴇᴀᴛᴜʀᴇꜱ ᴘʀᴏᴠɪᴅᴇᴅ ʙʏ ᴛʜᴇ ʙᴏᴛ. ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ ᴏʀ ɴᴇᴇᴅ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ, ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ. 😊</b>")
             
-        callback_data = f"verify_crazy_group:{chatID}"
-        cz_buttons = [
-            [
-                InlineKeyboardButton("ᴠᴇʀɪꜰʏ  ᴄʜᴀᴛ ✅", callback_data=callback_data),
-                InlineKeyboardButton("ʙᴀɴ  ᴄʜᴀᴛ 😡", callback_data=f"bangrpchat:{chatID}")
-            ], [
-                InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
-            ]]
-        crazy_markup = InlineKeyboardMarkup(cz_buttons)
-        await client.send_message(GROUP_LOGS,
+            # Display buttons for further actions
+            btn = [
+                [InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatID}")]
+            ]
+            reply_markup = InlineKeyboardMarkup(btn)
+
+            # Notify the group about verification
+            await client.send_message(GROUP_LOGS, text=f"<b><u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴀᴄᴄᴇᴘᴛᴇᴅ ✅</u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code></b>", reply_markup=reply_markup)
+
+        else:
+            # If the group has less than 200 members, proceed with the regular verification process
+            callback_data = f"verify_crazy_group:{chatID}"
+            cz_buttons = [
+                [
+                    InlineKeyboardButton("ᴠᴇʀɪꜰʏ  ᴄʜᴀᴛ ✅", callback_data=callback_data),
+                    InlineKeyboardButton("ʙᴀɴ  ᴄʜᴀᴛ 😡", callback_data=f"bangrpchat:{chatID}")    
+                ]]
+            crazy_markup = InlineKeyboardMarkup(cz_buttons)
+            await client.send_message(GROUP_LOGS,
                                    text=f"<b><u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ </u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code></b>",
                                    reply_markup=crazy_markup)
 
-        # Reply to the user in the group
-        await message.reply_text("Verification request sent. Please wait for approval.")
+            # Reply to the user in the group
+            await message.reply_text("Verification request sent. Please wait for approval.")
 
     except Exception as e:
         print(f"Error in processing /verify command: {e}")
 
 
+@Client.on_message(filters.command("unverify") & filters.user(ADMINS))
+async def unverify_command(client, message):
+    try:
+        chatID = message.chat.id
 
+        # Check if the chat is already verified
+        if not await db.is_chat_verified(chatID):
+            await message.reply_text("This chat is not verified.")
+            return
+
+        # Unverify the chat
+        await db.unverify_crazy_chat(chatID)
+        temp.CRAZY_VERIFIED_CHATS.remove(chatID)
+
+        # Notify the group about unverification
+        unverification_text = "<b><u>ᴄʜᴀᴛ ᴜɴᴠᴇʀɪꜰɪᴇᴅ ❌</u>\n\n"
+        "ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ ᴜɴᴠᴇʀɪꜰɪᴇᴅ. "
+        "ᴍᴇᴍʙᴇʀꜱ ᴡɪʟʟ ɴᴏ ʟᴏɴɢᴇʀ ʙᴇ ᴀʙʟᴇ ᴛᴏ ᴇɴᴊᴏʏ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ ᴘʀᴏᴠɪᴅᴇᴅ ʙʏ ᴛʜᴇ ʙᴏᴛ. 😢</b>"
+
+        await client.send_message(chatID, text=unverification_text)
+
+        # Notify the logs group about unverification
+        await client.send_message(GROUP_LOGS,
+                                  text=f"<b><u>ᴄʜᴀᴛ ᴜɴᴠᴇʀɪꜰɪᴇᴅ ❌</u>\n\n"
+                                  f"🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code></b>")
+    except Exception as e:
+        print(f"Error in processing /unverify command: {e}")
