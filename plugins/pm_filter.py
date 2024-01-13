@@ -1302,6 +1302,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ sᴜғғɪᴄɪᴀɴᴛ ʀɪɢᴛs ᴛᴏ ᴅᴏ ᴛʜɪs !", show_alert=True)
 
     elif query.data.startswith("verify_crazy_group"):
+        ms = None
         try:
             parts = query.data.split(":")
             if len(parts) >= 2:
@@ -1323,8 +1324,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 print(f"Error: Not enough values in query.data: {query.data}")
         except Exception as e:
-            ms.edit(f"error - {e} ")
-            logger.error(f"error - {e} ")
+            if ms:
+                await ms.edit(f"error - {e}")
+            else:
+                print(f"Error during verify_crazy_group handling: {e}")
 
     elif query.data.startswith("alalert"):
         ident, from_user = query.data.split("#")
