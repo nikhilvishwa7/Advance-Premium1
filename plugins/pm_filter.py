@@ -1276,6 +1276,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
         else:
             await query.answer("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ sᴜғғɪᴄɪᴀɴᴛ ʀɪɢᴛs ᴛᴏ ᴅᴏ ᴛʜɪs !", show_alert=True)
 
+    elif query.data.startswith("verify_crazy_group"):
+        _, chatTitle, chatID = query.data.split(":")
+        print(f"debuge: query.data={query.data}, chatID={chatID}, chatTitle={chatTitle}")
+        try:
+            await client.send_message(chatID, text=f"xyz")
+            await db.verify_crazy_chat(int(chatID))
+            temp.CRAZY_VERIFIED_CHATS.append(int(chatID))
+            btn = [[
+                InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatTitle}:{chatID}")
+                ],[
+                InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
+                ]]
+            reply_markup = InlineKeyboardMarkup(btn)
+            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} \n 🌅 ᴄʜᴀᴛ ᴛɪᴛʟᴇ - {chatTitle} </b>", reply_markup=reply_markup)
+        except Exception as e:
+            ms.edit(f"error - {e} ")
+            logger.error(f"error - {e} ")
+
     elif query.data.startswith("alalert"):
         ident, from_user = query.data.split("#")
         if int(query.from_user.id) == int(from_user):
@@ -1284,6 +1302,26 @@ async def cb_handler(client: Client, query: CallbackQuery):
         else:
             await query.answer("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ sᴜғғɪᴄɪᴀɴᴛ ʀɪɢᴛs ᴛᴏ ᴅᴏ ᴛʜɪs !", show_alert=True)
 
+    elif query.data.startswith("bangrpchat"):
+        _, chatTitle, chatID = query.data.split(":")
+        print(f"debuge: query.data={query.data}, chatID={chatID}, chatTitle={chatTitle}")
+        try:
+            await client.send_message(chatID, text=f"xyz")
+            await db.disable_chat(int(chatID))
+            temp.BANNED_CHATS.append(int(chatID))
+            btn = [
+                [
+                    InlineKeyboardButton("ᴇɴᴀʙʟᴇ ᴄʜᴀᴛ ✔️", callback_data=f"enblegrpchat:{chatTitle}:{chatID}")
+             ],[
+                    InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(btn)
+            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} \n 🌅 ᴄʜᴀᴛ ᴛɪᴛʟᴇ - {chatTitle} </b>", reply_markup=reply_markup)
+        except Exception as e:
+            ms.edit(f"error - {e} ")
+            logger.error(f"error - {e} ")
+
     elif query.data.startswith("upalert"):
         ident, from_user = query.data.split("#")
         if int(query.from_user.id) == int(from_user):
@@ -1291,6 +1329,30 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"Hᴇʏ {user.first_name}, Yᴏᴜʀ Rᴇᴏ̨ᴜᴇsᴛ ɪs Uᴘʟᴏᴀᴅᴇᴅ !", show_alert=True)
         else:
             await query.answer("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ sᴜғғɪᴄɪᴀɴᴛ ʀɪɢᴛs ᴛᴏ ᴅᴏ ᴛʜɪs !", show_alert=True)
+
+    elif query.data.startswith("enblegrpchat"):
+        _, chatTitle, chatID = query.data.split(":")
+        print(f"debuge: query.data={query.data}, chatID={chatID}, chatTitle={chatTitle}")
+        try:
+            sts = await db.get_chat(int(chatID))
+            if not sts:
+                return await query.answer("chat not found !", show_alert=True)
+            if not sts.get("is_disabled"):
+                return await query.answer("chat not found !", show_alert=True)
+            await db.re_enable_chat(int(chatID))
+            temp.BANNED_CHATS.remove(int(chatID))
+            btn = [
+                [
+                    InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatTitle}:{chatID}")
+             ],[
+                    InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(btn)
+            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} \n 🌅 ᴄʜᴀᴛ ᴛɪᴛʟᴇ - {chatTitle} </b>", reply_markup=reply_markup)
+        except Exception as e:
+            ms.edit(f"error - {e} ")
+            logger.error(f"error - {e} ")
         
     elif query.data.startswith("unalert"):
         ident, from_user = query.data.split("#")
