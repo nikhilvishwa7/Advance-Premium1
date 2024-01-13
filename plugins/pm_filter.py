@@ -1305,7 +1305,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ms = None
         try:
             parts = query.data.split(":")
-            if len(parts) >= 2:
+            if len(parts) >= 3:
                 _, chatTitle, chatID = parts
                 print(f"Debug: query.data={query.data}, chatID={chatID}, chatTitle={chatTitle}")
                 if query.from_user.id in ADMINS:
