@@ -2,7 +2,7 @@ from pyrogram import Client, filters, enums
 import psutil
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_VID, CHNL_LNK, GRP_LNK
+from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_VID, CHNL_LNK, GRP_LNK, GROUP_LOGS
 from database.users_chats_db import db
 from database.ia_filterdb import Media
 from utils import get_size, temp, get_settings
@@ -46,6 +46,20 @@ async def save_group(bot, message):
         await message.reply_text(
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
+        chatID = message.chat.id
+        chatTitle = message.chat.title
+        cz_buttons = [
+            [
+                InlineKeyboardButton("ᴠᴇʀɪꜰʏ  ᴄʜᴀᴛ ✅", callback_data=f"verify_crazy_group:{chatTitle}:{chatID}")
+            ],[
+                InlineKeyboardButton("ʙᴀɴ  ᴄʜᴀᴛ 😡", callback_data=f"bangrpchat:{chatTitle}:{chatID}")
+            ],[
+                InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
+            ]]
+        crazy_markup=InlineKeyboardMarkup(cz_buttons)
+        await bot.send_message(GROUP_LOGS,
+                               text=f"hey\ni am added forcefully to this group named {chatTitle} please tell me if you linke to restrict this group...",
+                               reply_markup=crazy_markup)    
     else:
         settings = await get_settings(message.chat.id)
         if settings["welcome"]:
