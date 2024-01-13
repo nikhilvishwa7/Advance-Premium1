@@ -1315,21 +1315,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ sᴜғғɪᴄɪᴀɴᴛ ʀɪɢᴛs ᴛᴏ ᴅᴏ ᴛʜɪs !", show_alert=True)
 
     elif query.data.startswith("bangrpchat"):
-        _, chatTitle, chatID = query.data.split(":")
-        print(f"debuge: query.data={query.data}, chatID={chatID}, chatTitle={chatTitle}")
+        _, chatID = query.data.split(":")
+        print(f"debuge: query.data={query.data}, chatID={chatID}")
         try:
             await client.send_message(chatID, text=f"<b><u> ɢʀᴏᴜᴘ ʙᴀɴɴᴇᴅ 🚫</u> \n\n ᴜɴꜰᴏʀᴛᴜɴᴀᴛᴇʟʏ, ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ ʙᴀɴɴᴇᴅ ꜰʀᴏᴍ ᴜꜱɪɴɢ ᴛʜᴇ ʙᴏᴛ'ꜱ ꜱᴇʀᴠɪᴄᴇꜱ. ɪꜰ ʏᴏᴜ ʙᴇʟɪᴇᴠᴇ ᴛʜɪꜱ ɪꜱ ᴀ ᴍɪꜱᴛᴀᴋᴇ ᴏʀ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ, ᴘʟᴇᴀꜱᴇ ᴄᴏɴᴛᴀᴄᴛ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ ꜰᴏʀ ꜰᴜʀᴛʜᴇʀ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ.</b>")
             await db.disable_chat(int(chatID))
             temp.BANNED_CHATS.append(int(chatID))
             btn = [
                 [
-                    InlineKeyboardButton("ᴇɴᴀʙʟᴇ ᴄʜᴀᴛ ✔️", callback_data=f"enblegrpchat:{chatTitle}:{chatID}")
+                    InlineKeyboardButton("ᴇɴᴀʙʟᴇ ᴄʜᴀᴛ ✔️", callback_data=f"enblegrpchat:{chatID}")
              ],[
                     InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(btn)
-            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} \n 🌅 ᴄʜᴀᴛ ᴛɪᴛʟᴇ - {chatTitle} </b>", reply_markup=reply_markup)
+            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} </b>", reply_markup=reply_markup)
         except Exception as e:
             ms.edit(f"error - {e} ")
             logger.error(f"error - {e} ")
@@ -1343,8 +1343,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ sᴜғғɪᴄɪᴀɴᴛ ʀɪɢᴛs ᴛᴏ ᴅᴏ ᴛʜɪs !", show_alert=True)
 
     elif query.data.startswith("enblegrpchat"):
-        _, chatTitle, chatID = query.data.split(":")
-        print(f"debuge: query.data={query.data}, chatID={chatID}, chatTitle={chatTitle}")
+        _, chatID = query.data.split(":")
+        print(f"debuge: query.data={query.data}, chatID={chatID}")
         try:
             sts = await db.get_chat(int(chatID))
             if not sts:
@@ -1355,13 +1355,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             temp.BANNED_CHATS.remove(int(chatID))
             btn = [
                 [
-                    InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatTitle}:{chatID}")
+                    InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatID}")
              ],[
                     InlineKeyboardButton('ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️', callback_data='close_data')
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(btn)
-            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n☎️ ᴄʜᴀᴛ ɪᴅ - {chatID} \n 🌅 ᴄʜᴀᴛ ᴛɪᴛʟᴇ - {chatTitle} </b>", reply_markup=reply_markup)
+            ms =  await query.edit_message_text(f"<b><u>🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ </u>\n\n🌅 ᴄʜᴀᴛ ɪᴅ - {chatID}</b>", reply_markup=reply_markup)
         except Exception as e:
             ms.edit(f"error - {e} ")
             logger.error(f"error - {e} ")
