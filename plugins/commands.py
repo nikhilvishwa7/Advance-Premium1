@@ -1149,7 +1149,6 @@ async def removetutorial(bot, message):
 async def verify_command(client, message):
     try:
         chatID = message.chat.id
-        chatTitle = message.chat.title
         callback_data = f"verify_crazy_group:{chatID}"
         cz_buttons = [
             [
@@ -1160,7 +1159,7 @@ async def verify_command(client, message):
             ]]
         crazy_markup = InlineKeyboardMarkup(cz_buttons)
         await client.send_message(GROUP_LOGS,
-                               text=f"Verification request for the group {chatTitle} ({chatID})",
+                               text=f"<b><u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ </u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code></b>",
                                reply_markup=crazy_markup)
 
         # Reply to the user in the group
@@ -1168,4 +1167,5 @@ async def verify_command(client, message):
     
     except Exception as e:
         print(f"Error in processing /verify command: {e}")
+
 
