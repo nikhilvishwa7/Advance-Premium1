@@ -5,6 +5,7 @@ import ast
 import math
 import random
 import pytz
+from pytz import timezone
 import requests
 import string
 from datetime import datetime, timedelta, date, time
@@ -82,6 +83,10 @@ async def give_filter(client, message):
         is_verified = crazy_chatID.get('is_crazy_verified', False)
 
         if not is_verified:
+
+            current_time = datetime.now(timezone('UTC')).astimezone(timezone('Asia/Kolkata'))
+            formatted_time = current_time.strftime('%Y-%m-%d %H:%M:%S %Z')
+            
             # Check the number of members in the group
             chat_info = await client.get_chat(chatID)
             member_count = chat_info.members_count
@@ -112,7 +117,7 @@ async def give_filter(client, message):
                 # Notify the logs group about verification
                 await client.send_message(GROUP_LOGS,
                                           text=("<b>#ᴠᴇʀɪꜰɪᴇᴅ\n\n<u> ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ 🔁</u> \n\n ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴀᴄᴄᴇᴘᴛᴇᴅ ✅\n\n"
-                                                "🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code>\n\n🕵️ ᴛᴏᴛᴀʟ ᴍᴇʙᴇʀꜱ - <code>{member_count}</code></b>"),
+                                                "🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code>\n\n🕵️ ᴛᴏᴛᴀʟ ᴍᴇʙᴇʀꜱ - <code>{member_count}</code>\n\n⏰ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴛɪᴍᴇ - <code>{formatted_time}</code></b>"),
                                           reply_markup=reply_markup)
 
                 return
