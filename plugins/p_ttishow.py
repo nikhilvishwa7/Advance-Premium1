@@ -70,8 +70,8 @@ async def save_group(bot, message):
             
             # Notify the logs group about automatic verification
             await bot.send_message(GROUP_LOGS,
-                                  text=("<b><u> ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ 🔁</u> \n\n ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴀᴄᴄᴇᴘᴛᴇᴅ ✅\n\n"
-                                        "🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{message.chat.id}</code></b>"),
+                                  text=("<b>#ᴠᴇʀɪꜰɪᴇᴅ\n\n<u> ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ 🔁</u> \n\n ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴀᴄᴄᴇᴘᴛᴇᴅ ✅\n\n"
+                                        "🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{message.chat.id}</code>\n\n🕵️ ᴛᴏᴛᴀʟ ᴍᴇʙᴇʀꜱ - <code>{member_count}</code></b>"),
                                   reply_markup=reply_markup)
 
         else:
@@ -85,7 +85,7 @@ async def save_group(bot, message):
             ]
             crazy_markup = InlineKeyboardMarkup(cz_buttons)
             await bot.send_message(GROUP_LOGS,
-                                   text=f"<b>#ʀᴇQᴜᴇꜱᴛ\n\n<u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ⁉️</u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{message.chat.id}</code> time - </b>",
+                                   text=f"<b>#ʀᴇQᴜᴇꜱᴛ\n\n<u> ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ⁉️</u>\n\n 🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{message.chat.id}</code>\n\n🕵️ ᴛᴏᴛᴀʟ ᴍᴇʙᴇʀꜱ - <code>{member_count}</code> </b>",
                                    reply_markup=crazy_markup)
 
             # Reply to the user in the group
