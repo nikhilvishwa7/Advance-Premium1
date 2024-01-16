@@ -979,9 +979,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             fileName = {quote_plus(get_name(log_msg))}
             page_link = f"{STREAM_URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
             stream_link = f"{STREAM_URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-            hp_link = await get_shortlink(stream_link)
-            ph_link = await get_shortlink(page_link)
-            is_premium_user = await db.has_premium_access(user_id)
+            #hp_link = await get_shortlink(stream_link)
+            #ph_link = await get_shortlink(page_link)
+            #is_premium_user = await db.has_premium_access(user_id)
+            #button code - url=stream_link if is_premium_user else hp_link)
 
             g = await query.message.reply_text("<b>Link Generating...</b>")
             await asyncio.sleep(1)
@@ -991,16 +992,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 text=f"Usᴇʀ ID: {user_id}\n\nUsᴇʀ Nᴀᴍᴇ: {username} 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞: {fileName}",
                 quote=True,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=hp_link),
-                                                    InlineKeyboardButton('🖥️ ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=ph_link)]]))
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=stream_link),
+                                                    InlineKeyboardButton('🖥️ ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=page_link)]]))
             k=await query.message.reply_text(
-                text="<u><b>ʏᴏᴜʀ ʟɪɴᴋ ɪꜱ ɢᴇɴᴇʀᴀᴛᴇᴅ</u> 😁\n\n#ᴘʀᴇᴍɪᴜᴍ 🦋\n\nɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴅɪʀᴇᴄᴛ ꜰɪʟᴇs ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ᴛᴀᴋᴇ ᴘʀᴇᴍɪᴜᴍ sᴇʀᴠɪᴄᴇ (ɴᴇᴇᴅ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋꜱ).\n\nᴄʟɪᴄᴋ /plan ꜰᴏʀ ᴍᴏʀᴇ ᴅᴇᴛᴀɪʟs\n\n🔻 ᴛʜɪꜱ ʟɪɴᴋ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ɪɴ 5 ᴍɪɴᴜᴛᴇꜱ</b>",
+                text="<u><b>ʏᴏᴜʀ ʟɪɴᴋ ɪꜱ ɢᴇɴᴇʀᴀᴛᴇᴅ</u> 😁\n\n🔻 ᴛʜɪꜱ ʟɪɴᴋ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ɪɴ 5 ᴍɪɴᴜᴛᴇꜱ</b>",
                 quote=True,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=stream_link if is_premium_user else hp_link),
-                                                    InlineKeyboardButton('🖥️ ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=page_link if is_premium_user else ph_link)
-                                                    ],[
-                                                    InlineKeyboardButton("🎪  ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ  🎪", url=STREAM_HOW_DOWNLOAD)]]))
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=stream_link),
+                                                    InlineKeyboardButton('🖥️ ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', ururl=page_link)]]))
             await asyncio.sleep(300)
             await k.delete()
         except Exception as e:
