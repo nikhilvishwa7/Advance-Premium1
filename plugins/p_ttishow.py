@@ -4,7 +4,8 @@ import psutil
 from pytz import timezone
 from datetime import datetime
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid, FloodWait
+from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
+from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_VID, CHNL_LNK, GRP_LNK, GROUP_LOGS
 from database.users_chats_db import db
 from database.ia_filterdb import Media
