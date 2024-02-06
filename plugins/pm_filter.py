@@ -1447,11 +1447,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "sinfo":
         await query.answer(text=script.SINFO, show_alert=True)
 
-    elif query.data == "get_trail":
+    elif query.data == "get_trial":
         user_id = query.from_user.id
         free_trial_status = await db.get_free_trial_status(user_id)
         if not free_trial_status:            
-            await db.give_free_trail(user_id)
+            await db.give_free_trial(user_id)
+            await message.reply_sticker("CAACAgIAAxkBAAIBTGVjQbHuhOiboQsDm35brLGyLQ28AAJ-GgACglXYSXgCrotQHjibHgQ")
             new_text = "**ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ꜰʀᴇᴇ ᴛʀᴀɪʟ ꜰᴏʀ 5 ᴍɪɴᴜᴛᴇs ꜰʀᴏᴍ ɴᴏᴡ 😀\n\nआप अब से 5 मिनट के लिए निःशुल्क ट्रायल का उपयोग कर सकते हैं 😀**"        
             await query.message.edit_text(text=new_text)
         else:
