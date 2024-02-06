@@ -250,7 +250,8 @@ async def start(client, message):
         else:
             gtxt = "ɢᴏᴏᴅ ɴɪɢʜᴛ 👋"
         chat_id = int("-" + file_id.split("-")[1])
-        userid = message.from_user.id if message.from_user else None
+        user_id = message.from_user.id if message.from_user else None
+        if not await db.has_premium_access(user_id):
         g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=allfiles_{file_id}")
         k = await client.send_message(chat_id=message.from_user.id,text=f"<b>ɢᴇᴛ ᴀʟʟ ꜰɪʟᴇꜱ ɪɴ ᴀ ꜱɪɴɢʟᴇ ᴄʟɪᴄᴋ ✅\n\n⚠️  ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ ᴀꜰᴛᴇʀ 𝟷𝟶 ᴍɪɴᴜᴛᴇꜱ ᴛᴏ ᴀᴠᴏɪᴅ ᴄᴏᴘʏʀɪɢʜᴛ ɪꜱꜱᴜᴇꜱ.></b>", reply_markup=InlineKeyboardMarkup(
                 [
@@ -1220,8 +1221,7 @@ async def verify_command(client, message):
 async def unverify_command(client, message):
     try:
         chatID = message.chat.id
-
-        # Check if the chat is already verified
+        
         if not await db.is_chat_verified(chatID):
             await message.reply_text("This chat is not verified.")
             return
