@@ -206,7 +206,7 @@ class Database:
          user_data = await self.get_user(user_id)
          if user_data:
             return user_data.get("has_free_trial", False)
-        return False
+         return False
 
     async def give_free_trial(self, user_id):  
     # Check if the user already has a free trial
