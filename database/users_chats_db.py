@@ -1,4 +1,3 @@
-# https://github.com/odysseusmax/animated-lamp/blob/master/bot/database/database.py
 import motor.motor_asyncio
 from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, IS_TUTORIAL
 import datetime
@@ -170,8 +169,6 @@ class Database:
     async def get_user(self, user_id):
         user_data = await self.users.find_one({"id": user_id})
         return user_data
-    async def update_user(self, user_data):
-        await self.users.update_one({"id": user_data["id"]}, {"$set": user_data}, upsert=True)
 
     async def has_premium_access(self, user_id):
         user_data = await self.get_user(user_id)
@@ -205,10 +202,21 @@ class Database:
                 expired_users.append(user)
         return expired_users
 
+    async def get_free_trial_status(self, user_id):
+        user_data = await self.get_user(user_id)
+        if user_data:
+            return user_data.get("has_free_trial", False)
+        return False
+
+    async def give_free_trial(self, user_id):  # Corrected function name and parameter name
+        seconds = 5 * 60         
+        expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
+        user_data = {"id": user_id, "expiry_time": expiry_time, "has_free_trial": True}
+        await self.update_user(user_data)
+
     async def remove_premium_access(self, user_id):
         return await self.update_one(
             {"id": user_id}, {"$set": {"expiry_time": None}}
         )
-
 
 db = Database(DATABASE_URI, DATABASE_NAME)
