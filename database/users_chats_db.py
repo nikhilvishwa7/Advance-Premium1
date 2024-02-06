@@ -203,16 +203,22 @@ class Database:
         return expired_users
 
     async def get_free_trial_status(self, user_id):
-        user_data = await self.get_user(user_id)
-        if user_data:
+         user_data = await self.get_user(user_id)
+         if user_data:
             return user_data.get("has_free_trial", False)
         return False
 
-    async def give_free_trial(self, user_id):  # Corrected function name and parameter name
-        seconds = 5 * 60         
-        expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
-        user_data = {"id": user_id, "expiry_time": expiry_time, "has_free_trial": True}
-        await self.update_user(user_data)
+    async def give_free_trial(self, user_id):  
+    # Check if the user already has a free trial
+        free_trial_status = await self.get_free_trial_status(user_id)
+        if not free_trial_status:
+        # User doesn't have an active free trial, so grant one
+            seconds = 5 * 60         
+            expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
+            user_data = {"id": user_id, "expiry_time": expiry_time, "has_free_trial": True}
+            await self.update_user(user_data)
+        else:
+            print("User already has an active free trial.")
 
     async def remove_premium_access(self, user_id):
         return await self.update_one(
