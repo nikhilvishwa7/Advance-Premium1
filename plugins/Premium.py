@@ -50,9 +50,13 @@ async def myplan(client, message):
         time_left_str = f"{days} days, {hours} hours, {minutes} minutes"
         await message.reply_text(f"<b><u>ʏᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴ ɪꜱ ᴀᴄᴛɪᴠᴇ. ✅</u>\n\n👤 ʏᴏᴜʀ ɴᴀᴍᴇ : {user}\n\n❗ ᴜꜱᴇʀ ɪᴅ : <code>{user_id}</code>\n\n⏰ ᴛɪᴍᴇ ʟᴇꜰᴛ : <code>{time_left_str}</code>\n\n⌛️ ᴇxᴘɪʀʏ: <code>{expiry_str_in_ist}</code>.</b>")   
     else:
+	m = await message.reply_sticker("CAACAgIAAxkBAAIBTGVjQbHuhOiboQsDm35brLGyLQ28AAJ-GgACglXYSXgCrotQHjibHgQ")
         await message.reply_text(f"**ʜᴀʏ {user}.., 👋\n\nʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴀɴʏ ᴀᴄᴛɪᴠᴇ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴꜱ, ɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴛᴀᴋᴇ ᴘʀᴇᴍɪᴜᴍ ᴛʜᴇɴ\nᴄʟɪᴄᴋ ᴏɴ /plan ᴛᴏ ᴋɴᴏᴡ ᴀʙᴏᴜᴛ ᴛʜᴇ ᴘʟᴀɴ**",   
-         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("✨ ʙᴜʏ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ : ʀᴇᴍᴏᴠᴇ ᴀᴅꜱ ✨", callback_data='plans')]])
-    )
+             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("✨ ʙᴜʏ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ : ʀᴇᴍᴏᴠᴇ ᴀᴅꜱ ✨", callback_data='plans')],[InlineKeyboardButton("⚠️ ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ ⚠️", callback_data="close_data")]])
+        )
+        await asyncio.sleep(2)
+        await m.delete()
+
 
 @Client.on_message(filters.command("get_premium") & filters.user(ADMINS))
 async def get_premium(client, message):
@@ -140,6 +144,63 @@ async def premium_user(client, message):
         await message.reply_document('usersplan.txt', caption="Paid Users:")
 
 
+@Client.on_message(filters.command("addpremium") & filters.user(ADMINS))
+async def give_premium_cmd_handler(client, message):
+    if len(message.command) == 2:
+        user_id = int(message.command[1])
+        
+        keyboard = [
+            [
+                InlineKeyboardButton("1 Week", callback_data=f"add_premium_{user_id}_1w"),
+                InlineKeyboardButton("1 Month", callback_data=f"add_premium_{user_id}_1m"),
+                InlineKeyboardButton("3 Months", callback_data=f"add_premium_{user_id}_3m")
+            ]
+        ]
+        
+        reply_markup = InlineKeyboardMarkup(keyboard)
+        
+        await message.reply_text("Choose the premium duration:", reply_markup=reply_markup)
+    else:
+        await message.reply_text("Invalid command. Please provide user id only.")
+
+# Handle button clicks
+@Client.on_callback_query(filters.regex(r'^add_premium_(\d+)_(\d+[wm])$'))
+async def handle_add_premium_button(client, callback_query):
+    user_id = int(callback_query.matches[0].group(1))
+    duration = callback_query.matches[0].group(2)
+    
+    time_delta = None
+    if duration.endswith("w"):
+        weeks = int(duration[:-1])
+        time_delta = datetime.timedelta(weeks=weeks)
+    elif duration.endswith("m"):
+        months = int(duration[:-1])
+        time_delta = datetime.timedelta(days=30*months)
+    
+    if time_delta:
+        expiry_time = datetime.datetime.now() + time_delta
+        user_data = {"id": user_id, "expiry_time": expiry_time}  
+        await db.update_user(user_data)
+        
+        # Send confirmation messages
+        user = await client.get_users(user_id)
+        current_time = datetime.datetime.now(pytz.timezone("Asia/Kolkata")).strftime("%d-%m-%Y  ⏰: %I:%M:%S %p")
+        expiry_str_in_ist = expiry_time.astimezone(pytz.timezone("Asia/Kolkata")).strftime("%d-%m-%Y  ⏰: %I:%M:%S %p")
+        
+        await callback_query.message.edit_text(f"<u>Premium access added to the user ✅</u>\n\n<b>👤 User: {user.mention}\n\n⏰ Premium access time: <code>{duration}</code>\n\n🔐 Joining time: <code>{current_time}</code>\n\n⌛️ Expiry: <code>{expiry_str_in_ist}</code>.</b>", disable_web_page_preview=True)
+        
+        await client.send_message(
+            chat_id=user_id,
+            text=f"Hey {user.mention}\n\n<u>Your Premium subscription is now active. Start enjoying all the benefits! 🎉</u>\n\n<b>⏰ Premium access time: <code>{duration}</code>\n\n🔐 Joining time: <code>{current_time}</code>\n\n⌛️ Expiry: <code>{expiry_str_in_ist}</code></b>", 
+            disable_web_page_preview=True              
+        )    
+        await client.send_message(
+            PREMIUM_LOGS, 
+            text=f"<b>#added_Premium\n\n👤 User: {user.mention}\n\n⏰ Premium access time: <code>{duration}</code>\n\n🔐 Joining time: <code>{current_time}</code>\n\n⌛️ Expiry: <code>{expiry_str_in_ist}</code></b>", 
+            disable_web_page_preview=True
+        )
+    else:
+        await callback_query.answer("Invalid duration format.")
 
 @Client.on_message(filters.command('plan') & filters.incoming)
 async def plan(client, message):
