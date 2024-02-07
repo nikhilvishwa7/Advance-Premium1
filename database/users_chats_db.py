@@ -225,4 +225,12 @@ class Database:
             {"id": user_id}, {"$set": {"expiry_time": None}}
         )
 
+    async def get_points(self, user_id):
+        user_data = await self.users.find_one({"id": user_id})
+        return user_data.get('rfrpoint')
+        
+    async def get_points(self, user_id):
+        user_data = await self.users.find_one({"id": user_id})
+        return user_data.get('rfrpoint') if user_data else 0
+
 db = Database(DATABASE_URI, DATABASE_NAME)
