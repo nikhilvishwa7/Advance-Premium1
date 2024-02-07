@@ -7,6 +7,13 @@ class script(object):
 
 ɪᴛ ɪs ᴇᴀsʏ ᴛᴏ ᴜsᴇ ᴍᴇ, ᴊᴜsᴛ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴍᴀᴋᴇ ᴍᴇ ᴀs ᴀᴅᴍɪɴ</a></b>"""
 
+    REFERLNK_TXT = """
+<b>Hᴇʀᴇ ɪꜱ ʏᴏᴜʀ ʀᴇғғᴇʀᴀʟ ʟɪɴᴋ:</b>
+
+{}
+
+<u>Share this link with your friends, Each time they join, You will get 10 refferal points and after 100 points you will get 1 month premium subscription.</u>"""
+
     OWNER_INFO = """
 <b>💵 ɪ ʀᴇǫᴜᴇsᴛᴇᴅ ᴛᴏ ʏᴏᴜ 💸
 
