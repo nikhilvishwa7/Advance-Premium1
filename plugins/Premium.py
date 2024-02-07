@@ -215,3 +215,24 @@ async def plan(client, message):
         InlineKeyboardButton("📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ", user_id=int(6133992240))],[InlineKeyboardButton("❌ ᴄʟᴏsᴇ ❌", callback_data="close_data")
     ]]
     await message.reply_photo(photo="https://graph.org/file/e67318b9ea28c7b9dcb69.jpg", caption=script.PREMIUM_TEXT.format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(btn))
+
+@Client.on_message(filters.command('refer') & filters.incoming)
+async def refer(client, message):
+    user_id = message.from_user.id
+    referlink = f"https://telegram.me/{temp.U_NAME}?start=reff_{user_id}"
+    invite_share = f"https://telegram.me/share/url?url={referlink}&text=Hello! Experience a bot that offers a vast library of unlimited movies and series. 😃"
+    points = db.get_points(user_id) or 0  # Get points or default to 0 if None
+    buttons = [
+        [
+            InlineKeyboardButton('Invite Link', url=invite_share),
+            InlineKeyboardButton(f'Total Points: {points}', callback_data='rfrpnts'),
+            InlineKeyboardButton('Back', callback_data='start')
+        ]
+    ]
+    keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
+    txt = script.REFERLNK_TXT
+    await message.reply_text(
+        text=txt.format(referlink),
+        reply_markup=keyboard,
+        parse_mode=enums.ParseMode.HTML
+    )
