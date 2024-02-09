@@ -363,6 +363,7 @@ async def start(client, message):
         return    
         
     elif data.startswith("files"):
+        chat_id = None 
         current_time = datetime.now(pytz.timezone(TIMEZONE))
         curr_time = current_time.hour        
         if curr_time < 12:
