@@ -362,7 +362,6 @@ async def start(client, message):
         return    
         
     elif data.startswith("files"):
-        chat_id = None 
         current_time = datetime.now(pytz.timezone(TIMEZONE))
         curr_time = current_time.hour        
         if curr_time < 12:
@@ -1221,7 +1220,8 @@ async def verify_command(client, message):
 async def unverify_command(client, message):
     try:
         chatID = message.chat.id
-        
+
+        # Check if the chat is already verified
         if not await db.is_chat_verified(chatID):
             await message.reply_text("This chat is not verified.")
             return
