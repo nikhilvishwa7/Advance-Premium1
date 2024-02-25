@@ -96,9 +96,8 @@ async def give_filter(client, message):
             try:
                 member = await client.get_chat_member(f_sub, user_id)
                 manual = await manual_filters(client, message)
-                if not manual:
-                    if settings.get('auto_ffilter', False):
-                        await auto_filter(client, message)
+                if not manual and settings.get('auto_ffilter', False):
+                    await auto_filter(client, message)
                 
             except UserNotParticipant:
                 f_link = await client.export_chat_invite_link(f_sub)
@@ -114,21 +113,20 @@ async def give_filter(client, message):
                 return False
         else:
             if is_verified:
-                member = await client.get_chat_member(f_sub, user_id)
                 manual = await manual_filters(client, message)
                 if not manual:
                     try:
-                        settings = await get_settings(chat_id)
                         if settings.get('auto_ffilter', False):
-                           
                             await auto_filter(client, message)
                     except KeyError:
                         grpid = await active_connection(str(message.from_user.id))
                         await save_group_settings(grpid, 'auto_ffilter', True)
-                        settings = await get_settings(chat_id)
                         if settings.get('auto_ffilter', False):
                             await auto_filter(client, message)
-           
+
+            if f_sub is None and settings.get('auto_ffilter', False):
+                await auto_filter(client, message)
+
     except Exception as e:
         logger.error(f"Error in processing message: {e}")
 
