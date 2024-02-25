@@ -109,6 +109,9 @@ async def give_filter(client, message):
                 await asyncio.sleep(60)
                 await mks.delete()
                 return False
+            else:
+                # After user joins the channel, set f_sub in settings
+                await save_group_settings(chat_id, 'f_sub', f_sub)
         else:
             if is_verified:
                 manual = await manual_filters(client, message)
@@ -127,6 +130,7 @@ async def give_filter(client, message):
                 await client.send_message(message.chat.id, "<u>⁉️ 𝐍𝐨𝐭𝐢𝐜𝐞 𝐀𝐥𝐞𝐫𝐭 </u> \n\n<b>⚜️ ᴛʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ ʏᴇᴛ. ɪꜰ ʏᴏᴜ ᴀʀᴇ ᴀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀ ᴏʀ ᴀᴅᴍɪɴ, ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ /verify ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ʀᴇQᴜᴇꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ...</b>")
     except Exception as e:
         logger.error(f"Error in processing message: {e}")
+
 
 @Client.on_callback_query(filters.regex(r"checkuser"))
 async def check_user(client, query):
