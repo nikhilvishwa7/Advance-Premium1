@@ -99,7 +99,7 @@ async def give_filter(client, message):
                 f_link = await client.export_chat_invite_link(f_sub)
                 mks = await message.reply(
                     f"<b> ⚠️ ᴅᴇᴀʀ {message.from_user.mention} ❗ \n\n ᴛᴏ ꜱᴇɴᴅ ᴍᴇꜱꜱᴀɢᴇꜱ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ, ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ.</b>",
-                    reply_markup=types.InlineKeyboardMarkup([
+                    reply_markup=InlineKeyboardMarkup([
                         [InlineKeyboardButton("ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=f_link)],
                         [InlineKeyboardButton("ᴛʀʏ ᴀɢᴀɪɴ ↺", callback_data='checkuser')]
                     ])
