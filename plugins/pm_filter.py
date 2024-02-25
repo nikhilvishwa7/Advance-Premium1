@@ -92,14 +92,15 @@ async def give_filter(client, message):
         settings = await get_settings(chat_id)
         f_sub = settings.get('f_sub')
 
-        print("f_sub:", f_sub)  # Debug print
-
         if f_sub:
             try:
                 member = await client.get_chat_member(f_sub, user_id)
-                print("User is a member of f_sub channel")  # Debug print
+                manual = await manual_filters(client, message)
+                if not manual:
+                    if settings.get('auto_ffilter', False):
+                        await auto_filter(client, message)
+                
             except UserNotParticipant:
-                print("User is not a member of f_sub channel")  # Debug print
                 f_link = await client.export_chat_invite_link(f_sub)
                 mks = await message.reply(
                     f"<b> ⚠️ ᴅᴇᴀʀ {message.from_user.mention} ❗ \n\n ᴛᴏ ꜱᴇɴᴅ ᴍᴇꜱꜱᴀɢᴇꜱ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ, ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ.</b>",
@@ -113,22 +114,21 @@ async def give_filter(client, message):
                 return False
         else:
             if is_verified:
+                member = await client.get_chat_member(f_sub, user_id)
                 manual = await manual_filters(client, message)
                 if not manual:
                     try:
                         settings = await get_settings(chat_id)
                         if settings.get('auto_ffilter', False):
-                            print("Running auto_filter")  # Debug print
+                           
                             await auto_filter(client, message)
                     except KeyError:
                         grpid = await active_connection(str(message.from_user.id))
                         await save_group_settings(grpid, 'auto_ffilter', True)
                         settings = await get_settings(chat_id)
                         if settings.get('auto_ffilter', False):
-                            print("Running auto_filter")  # Debug print
                             await auto_filter(client, message)
-            else:
-                await client.send_message(message.chat.id, "<u>⁉️ 𝐍𝐨𝐭𝐢𝐜𝐞 𝐀𝐥𝐞𝐫𝐭 </u> \n\n<b>⚜️ ᴛʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ ʏᴇᴛ. ɪꜰ ʏᴏᴜ ᴀʀᴇ ᴀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀ ᴏʀ ᴀᴅᴍɪɴ, ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ /verify ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ʀᴇQᴜᴇꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ...</b>")
+           
     except Exception as e:
         logger.error(f"Error in processing message: {e}")
 
