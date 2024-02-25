@@ -98,9 +98,9 @@ async def fsub_info_cmd(bot, message):
     else:
         try:
             # Get information about the ForceSub channel
-            chat_info = await client.get_chat(f_sub)
+            chat_info = await Client.get_chat(f_sub)
             chat_title = chat_info.title
-            chat_invite_link = await client.export_chat_invite_link(f_sub)
+            chat_invite_link = await Client.export_chat_invite_link(f_sub)
             
             await m.edit(
                 f"<b>ForceSub group ID associated with this chat: {f_sub}</b>\n"
