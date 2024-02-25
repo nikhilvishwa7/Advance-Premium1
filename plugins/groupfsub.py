@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.users_chats_db import db
-from utils import save_group_settings
+from utils import save_group_settings, get_settings
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from pyrogram import enums
@@ -67,3 +67,38 @@ async def remove_fsub_cmd(bot, message):
         await m.edit(f"<b>✅ Successfully removed ForceSub from [{title}]!</b>")
     except Exception as e:
         await m.edit(f"❌ Error: `{str(e)}`")
+
+
+@client.on_message(filters.group & filters.command("fsub_info"))
+async def fsub_info_cmd(bot, message):
+    m = await message.reply("Fetching ForceSub information...")
+
+    chat_type = message.chat.type
+
+    if chat_type == "private":
+        return await message.reply_text("<b>Use this command in your group.</b>")
+    elif chat_type not in ["group", "supergroup"]:
+        return await message.reply_text("<b>This command can only be used in groups.</b>")
+    
+    grpid = message.chat.id
+
+    settings = await get_settings(grpid)
+    f_sub = settings.get('f_sub')
+
+    if f_sub is None:
+        await m.edit("<b>No ForceSub group is associated with this chat.</b>")
+    else:
+        try:
+            # Get information about the ForceSub channel
+            chat_info = await client.get_chat(f_sub)
+            chat_title = chat_info.title
+            chat_invite_link = await client.export_chat_invite_link(f_sub)
+            
+            await m.edit(
+                f"<b>ForceSub group ID associated with this chat: {f_sub}</b>\n"
+                f"<b>Name:</b> {chat_title}\n"
+                f"<b>Invite Link:</b> {chat_invite_link}"
+            )
+        except Exception as e:
+            await m.edit(f"<b>Error fetching information: {str(e)}</b>")
+
