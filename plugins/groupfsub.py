@@ -63,7 +63,7 @@ async def remove_fsub_cmd(bot, message):
         await message.reply_text("<b>Only group owner can use this command 😂</b>")
         return
     try:
-        await save_group_settings(grpid, 'f_sub')
+        await save_group_settings(grpid, 'f_sub', None)
         await m.edit(f"<b>✅ Successfully removed ForceSub from [{title}]!</b>")
     except Exception as e:
         await m.edit(f"❌ Error: `{str(e)}`")
