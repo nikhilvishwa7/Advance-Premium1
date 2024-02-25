@@ -11,6 +11,8 @@ import string
 from datetime import datetime, timedelta, date, time
 lock = asyncio.Lock()
 
+from pyrogram.errors import UserNotParticipant, ChatAdminRequired, FloodWait
+from pyrogram.types import ChatPermissions
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
 import pyrogram
@@ -77,87 +79,65 @@ async def get_shortlink(url):
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
     try:
-        chatID = message.chat.id
-        crazy_chatID = await db.get_chat(int(chatID))
+        user_id = message.from_user.id if message.from_user else None
+        chat_id = message.chat.id
+        crazy_chatID = await db.get_chat(int(chat_id))
 
         is_verified = crazy_chatID.get('is_crazy_verified', False)
 
         if not is_verified:
+            await client.send_message(message.chat.id, "<u>⁉️ 𝐍𝐨𝐭𝐢𝐜𝐞 𝐀𝐥𝐞𝐫𝐭 </u> \n\n<b>⚜️ ᴛʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ ʏᴇᴛ. ɪꜰ ʏᴏᴜ ᴀʀᴇ ᴀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀ ᴏʀ ᴀᴅᴍɪɴ, ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ /verify ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ʀᴇQᴜᴇꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ...</b>")
+            return
 
-            current_time = datetime.now(timezone('UTC')).astimezone(timezone('Asia/Kolkata'))
-            formatted_time = current_time.strftime('%Y-%m-%d %H:%M:%S %Z')
-            
-            # Check the number of members in the group
-            chat_info = await client.get_chat(chatID)
-            member_count = chat_info.members_count
+        settings = await get_settings(chat_id)
+        f_sub = settings.get('f_sub')
 
-            if member_count >= 200:
-                # Automatically verify the chat
-                await db.verify_crazy_chat(chatID)
-                temp.CRAZY_VERIFIED_CHATS.append(chatID)
-
-                # Notify the group about verification
-                verification_text = ("<b><u> ᴠᴇʀɪꜰɪᴇᴅ ✅</u>\n\n ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ! 🎉 ᴛʜɪꜱ ɢʀᴏᴜᴘ ʜᴀꜱ ʙᴇᴇɴ "
-                                     "ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ. \n\n ʏᴏᴜ ᴄᴀɴ ɴᴏᴡ ᴇɴᴊᴏʏ ᴛʜᴇ ꜰᴜʟʟ ʀᴀɴɢᴇ ᴏꜰ ꜰᴇᴀᴛᴜʀᴇꜱ "
-                                     "ᴘʀᴏᴠɪᴅᴇᴅ ʙʏ ᴛʜᴇ ʙᴏᴛ. ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ Qᴜᴇꜱᴛɪᴏɴꜱ ᴏʀ ɴᴇᴇᴅ ᴀꜱꜱɪꜱᴛᴀɴᴄᴇ, ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ. 😊</b>")
-
-                # Generate chat invite link
-                invite_link = await client.export_chat_invite_link(chatID)
-
-                # Display buttons for further actions
-                btn = [
-                    [InlineKeyboardButton("ᴅɪꜱᴀʙʟᴇ ᴄʜᴀᴛ ❌", callback_data=f"bangrpchat:{chatID}")],
-                    [InlineKeyboardButton("ᴄʜᴀᴛ ɪɴᴠɪᴛᴇ ʟɪɴᴋ 🌐", url=invite_link)]
-                ]
-
-                reply_markup = InlineKeyboardMarkup(btn)
-
-                await client.send_message(chatID, text=verification_text, reply_markup=reply_markup)
-
-                # Notify the logs group about verification
-                await client.send_message(GROUP_LOGS,
-                                          text=("<b>#ᴠᴇʀɪꜰɪᴇᴅ\n\n<u> ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴠᴇʀɪꜰɪᴇᴅ 🔁</u> \n\n ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇQᴜᴇꜱᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴀᴄᴄᴇᴘᴛᴇᴅ ✅\n\n"
-                                                "🏷️ ɢʀᴏᴜᴘ / ᴄʜᴀᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ \n\n ☎️ ᴄʜᴀᴛ ɪᴅ - <code>{chatID}</code>\n\n🕵️ ᴛᴏᴛᴀʟ ᴍᴇʙᴇʀꜱ - <code>{member_count}</code>\n\n⏰ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴛɪᴍᴇ - <code>{formatted_time}</code></b>"),
-                                          reply_markup=reply_markup)
-
-                return
-
-        if is_verified:
-            # Your existing logic for verified chats
-            if message.chat.id != SUPPORT_CHAT_ID:
+        if f_sub:
+            try:
+                member = await client.get_chat_member(f_sub, user_id)
+            except UserNotParticipant:
+                f_link = await client.export_chat_invite_link(f_sub)
+                mks = await message.reply(
+                    f"<b> ⚠️ ᴅᴇᴀʀ {message.from_user.mention} ❗ \n\n ᴛᴏ ꜱᴇɴᴅ ᴍᴇꜱꜱᴀɢᴇꜱ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ, ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ.</b>",
+                    reply_markup=types.InlineKeyboardMarkup([
+                        [types.InlineKeyboardButton("ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=f_link)],
+                        [types.InlineKeyboardButton("ᴛʀʏ ᴀɢᴀɪɴ ↺", callback_data='checkuser')]
+                    ])
+                )
+                await asyncio.sleep(60)
+                await mks.delete()
+                return False
+        else:
+            if is_verified:
                 manual = await manual_filters(client, message)
-
                 if not manual:
                     try:
-                        # Your existing logic for verified chats
-                        settings = await get_settings(message.chat.id)
-
-                        try:
-                            if settings['auto_ffilter']:
-                                await auto_filter(client, message)
-                        except KeyError:
-                            grpid = await active_connection(str(message.from_user.id))
-                            await save_group_settings(grpid, 'auto_ffilter', True)
-                            settings = await get_settings(message.chat.id)
-
-                            if settings['auto_ffilter']:
-                                await auto_filter(client, message)
-                    except Exception as e:
-                        logger.error(f"Error in processing message: {e}")
-
+                        settings = await get_settings(chat_id)
+                        if settings.get('auto_ffilter', False):
+                            await auto_filter(client, message)
+                    except KeyError:
+                        grpid = await active_connection(str(message.from_user.id))
+                        await save_group_settings(grpid, 'auto_ffilter', True)
+                        settings = await get_settings(chat_id)
+                        if settings.get('auto_ffilter', False):
+                            await auto_filter(client, message)
             else:
-                # Your existing logic for verified chats
-                search = message.text
-                temp_files, temp_offset, total_results = await get_search_results(chat_id=message.chat.id, query=search.lower(), offset=0, filter=True)
-
-                if total_results != 0:
-                    await client.send_message(message.chat.id, f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. \n\nTʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\nJᴏɪɴ ᴀɴᴅ Sᴇᴀʀᴄʜ Hᴇʀᴇ - @TeamHMT_Movie</b>")
-        else:
-            await client.send_message(message.chat.id, "<u>⁉️ 𝐍𝐨𝐭𝐢𝐜𝐞 𝐀𝐥𝐞𝐫𝐭 </u> \n\n<b>⚜️ ᴛʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ ʏᴇᴛ. ɪꜰ ʏᴏᴜ ᴀʀᴇ ᴀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀ ᴏʀ ᴀᴅᴍɪɴ, ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ /verify ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ʀᴇQᴜᴇꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ...</b>")
-
+                await client.send_message(message.chat.id, "<u>⁉️ 𝐍𝐨𝐭𝐢𝐜𝐞 𝐀𝐥𝐞𝐫𝐭 </u> \n\n<b>⚜️ ᴛʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ ʏᴇᴛ. ɪꜰ ʏᴏᴜ ᴀʀᴇ ᴀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀ ᴏʀ ᴀᴅᴍɪɴ, ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ /verify ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ʀᴇQᴜᴇꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ...</b>")
     except Exception as e:
         logger.error(f"Error in processing message: {e}")
-
+        
+@Client.on_callback_query(filters.regex(r"checkuser"))
+async def check_user(client, query):
+    user_id = query.from_user.id if query.from_user else None
+    chat_id = query.message.chat.id
+    settings = await get_settings(chat_id)
+    f_sub = settings.get('f_sub')
+    try:
+        member = await client.get_chat_member(f_sub, user_id)
+    except UserNotParticipant:
+        await query.answer("I like your smartness..But don't be over smart 🤭", show_alert=True)
+    else:
+        await query.answer("send your request again 🤭", show_alert=True)
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
