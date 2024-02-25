@@ -100,8 +100,8 @@ async def give_filter(client, message):
                 mks = await message.reply(
                     f"<b> ⚠️ ᴅᴇᴀʀ {message.from_user.mention} ❗ \n\n ᴛᴏ ꜱᴇɴᴅ ᴍᴇꜱꜱᴀɢᴇꜱ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ, ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ.</b>",
                     reply_markup=types.InlineKeyboardMarkup([
-                        [types.InlineKeyboardButton("ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=f_link)],
-                        [types.InlineKeyboardButton("ᴛʀʏ ᴀɢᴀɪɴ ↺", callback_data='checkuser')]
+                        [InlineKeyboardButton("ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=f_link)],
+                        [InlineKeyboardButton("ᴛʀʏ ᴀɢᴀɪɴ ↺", callback_data='checkuser')]
                     ])
                 )
                 await asyncio.sleep(60)
