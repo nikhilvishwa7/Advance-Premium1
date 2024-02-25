@@ -92,6 +92,8 @@ async def give_filter(client, message):
         settings = await get_settings(chat_id)
         f_sub = settings.get('f_sub')
 
+        print("f_sub:", f_sub)  # Debug print
+
         if f_sub:
             try:
                 member = await client.get_chat_member(f_sub, user_id)
@@ -126,7 +128,6 @@ async def give_filter(client, message):
     except Exception as e:
         logger.error(f"Error in processing message: {e}")
 
-        
 @Client.on_callback_query(filters.regex(r"checkuser"))
 async def check_user(client, query):
     user_id = query.from_user.id if query.from_user else None
