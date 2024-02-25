@@ -74,13 +74,21 @@ async def fsub_info_cmd(bot, message):
     m = await message.reply("Fetching ForceSub information...")
 
     chat_type = message.chat.type
-
-    if chat_type == "private":
-        return await message.reply_text("<b>Use this command in your group.</b>")
-    elif chat_type not in ["group", "supergroup"]:
-        return await message.reply_text("<b>This command can only be used in groups.</b>")
     
-    grpid = message.chat.id
+    if chat_type == enums.ChatType.PRIVATE:
+        return await message.reply_text("<b>Use this command in your group.</b>")
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        grpid = message.chat.id
+        title = message.chat.title
+    else:
+        return
+    
+    userid = message.from_user.id
+    user = await bot.get_chat_member(grpid, userid)
+    
+    if user.status not in [enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER] and str(userid) not in ADMINS:
+        await m.edit("<b>Only the group owner can use this command.</b>")
+        return
 
     settings = await get_settings(grpid)
     f_sub = settings.get('f_sub')
@@ -101,4 +109,3 @@ async def fsub_info_cmd(bot, message):
             )
         except Exception as e:
             await m.edit(f"<b>Error fetching information: {str(e)}</b>")
-
