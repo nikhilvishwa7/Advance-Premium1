@@ -69,7 +69,7 @@ async def remove_fsub_cmd(bot, message):
         await m.edit(f"❌ Error: `{str(e)}`")
 
 
-@client.on_message(filters.group & filters.command("fsub_info"))
+@Client.on_message(filters.group & filters.command("fsub_info"))
 async def fsub_info_cmd(bot, message):
     m = await message.reply("Fetching ForceSub information...")
 
