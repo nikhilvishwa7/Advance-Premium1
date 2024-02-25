@@ -31,7 +31,7 @@ async def f_sub_cmd(bot, message):
     try:
         f_sub = int(message.command[1])
     except (IndexError, ValueError):
-        return await m.edit("❌ Incorrect format!\nUse `/fsub ChannelID`")
+        return await m.edit("<b>❌ Incorrect format!\nUse `/fsub ChannelID`</b>")
 
     try:
         c_link = await bot.export_chat_invite_link(grpid)
@@ -40,5 +40,36 @@ async def f_sub_cmd(bot, message):
         return await m.edit(text)
 
     await save_group_settings(grpid, 'f_sub', f_sub)
+    await m.edit(f"<b>✅ Successfully Attached ForceSub to [{title}]({c_link})!</b>", disable_web_page_preview=True)
+
+@Client.on_message(filters.command("on_fsub"))
+async def on_fsub_cmd(bot, message):
+    chat_type = message.chat.type
+    if chat_type != enums.ChatType.GROUP and chat_type != enums.ChatType.SUPERGROUP:
+        return await message.reply_text("Please use this command in your group.")
+
+    grpid = message.chat.id
+    userid = message.from_user.id
+    user = await bot.get_chat_member(grpid, userid)
     
-    await m.edit(f"✅ Successfully Attached ForceSub to [{title}]({c_link})!", disable_web_page_preview=True)
+    if user.status not in [enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER] and str(userid) not in ADMINS:
+        return await message.reply_text("Only group owners can use this command.")
+
+    await save_group_settings(grpid, 'f_sub', True)
+    return await message.reply_text("Successfully enabled ForceSub.")
+
+@Client.on_message(filters.command("off_fsub"))
+async def off_fsub_cmd(bot, message):
+    chat_type = message.chat.type
+    if chat_type != enums.ChatType.GROUP and chat_type != enums.ChatType.SUPERGROUP:
+        return await message.reply_text("Please use this command in your group.")
+
+    grpid = message.chat.id
+    userid = message.from_user.id
+    user = await bot.get_chat_member(grpid, userid)
+    
+    if user.status not in [enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER] and str(userid) not in ADMINS:
+        return await message.reply_text("Only group owners can use this command.")
+
+    await save_group_settings(grpid, 'f_sub', False)
+    return await message.reply_text("Successfully disabled ForceSub.")
