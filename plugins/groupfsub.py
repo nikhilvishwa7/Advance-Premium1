@@ -62,9 +62,8 @@ async def remove_fsub_cmd(bot, message):
     if user.status not in [enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER] and str(userid) not in ADMINS:
         await message.reply_text("<b>Only group owner can use this command 😂</b>")
         return
-
     try:
-        await save_group_settings(grpid, 'f_sub', None)
+        await save_group_settings(grpid, 'f_sub')
         await m.edit(f"<b>✅ Successfully removed ForceSub from [{title}]!</b>")
     except Exception as e:
         await m.edit(f"❌ Error: `{str(e)}`")
