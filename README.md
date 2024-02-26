@@ -69,7 +69,22 @@
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-
+## Cᴏᴍᴍᴀɴᴅs
+```
+alive - ᴄʜᴇᴄᴋ ɪ ᴀᴍ ᴀʟɪᴠᴇ ᴏʀ ɴᴏᴛ.
+set_shortner - ᴛᴏ ꜱᴇᴛ ꜱʜᴏʀᴛɴᴇʀ ᴀɴᴅ ᴀᴘɪ.
+set_tutorial - ᴛᴏ ꜱᴇᴛ ᴛᴜᴛᴏʀɪᴀʟ ᴠɪᴅᴇᴏ ʟɪɴᴋ.
+remove_tutorial - ᴛᴏ ʀᴇᴍᴏᴠᴇ ᴛᴜᴛᴏʀɪᴀʟ ᴠɪᴅᴇᴏ ʟɪɴᴋ.
+set_fsub - ᴛᴏ ꜱᴇᴛ ꜰᴏʀᴄᴇ ꜱᴜʙ ᴄʜᴀɴɴᴇʟ.
+remove_fsub - ᴛᴏ ʀᴇᴍᴏᴠᴇ ᴛᴜᴛᴏʀɪᴀʟ ᴠɪᴅᴇᴏ ʟɪɴᴋ.
+ginfo - ᴛᴏ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴅᴇᴛᴀɪʟꜱ.
+myplan - ᴛᴏ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ ᴅᴇᴛᴀɪʟꜱ.
+plans - ᴛᴏ ᴄʜᴇᴄᴋ ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴꜱ.
+connections - ᴀʟʟ ɢʀᴏᴜᴘ ᴄᴏɴɴᴇᴄᴛɪᴏɴꜱ.
+settings - ᴄʜᴀɴɢᴇ ɢʀᴏᴜᴘ ꜱᴇᴛᴛɪɴɢꜱ.
+deletefiles - ᴏɴʟʏ ꜰᴏʀ ʙᴏᴛ ᴏᴡɴᴇʀ
+broadcaste - ᴏɴʟʏ ꜰᴏʀ ʙᴏᴛ ᴏᴡɴᴇʀ.
+```
 
 ## Support & Updates 
 <a href="https://t.me/Crazybotz"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/Crazybotz"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
