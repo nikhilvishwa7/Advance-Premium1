@@ -9,10 +9,7 @@ from info import ADMINS
 
 @Client.on_message(filters.group & filters.command("set_fsub"))
 async def f_sub_cmd(bot, message):
-    m = await message.reply("<b>Please Wait...</b>")
-
     chat_type = message.chat.type
-    
     if chat_type == enums.ChatType.PRIVATE:
         return await message.reply_text("<b>ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ᴡᴏʀᴋ ᴏɴʟʏ ɪɴ ɢʀᴏᴜᴘ, ᴛʀʏ ɪᴛ ɪɴ ʏᴏᴜʀ ᴏᴡɴ ɢʀᴏᴜᴘ.</b>")
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -44,10 +41,7 @@ async def f_sub_cmd(bot, message):
 
 @Client.on_message(filters.group & filters.command("remove_fsub"))
 async def remove_fsub_cmd(bot, message):
-    m = await message.reply("<b>Please Wait...</b>")
-
     chat_type = message.chat.type
-    
     if chat_type == enums.ChatType.PRIVATE:
         return await message.reply_text("<b>ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ᴡᴏʀᴋ ᴏɴʟʏ ɪɴ ɢʀᴏᴜᴘ, ᴛʀʏ ɪᴛ ɪɴ ʏᴏᴜʀ ᴏᴡɴ ɢʀᴏᴜᴘ.</b>")
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
