@@ -31,7 +31,7 @@ async def setfsub(bot, message):
     try:
         f_sub = int(message.command[1])
     except (IndexError, ValueError):
-        return await message.reply_text("<b>❌ Incorrect format!\nUse `/fsub ChannelID`</b>")
+        return await message.reply_text("<b>ᴄᴏᴍᴍᴀɴᴅ ɪɴᴄᴏᴍᴘʟᴇᴛᴇ\n\nᴜsᴇ ʟɪᴋᴇ ᴛʜɪs -\n<code>/set_fsub -100xxxxxxxx</code></b>")
 
     try:
         c_link = await bot.export_chat_invite_link(grpid)
@@ -40,7 +40,7 @@ async def setfsub(bot, message):
         return await message.reply_text(text)
 
     await save_group_settings(grpid, 'f_sub', f_sub)
-    await message.reply_text(f"<b>✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴛᴛᴀᴄʜᴇᴅ ꜰᴏʀᴄᴇꜱᴜʙ ᴛᴏ [{title}]({c_link})!\n\n➥ ꜰᴏʀᴄᴇꜱᴜʙ ᴄʜᴀɴɴᴇʟ ☞  <code>{f_sub}</code></b>", disable_web_page_preview=True)
+    await message.reply_text(f"<b>✅ sᴜᴄᴄᴇssꜰᴜʟʟʏ sᴇᴛ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ꜰᴏʀ [{title}]({c_link})!\n\nꜰᴏʀᴄᴇꜱᴜʙ ɪᴅ <code>{f_sub}</code></b>", disable_web_page_preview=True)
 
 
 @Client.on_message(filters.command("remove_fsub"))
@@ -64,4 +64,4 @@ async def removetufsb(bot, message):
         pass
     reply = await message.reply_text("<b>Please Wait...</b>")
     await save_group_settings(grpid, 'f_sub', None)
-    await reply.edit_text(f"<b>✧ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ʏᴏᴜʀ ꜰᴏʀᴄᴇꜱᴜʙ ᴄʜᴀɴɴᴇʟ !!!</b>")
+    await reply.edit_text(f"<b>✅ sᴜᴄᴄᴇssꜰᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ꜰᴏʀᴄᴇ ꜱᴜʙ ᴄʜᴀɴɴᴇʟ.</b>")
