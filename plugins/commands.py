@@ -297,7 +297,7 @@ async def start(client, message):
                     f"<b> ⚠️ ᴅᴇᴀʀ {message.from_user.mention} ❗ \n\n 🙁 ꜰɪʀꜱᴛ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴛʜᴇɴ ʏᴏᴜ ᴡɪʟʟ ɢᴇᴛ ᴍᴏᴠɪᴇ, ᴏᴛʜᴇʀᴡɪꜱᴇ ʏᴏᴜ ᴡɪʟʟ ɴᴏᴛ ɢᴇᴛ ɪᴛ.\n\nᴄʟɪᴄᴋ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʙᴜᴛᴛᴏɴ 👇</b>",
                      reply_markup=InlineKeyboardMarkup([
                         [InlineKeyboardButton("⛔ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ⛔", url=f_link)],
-                        [InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", callback_data='checkuser')]
+                        [InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", callback_data='{pre}#{file_id}')]
                     ])
                 )
                 await asyncio.sleep(60)
