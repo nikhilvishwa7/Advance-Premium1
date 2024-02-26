@@ -26,7 +26,7 @@ async def setfsub(bot, message):
     user = await bot.get_chat_member(grpid, userid)
     
     if user.status not in [enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER] and str(userid) not in ADMINS:
-        return
+        return await message.delete()
 
     try:
         f_sub = int(message.command[1])
@@ -59,7 +59,7 @@ async def removetufsb(bot, message):
     userid = message.from_user.id
     user = await bot.get_chat_member(grpid, userid)
     if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
-        return
+        return await message.delete()
     else:
         pass
     reply = await message.reply_text("<b>Please Wait...</b>")
