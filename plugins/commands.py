@@ -1076,46 +1076,6 @@ async def onshortlink(bot, message):
     # ENABLE_SHORTLINK = True
     return await message.reply_text("Successfully enabled shortlink")
 
-@Client.on_message(filters.command("ginfo"))
-async def ginfo(bot, message):
-    chat_type = message.chat.type
-    if chat_type == enums.ChatType.PRIVATE:
-        return await message.reply_text(f"<b>{message.from_user.mention},\n\nᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.</b>")
-    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        grpid = message.chat.id
-        title = message.chat.title
-    else:
-        return
-    chat_id=message.chat.id
-    userid = message.from_user.id
-    user = await bot.get_chat_member(grpid, userid)
-#     if 'shortlink' in settings.keys():
-#         su = settings['shortlink']
-#         sa = settings['shortlink_api']
-#     else:
-#         return await message.reply_text("<b>Shortener Url Not Connected\n\nYou can Connect Using /shortlink command</b>")
-#     if 'tutorial' in settings.keys():
-#         st = settings['tutorial']
-#     else:
-#         return await message.reply_text("<b>Tutorial Link Not Connected\n\nYou can Connect Using /set_tutorial command</b>")
-    if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
-        return await message.reply_text("<b>ᴏɴʟʏ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀ ᴏʀ ᴀᴅᴍɪɴ ᴄᴀɴ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ</b>")
-    else:
-        settings = await get_settings(chat_id) #fetching settings for group
-        if 'shortlink' in settings.keys() and 'tutorial' in settings.keys():
-            su = settings['shortlink']
-            sa = settings['shortlink_api']
-            st = settings['tutorial']
-            return await message.reply_text(f"<b>ᴄᴜʀʀᴇɴᴛ  ꜱᴛᴀᴛᴜꜱ   📊\n\nᴡᴇʙꜱɪᴛᴇ : <code>{su}</code>\n\nᴀᴘɪ : <code>{sa}</code>\n\nᴛᴜᴛᴏʀɪᴀʟ : {st}</b>", disable_web_page_preview=True)
-        elif 'shortlink' in settings.keys() and 'tutorial' not in settings.keys():
-            su = settings['shortlink']
-            sa = settings['shortlink_api']
-            return await message.reply_text(f"<b>ᴄᴜʀʀᴇɴᴛ  ꜱᴛᴀᴛᴜꜱ   📊\n\nᴡᴇʙꜱɪᴛᴇ : <code>{su}</code>\n\nᴀᴘɪ : <code>{sa}</code>\n\nᴜꜱᴇ /tutorial ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ꜱᴇᴛ ʏᴏᴜʀ ᴛᴜᴛᴏʀɪᴀʟ")
-        elif 'shortlink' not in settings.keys() and 'tutorial' in settings.keys():
-            st = settings['tutorial']
-            return await message.reply_text(f"<b>ᴛᴜᴛᴏʀɪᴀʟ : <code>{st}</code>\n\nᴜꜱᴇ  /shortlink  ᴄᴏᴍᴍᴀɴᴅ  ᴛᴏ  ᴄᴏɴɴᴇᴄᴛ  ʏᴏᴜʀ  ꜱʜᴏʀᴛɴᴇʀ</b>")
-        else:
-            return await message.reply_text("ꜱʜᴏʀᴛɴᴇʀ ᴀɴᴅ ᴛᴜᴛᴏʀɪᴀʟ ᴀʀᴇ ɴᴏᴛ ᴄᴏɴɴᴇᴄᴛᴇᴅ.\n\nᴄʜᴇᴄᴋ /set_tutorial  ᴀɴᴅ  /set_shortner  ᴄᴏᴍᴍᴀɴᴅ")
 
 @Client.on_message(filters.command("set_tutorial"))
 async def tutorial(bot, message):
@@ -1147,7 +1107,7 @@ async def tutorial(bot, message):
     await reply.edit_text(f"<b>📌 sᴜᴄᴄᴇssꜰᴜʟʏ ᴀᴅᴅᴇᴅ ᴛᴜᴛᴏʀɪᴀʟ 🎉\n\n<b>➥  ʏᴏᴜʀ ᴛᴜᴛᴏʀɪᴀʟ ʟɪɴᴋ ꜰᴏʀ {title} ɪs \n\n☞  <code>{tutorial}</code>\n\n📌 ʙʏ :  <a href=https://telegram.me/BotszList>ᴄʀᴀᴢʏ ʙᴏᴛᴢ</a></b>", disable_web_page_preview=True)
 
 
-@Client.on_message(filters.command("my_ginfo"))
+@Client.on_message(filters.command("ginfo"))
 async def myginfo(bot, message):
     chat_type = message.chat.type
     if chat_type == enums.ChatType.PRIVATE:
@@ -1170,20 +1130,27 @@ async def myginfo(bot, message):
     shortlink_api = settings.get("shortlink_api", "❌")
     imdb_template = settings.get("template", "❌")
     tutorial_link = settings.get("tutorial", "❌")
-    force_channels = ", ".join(settings["f_sub"]) if settings.get("fsub") else "Not Set"
+    force_channels = settings.get("f_sub", "❌")
+    
+    text = f"""<b><s>ᴄᴜʀʀᴇɴᴛ ᴠᴀʟᴜᴇꜱ ꜰᴏʀ : {title}</s>
 
-    text = f"""Custom settings for: {title}
+🔐 ꜱʜᴏʀᴛɴᴇʀ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ
 
-Shortlink URL: {shortlink}
-Shortlink API: {shortlink_api}
-IMDb Template: {imdb_template}
-Tutorial Link: {tutorial_link}
-Force Channels: {force_channels}"""
+ᴡᴇʙꜱɪᴛᴇ - <code>{shortlink}</code>
+ᴀᴘɪ - <code>{shortlink_api}</code>
+
+⛔ ᴛᴜᴛᴏʀɪᴀʟ ʟɪɴᴋ -\n<code>{tutorial_link}</code>
+
+🎯 ɪᴍᴅʙ ᴛᴇᴍᴘʟᴀᴛᴇ -\n<code>{imdb_template}</code>
+
+🌀 ꜰꜱᴜʙ ᴄʜᴀɴɴᴇʟ ɪᴅ - <code>{force_channels}</code></b>"""
 
     btn = [[
-        InlineKeyboardButton(text="Close", callback_data="close_data")
+        InlineKeyboardButton(text="ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️", callback_data="close_data")
     ]]
-    await message.reply_text(text, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
+    kp = await message.reply_text(text, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
+    await asyncio.sleep(60)
+    await kp.delete()
 
 @Client.on_message(filters.command("remove_tutorial"))
 async def removetutorial(bot, message):
