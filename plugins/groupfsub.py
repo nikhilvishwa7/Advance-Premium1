@@ -63,3 +63,26 @@ async def remove_fsub_cmd(bot, message):
         await m.edit(f"<b>✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ꜰᴏʀᴄᴇꜱᴜʙ ꜰʀᴏᴍ [{title}]!</b>")
     except Exception as e:
         await m.edit(f"❌ Error: `{str(e)}`")
+
+@Client.on_message(filters.command("re_fsub"))
+async def removetufsb(bot, message):
+    userid = message.from_user.id if message.from_user else None
+    if not userid:
+        return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
+    chat_type = message.chat.type
+    if chat_type == enums.ChatType.PRIVATE:
+        return await message.reply_text("This Command Work Only in group\n\nTry it in your own group")
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        grpid = message.chat.id
+        title = message.chat.title
+    else:
+        return
+    userid = message.from_user.id
+    user = await bot.get_chat_member(grpid, userid)
+    if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
+        return
+    else:
+        pass
+    reply = await message.reply_text("<b>Please Wait...</b>")
+    await save_group_settings(grpid, 'f_sub', None)
+    await reply.edit_text(f"<b>✧ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ʏᴏᴜʀ ꜰᴏʀᴄᴇꜱᴜʙ ᴄʜᴀɴɴᴇʟ !!!</b>")
