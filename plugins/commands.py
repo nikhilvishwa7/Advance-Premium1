@@ -1143,7 +1143,7 @@ async def myginfo(bot, message):
 
 🎯 ɪᴍᴅʙ ᴛᴇᴍᴘʟᴀᴛᴇ -\n<code>{imdb_template}</code>
 
-🌀 ꜰꜱᴜʙ ᴄʜᴀɴɴᴇʟ ɪᴅ - <code>{force_channels}</code></b>"""
+🌀 ꜰꜱᴜʙ ᴄʜᴀɴɴᴇʟ ɪᴅ <code>{force_channels}</code></b>"""
 
     btn = [[
         InlineKeyboardButton(text="ᴄʟᴏꜱᴇ / ᴅᴇʟᴇᴛᴇ 🗑️", callback_data="close_data")
