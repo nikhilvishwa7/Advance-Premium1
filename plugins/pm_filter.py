@@ -102,10 +102,10 @@ async def give_filter(client, message):
             except UserNotParticipant:
                 f_link = await client.export_chat_invite_link(f_sub)
                 mks = await message.reply(
-                    f"<b> ⚠️ ᴅᴇᴀʀ {message.from_user.mention} ❗ \n\n ᴛᴏ ꜱᴇɴᴅ ᴍᴇꜱꜱᴀɢᴇꜱ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ, ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ.</b>",
+                    f"<b> ⚠️ ᴅᴇᴀʀ {message.from_user.mention} ❗ \n\n 🙁 ꜰɪʀꜱᴛ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴛʜᴇɴ ʏᴏᴜ ᴡɪʟʟ ɢᴇᴛ ᴍᴏᴠɪᴇ, ᴏᴛʜᴇʀᴡɪꜱᴇ ʏᴏᴜ ᴡɪʟʟ ɴᴏᴛ ɢᴇᴛ ɪᴛ.\n\nᴄʟɪᴄᴋ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʙᴜᴛᴛᴏɴ 👇</b>",
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=f_link)],
-                        [InlineKeyboardButton("ᴛʀʏ ᴀɢᴀɪɴ ↺", callback_data='checkuser')]
+                        [InlineKeyboardButton("⛔ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ⛔", url=f_link)],
+                        [InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", callback_data='checkuser')]
                     ])
                 )
                 await asyncio.sleep(60)
