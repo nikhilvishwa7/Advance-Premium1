@@ -1147,6 +1147,44 @@ async def tutorial(bot, message):
     await reply.edit_text(f"<b>📌 sᴜᴄᴄᴇssꜰᴜʟʏ ᴀᴅᴅᴇᴅ ᴛᴜᴛᴏʀɪᴀʟ 🎉\n\n<b>➥  ʏᴏᴜʀ ᴛᴜᴛᴏʀɪᴀʟ ʟɪɴᴋ ꜰᴏʀ {title} ɪs \n\n☞  <code>{tutorial}</code>\n\n📌 ʙʏ :  <a href=https://telegram.me/BotszList>ᴄʀᴀᴢʏ ʙᴏᴛᴢ</a></b>", disable_web_page_preview=True)
 
 
+@Client.on_message(filters.command("my_ginfo"))
+async def myginfo(bot, message):
+    chat_type = message.chat.type
+    if chat_type == enums.ChatType.PRIVATE:
+        return await message.reply_text(f"<b>{message.from_user.mention},\n\nᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.</b>")
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        grpid = message.chat.id
+        title = message.chat.title
+    else:
+        return
+    
+    chat_id = message.chat.id
+    userid = message.from_user.id
+    user = await bot.get_chat_member(grpid, userid)
+    if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
+        return await message.delete()
+    else:
+        settings = await get_settings(chat_id)
+
+    shortlink = settings.get("shortlink", "❌")
+    shortlink_api = settings.get("shortlink_api", "❌")
+    imdb_template = settings.get("template", "❌")
+    tutorial_link = settings.get("tutorial", "❌")
+    force_channels = ", ".join(settings["f_sub"]) if settings.get("fsub") else "Not Set"
+
+    text = f"""Custom settings for: {title}
+
+Shortlink URL: {shortlink}
+Shortlink API: {shortlink_api}
+IMDb Template: {imdb_template}
+Tutorial Link: {tutorial_link}
+Force Channels: {force_channels}"""
+
+    btn = [[
+        InlineKeyboardButton(text="Close", callback_data="close_data")
+    ]]
+    await message.reply_text(text, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
+
 @Client.on_message(filters.command("remove_tutorial"))
 async def removetutorial(bot, message):
     userid = message.from_user.id if message.from_user else None
