@@ -86,7 +86,7 @@ async def give_filter(client, message):
         is_verified = crazy_chatID.get('is_crazy_verified', False)
 
         if not is_verified:
-            await client.send_message(message.chat.id, "<u>⁉️ 𝐍𝐨𝐭𝐢𝐜𝐞 𝐀𝐥𝐞𝐫𝐭 </u> \n\n<b>⚜️ ᴛʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ ʏᴇᴛ. ɪꜰ ʏᴏᴜ ᴀʀᴇ ᴀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀ ᴏʀ ᴀᴅᴍɪɴ, ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ /verify ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ʀᴇQᴜᴇꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ...</b>")
+            await client.send_message(message.chat.id, "<b>ᴛʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ ʏᴇᴛ, ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ /verify ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ʀᴇQᴜᴇꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ...</b>")
             return
 
         settings = await get_settings(chat_id)
@@ -139,9 +139,9 @@ async def check_user(client, query):
     try:
         member = await client.get_chat_member(f_sub, user_id)
     except UserNotParticipant:
-        await query.answer("I like your smartness..But don't be over smart 🤭", show_alert=True)
+        await query.answer("ɪ ʟɪᴋᴇ ʏᴏᴜʀ ꜱᴍᴀʀᴛɴᴇꜱꜱ..ʙᴜᴛ ᴅᴏɴ'ᴛ ʙᴇ ᴏᴠᴇʀ ꜱᴍᴀʀᴛ 🤭", show_alert=True)
     else:
-        await query.answer("send your request again 🤭", show_alert=True)
+        await query.answer("ꜱᴇɴᴅ ʏᴏᴜʀ ʀᴇQᴜᴇꜱᴛ ᴀɢᴀɪɴ 🤭", show_alert=True)
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
