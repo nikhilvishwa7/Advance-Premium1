@@ -15,7 +15,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '27499182'))
 API_HASH = environ.get('API_HASH', '9c58142ef6abed28808a50e3e983c39c')
-BOT_TOKEN = environ.get('BOT_TOKEN', "6082098208:AAHix2BdyFWd8KOB5ddEd_K9fjrZJdsPbRA")
+BOT_TOKEN = environ.get('BOT_TOKEN', "6751430132:AAHgx6KXL-KEuHora-VXYHPnLWGnI8OWPKY")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -30,11 +30,11 @@ SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5
 STICKERS = (environ.get('STICKERS', 'CAACAgUAAxkBAAIKqWP81BZ6YnpWEFoF_4JPR0EbjsO3AAIvBwACnMjpV9YvaONl41IBHgQ CAACAgUAAxkBAAIKrmP81GnWQ0d_BAZhre0dMc5SwJKOAAJ0DgACgr3gVwrjYuxSJxn7HgQ')).split()
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6249148586').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1150044195').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001956475641').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-PREMIUM_USER = [int(user) if id_pattern.search(user) else user for user in environ.get('PREMIUM_USER', '6249148586 5337117647 1805545955').split()]
+PREMIUM_USER = [int(user) if id_pattern.search(user) else user for user in environ.get('PREMIUM_USER', '1150044195 5337117647 1805545955').split()]
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 support_chat_id = environ.get('SUPPORT_CHAT_ID', '')
@@ -44,7 +44,7 @@ SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Shivam31:Shivam31@cluster0.zfvepdd.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://LifeTimeBot:LifeTimeBot@cluster0.eki1ksc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
@@ -60,7 +60,7 @@ IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 #Use this feature, if you have deployed file to link bot. paste the app url with stream url and add filter bot as admin in bin channel and add id in stream bin
 
 # add premium logs channel id
-PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1001876507111'))
+PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1002006503236'))
 
 # FSUB
 auth_channel = environ.get('AUTH_CHANNEL')
@@ -84,8 +84,8 @@ CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/Crazybotz')
 TUTORIAL = environ.get('TUTORIAL', 'https://t.me/jarrydow/2058')
 IS_TUTORIAL = bool(environ.get('IS_TUTORIAL', True))
 MSG_ALRT = environ.get('MSG_ALRT', '𝐬𝐡𝐚𝐫𝐞 𝐚𝐧𝐝 𝐬𝐮𝐩𝐩𝐨𝐫𝐭')
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001876507111'))
-GROUP_LOGS = int(environ.get('GROUP_LOGS', '-1001682549627'))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002006503236'))
+GROUP_LOGS = int(environ.get('GROUP_LOGS', '-1002006503236'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'crazysupportz')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
