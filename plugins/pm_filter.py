@@ -1718,7 +1718,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "shortlink_info":
             btn = [[
-                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://t.me/crazybotz/43')
+                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://t.me/OTTProvider')
                     ],[
                     InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
                     InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
