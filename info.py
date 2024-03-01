@@ -27,7 +27,7 @@ MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/f7f2a532fe4b9900
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
 
 # stickers
-STICKERS = (environ.get('STICKERS', 'CAACAgUAAxkBAAIKqWP81BZ6YnpWEFoF_4JPR0EbjsO3AAIvBwACnMjpV9YvaONl41IBHgQ CAACAgUAAxkBAAIKrmP81GnWQ0d_BAZhre0dMc5SwJKOAAJ0DgACgr3gVwrjYuxSJxn7HgQ')).split()
+STICKERS = (environ.get('STICKERS', 'CAACAgIAAxkBAAIBTGVjQbHuhOiboQsDm35brLGyLQ28AAJ-GgACglXYSXgCrotQHjibHgQ')).split()
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1150044195').split()]
@@ -54,10 +54,9 @@ STREAM_API = (environ.get('STREAM_API', '329ca4eb57d4ce6353446833e2c109f4503e793
 STREAM_HOW_DOWNLOAD = environ.get('STREAM_HOW_DOWNLOAD', 'https://t.me/jarrydow/2062')
 
 #stream feature - @TeamHMT_Bots
-STREAM_BIN = environ.get("STREAM_BIN", "-1001890815456") #Log channel/Bin Channel id -100xxxxxxx
-STREAM_URL = environ.get("STREAM_URL", "https://master-official-7054b073b7c5.herokuapp.com/") # https://example.com/ (Your Stream Url)
+STREAM_BIN = environ.get("STREAM_BIN", "") #Log channel/Bin Channel id -100xxxxxxx
+STREAM_URL = environ.get("STREAM_URL", "") # https://example.com/ (Your Stream Url)
 IS_STREAM = bool(STREAM_BIN and STREAM_URL)
-#Use this feature, if you have deployed file to link bot. paste the app url with stream url and add filter bot as admin in bin channel and add id in stream bin
 
 # add premium logs channel id
 PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1002006503236'))
@@ -79,14 +78,14 @@ DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in enviro
 MAX_B_TN = environ.get("MAX_B_TN", "7")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "False")), True)
 PORT = environ.get("PORT", "8080")
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/crazysupportz')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/Crazybotz')
-TUTORIAL = environ.get('TUTORIAL', 'https://t.me/jarrydow/2058')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/OTTProvider')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/OTTProvider')
+TUTORIAL = environ.get('TUTORIAL', 'https://t.me/OTTProvider')
 IS_TUTORIAL = bool(environ.get('IS_TUTORIAL', True))
 MSG_ALRT = environ.get('MSG_ALRT', '𝐬𝐡𝐚𝐫𝐞 𝐚𝐧𝐝 𝐬𝐮𝐩𝐩𝐨𝐫𝐭')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002006503236'))
 GROUP_LOGS = int(environ.get('GROUP_LOGS', '-1002006503236'))
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'crazysupportz')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'OTTProvider')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
