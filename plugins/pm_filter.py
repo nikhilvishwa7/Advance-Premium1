@@ -44,7 +44,7 @@ req_channel = int(os.environ.get('CRAZY_REQUEST','-1002006503236'))
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
-
+TIMEZONE = "Asia/Kolkata"
 BUTTON = {}
 BUTTONS = {}
 FRESH = {}
