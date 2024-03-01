@@ -1470,7 +1470,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "smrati":
         buttons = [[
-            InlineKeyboardButton('ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ', url="https://t.me/+NNHXv-RQ6LQ1MWE9")
+            InlineKeyboardButton('ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ', url="https://t.me/OTTProvider")
         ],[
             InlineKeyboardButton('ʀᴇᴘᴏʀᴛ ʙᴜɢs ᴀɴᴅ ꜰᴇᴇᴅʙᴀᴄᴋ', url="https://t.me/OTTProviderBackup")
         ],[
