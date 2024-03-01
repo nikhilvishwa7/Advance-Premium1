@@ -1371,13 +1371,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "plans":
         btn = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', user_id=int(2125935188))
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/OTTProviderBackup")
         ],[
             InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(btn)
-        await query.message.reply_text(
-            text=script.CPREMIUM_TEXT,
+        await query.message.reply_photo(
+            photo="https://telegra.ph/file/63a587556de9419a8ee8b.jpg",
+            caption=script.CPREMIUM_TEXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
