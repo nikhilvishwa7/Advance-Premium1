@@ -18,14 +18,13 @@ class script(object):
 
 ᚜ ᴘᴀʏᴍᴇɴᴛ ᴍᴇᴛʜᴏᴅs ᚛
 
-💵<a href=http://bit.ly/IMDBdonate>𝗚𝗼𝗼𝗴𝗹𝗲 𝗣𝗮𝘆</a>
-💸<a href=http://bit.ly/IMDBdonate>𝗣𝗮𝘆𝘁𝗺</a>
-💶<a href=http://bit.ly/IMDBdonate>𝗣𝗵𝗼𝗻𝗲𝗣𝗲</a> 
+✨ ᴜᴘɪ ɪᴅ - <code>9531506491@ibl</code> 
 
 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 𝐅𝐨𝐫 𝐊𝐧𝐨𝐰 𝐀𝐛𝐨𝐮𝐭 𝐓𝐡𝐞 𝐏𝐚𝐲𝐦𝐞𝐧𝐭 𝐈𝐧𝐟𝐨
 
 ᴄʟɪᴄᴋ ʜᴇʀᴇ : <a href='t.me/OTTProviderBackup'>ᴏᴡɴᴇʀ</a>
 ᴄʟɪᴄᴋ ʜᴇʀᴇ : <a href='t.me/OTTProviderBackup'>ᴏᴡɴᴇʀ</a></b>"""
+    
     HELP_TXT = """<b>ʜᴇy {}
 
 ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴇʟʟᴏᴡ ʙᴜᴛᴛᴏɴꜱ ᴛᴏ ɢᴇᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇꜱ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ.</b>"""
@@ -209,7 +208,7 @@ Nᴀᴍᴇ - {}"""
 👽 ᴏᴜʀ ʙᴏᴛ ᴡɪʟʟ ꜱᴇɴᴅ ʏᴏᴜʀ ᴍᴏᴠɪᴇ</b>"""
     
     SHORTLINK_INFO = """
-<b>──────「 <a href='https://t.me/OTTProviderBackup'>ᴇᴀʀɴ ᴍᴏɴᴇʏ</a> 」─────
+<b>──────「 <a href='https://t.me/OTTProvider'>ᴇᴀʀɴ ᴍᴏɴᴇʏ</a> 」─────
 
 ➥ ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴇᴀʀɴ ʟᴏᴛs ᴏꜰ ᴍᴏɴᴇʏ ꜰʀᴏᴍ ᴛʜɪꜱ ʙᴏᴛ.
 
@@ -217,7 +216,7 @@ Nᴀᴍᴇ - {}"""
 
 ›› sᴛᴇᴘ 𝟸 : ᴍᴀᴋᴇ ᴀᴄᴄᴏᴜɴᴛ ᴏɴ <a href='https://onepagelink.in/ref/Shivam31'>ᴏɴᴇᴘᴀɢᴇʟɪɴᴋ</a> ᴏʀ <a href='https://omegalinks.in/ref/shivamnamdev'>ᴏᴍᴇɢᴀʟɪɴᴋꜱ</a>. [ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴜsᴇ ᴏᴛʜᴇʀ sʜᴏʀᴛɴᴇʀ ᴡᴇʙsɪᴛᴇ ]
 
-›› sᴛᴇᴘ 𝟹 : ꜰᴏʟʟᴏᴡ ᴛʜᴇsᴇ <a href='t.me/crazybotz/43'>​ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ</a>.
+›› sᴛᴇᴘ 𝟹 : ꜰᴏʟʟᴏᴡ ᴛʜᴇsᴇ <a href='t.me/OTTProvider'>​ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ</a>.
 
 ★ ​ᴛʜɪꜱ ʙᴏᴛ ᴡɪʟʟ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴄᴏɴᴠᴇʀᴛꜱ ʟɪɴᴋꜱ ᴡɪᴛʜ ʏᴏᴜʀ ᴀᴘɪ ᴀɴᴅ ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜʀ ʟɪɴᴋꜱ.
 
@@ -256,7 +255,7 @@ Nᴀᴍᴇ - {}"""
 
 𝒇𝒊𝒍𝒆 𝒔𝒊𝒛𝒆 - {file_size}
 ≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍
-🌿 ʙʏ : <a href='t.me/OTTProviderBackup'>ᴅᴇᴠᴇʟᴏᴘᴇʀ</a></b>"""
+🌿 ʙʏ : <a href='t.me/OTTProvider'>ʜᴇʀᴇ</a></b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>​ʜᴇʏ {message.from_user.mention}, ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʀᴇꜱᴜʟᴛ ꜰᴏʀ ʏᴏᴜʀ {qurey}
@@ -395,7 +394,7 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 
 - ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ꜰᴏʀ ᴀɴʏ ᴏᴛʜᴇʀ ᴅɪꜱᴄᴏᴜɴᴛ.
 
-✨ ᴜᴘɪ ɪᴅ - <code>royalshivam31@oksbi</code>
+✨ ᴜᴘɪ ɪᴅ - <code>9531506491@ibl</code>
 
 - ᴄʟɪᴄᴋ ᴛᴏ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴘʟᴀɴ /myplan
 
@@ -424,7 +423,7 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 
 - ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ꜰᴏʀ ᴀɴʏ ᴏᴛʜᴇʀ ᴅɪꜱᴄᴏᴜɴᴛ.
 
-✨ ᴜᴘɪ ɪᴅ - <code>royalshivam31@oksbi</code>
+✨ ᴜᴘɪ ɪᴅ - <code>9531506491@ibl</code>
 
 - ᴄʟɪᴄᴋ ᴛᴏ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴘʟᴀɴ /myplan
 
