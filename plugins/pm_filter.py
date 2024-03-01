@@ -1361,7 +1361,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "plans":
         btn = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', user_id=int(6133992240))
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', user_id=int(2125935188))
         ],[
             InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
         ]]
@@ -1460,12 +1460,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "smrati":
         buttons = [[
-            InlineKeyboardButton('ᴍᴏʀᴇ ʙᴏᴛꜱ', url="https://t.me/Crazybotz"),
-            InlineKeyboardButton('ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ', url="https://t.me/snfilmy")
+            InlineKeyboardButton('ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ', url="https://t.me/+NNHXv-RQ6LQ1MWE9")
         ],[
-            InlineKeyboardButton('sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ', url="https://youtube.com/@sncrazydeveloper")
-        ],[
-            InlineKeyboardButton('ʀᴇᴘᴏʀᴛ ʙᴜɢs ᴀɴᴅ ꜰᴇᴇᴅʙᴀᴄᴋ', url="https://t.me/heartlesssn")
+            InlineKeyboardButton('ʀᴇᴘᴏʀᴛ ʙᴜɢs ᴀɴᴅ ꜰᴇᴇᴅʙᴀᴄᴋ', url="https://t.me/OTTProviderBackup")
         ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
@@ -1629,10 +1626,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "owner_info":
         buttons = [[
-            InlineKeyboardButton('💶 ᴘʟᴇᴀꜱᴇ ᴅᴏɴᴀᴛᴇ 💶', url='http://bit.ly/IMDBdonate')
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/OTTProviderBackup")
             ],[
-            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
-            InlineKeyboardButton('💭 ᴄᴏɴᴛᴀᴄᴛ​', url='t.me/heartlesssn')
+            InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1708,6 +1704,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+        
     elif query.data == "shortlink_info":
             btn = [[
                     InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://t.me/crazybotz/43')
