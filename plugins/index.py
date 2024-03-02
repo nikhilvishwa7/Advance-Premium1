@@ -141,6 +141,8 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
     deleted = 0
     no_media = 0
     unsupported = 0
+    batch_size = 50
+    update_delay = 5
     async with lock:
         try:
             current = temp.CURRENT
