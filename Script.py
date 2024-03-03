@@ -250,12 +250,9 @@ Nᴀᴍᴇ - {}"""
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """
-<b>≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍
-𝒇𝒊𝒍𝒆 𝒏𝒂𝒎𝒆 - {file_name}
+<b>[ @OTTProvider ] - {file_name}
 
-𝒇𝒊𝒍𝒆 𝒔𝒊𝒛𝒆 - {file_size}
-≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍≍
-🌿 ʙʏ : <a href='t.me/OTTProvider'>ʜᴇʀᴇ</a></b>"""
+♻️ Upload By [ @OTT_Provider_Official ]</b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>​ʜᴇʏ {message.from_user.mention}, ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʀᴇꜱᴜʟᴛ ꜰᴏʀ ʏᴏᴜʀ {qurey}
