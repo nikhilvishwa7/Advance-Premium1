@@ -149,7 +149,7 @@ async def premium_user(client, message):
 
 
 @Client.on_message(filters.command("addpremium") & filters.user(ADMINS))
-async def give_premium_cmd_handler(client, message):
+async def give_premium_cmd_handlersd(client, message):
     if len(message.command) == 2:
         user_id = int(message.command[1])
         
