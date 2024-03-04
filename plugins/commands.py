@@ -137,7 +137,7 @@ async def start(client, message):
             if f_caption is None:
                 f_caption = f"{title}"
             try:
-                await client.send_cached_media(
+                fsg = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
@@ -150,10 +150,13 @@ async def start(client, message):
                         ]
                     )
                 )
+                k = await fsg.reply("<b>🗑 ᴛʜɪꜱ ꜰɪʟᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ɪɴ 10 ᴍɪɴᴜᴛᴇꜱ, ꜱᴏ ꜰᴏʀᴡᴀʀᴅ ɪᴛ ᴛᴏ ʏᴏᴜʀ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇꜱ 👀\n\n⚠️ यह फ़ाइल 10 मिनट में स्वचालित रूप से हटा दी जाएगी, इसलिए इसे अपने सहेजे गए संदेश पर अग्रेषित करें</b>",quote=True)
+                await asyncio.sleep(600)
+                await fsg.delete()
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
-                await client.send_cached_media(
+                fssg = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
@@ -166,6 +169,9 @@ async def start(client, message):
                         ]
                     )
                 )
+                k = await fssg.reply("<b>🗑 ᴛʜɪꜱ ꜰɪʟᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ɪɴ 10 ᴍɪɴᴜᴛᴇꜱ, ꜱᴏ ꜰᴏʀᴡᴀʀᴅ ɪᴛ ᴛᴏ ʏᴏᴜʀ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇꜱ 👀\n\n⚠️ यह फ़ाइल 10 मिनट में स्वचालित रूप से हटा दी जाएगी, इसलिए इसे अपने सहेजे गए संदेश पर अग्रेषित करें</b>",quote=True)
+                await asyncio.sleep(600)
+                await fssg.delete()
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
