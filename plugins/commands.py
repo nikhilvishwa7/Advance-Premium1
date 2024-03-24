@@ -1000,13 +1000,13 @@ async def settutorial(bot, message):
     else:
         pass
     if len(message.command) == 1:
-        return await message.reply("<b>🛠️ Command Incomplete 🤔\n\n➥Give me a tutorial link along with the command!\n\n📌Example👇\n\n<code>/set_tutorial https://example.com</code>\n\n━━━━━━━━━━━━━━━━━━\n© @crazybotz\n</b>")
+        return await message.reply("<b>🛠️ Command Incomplete 🤔\n\n➥Give me a tutorial link along with the command!\n\n📌Example👇\n\n<code>/set_tutorial https://example.com</code>\n\n━━━━━━━━━━━━━━━━━━\n©\n</b>")
     elif len(message.command) == 2:
         reply = await message.reply_text("<b>Please Wait...</b>")
         tutorial = message.command[1]
         await save_group_settings(grpid, 'tutorial', tutorial)
         await save_group_settings(grpid, 'is_tutorial', True)
-        await reply.edit_text(f"<b>📌 sᴜᴄᴄᴇssꜰᴜʟʏ ᴀᴅᴅᴇᴅ ᴛᴜᴛᴏʀɪᴀʟ 🎉\n\nʏᴏᴜʀ ᴛᴜᴛᴏʀɪᴀʟ ʟɪɴᴋ ꜰᴏʀ ɢʀᴏᴜᴘ {title} ɪs 👇\n\n☞{tutorial}\n\n© @crazybotz\n</b>")
+        await reply.edit_text(f"<b>📌 sᴜᴄᴄᴇssꜰᴜʟʏ ᴀᴅᴅᴇᴅ ᴛᴜᴛᴏʀɪᴀʟ 🎉\n\nʏᴏᴜʀ ᴛᴜᴛᴏʀɪᴀʟ ʟɪɴᴋ ꜰᴏʀ ɢʀᴏᴜᴘ {title} ɪs 👇\n\n☞{tutorial}\n\n©\n</b>")
     else:
         return await message.reply("<b>You entered Incorrect Format\n\nFormat: /set_tutorial your tutorial link</b>")
         
