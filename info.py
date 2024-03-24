@@ -27,7 +27,7 @@ MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/f7f2a532fe4b9900
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
 
 # stickers
-STICKERS = (environ.get('STICKERS', 'CAACAgIAAxkBAAIBTGVjQbHuhOiboQsDm35brLGyLQ28AAJ-GgACglXYSXgCrotQHjibHgQ')).split()
+STICKERS = (environ.get('STICKERS', 'CAACAgUAAxkBAAELyBxmAAEGWKKxsKog5UprQfGXzRFyQKsAAi4GAAL14MFX1lGvuXvUu140BA')).split()
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5369057382 5651594253').split()]
