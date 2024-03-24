@@ -15,7 +15,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '27499182'))
 API_HASH = environ.get('API_HASH', '9c58142ef6abed28808a50e3e983c39c')
-BOT_TOKEN = environ.get('BOT_TOKEN', "6751430132:AAHgx6KXL-KEuHora-VXYHPnLWGnI8OWPKY")
+BOT_TOKEN = environ.get('BOT_TOKEN', "6420330221:AAHSjmH0fFo_E_buEvWEd2ZkeIKPY33_fqw")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -30,8 +30,8 @@ SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5
 STICKERS = (environ.get('STICKERS', 'CAACAgIAAxkBAAIBTGVjQbHuhOiboQsDm35brLGyLQ28AAJ-GgACglXYSXgCrotQHjibHgQ')).split()
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1150044195 2125935188').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002015827529').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5369057382 5651594253').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001979888381').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 PREMIUM_USER = [int(user) if id_pattern.search(user) else user for user in environ.get('PREMIUM_USER', '1150044195 2125935188 1805545955').split()]
@@ -44,12 +44,12 @@ SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://LifeTimeBot:LifeTimeBot@cluster0.eki1ksc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://singhsawan880:lauda@cluster0.pd6f8s7.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_NAME = environ.get('DATABASE_NAME', "Raj")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 #stream link shortner
-STREAM_SITE = (environ.get('STREAM_SITE', 'ziplinker.net'))
+STREAM_SITE = (environ.get('STREAM_SITE', 'omnifly.in.net'))
 STREAM_API = (environ.get('STREAM_API', '329ca4eb57d4ce6353446833e2c109f4503e7935'))
 STREAM_HOW_DOWNLOAD = environ.get('STREAM_HOW_DOWNLOAD', 'https://t.me/jarrydow/2062')
 
@@ -59,7 +59,7 @@ STREAM_URL = environ.get("STREAM_URL", "") # https://example.com/ (Your Stream U
 IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 
 # add premium logs channel id
-PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1002006503236'))
+PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1001765670990'))
 
 # FSUB
 auth_channel = environ.get('AUTH_CHANNEL')
@@ -71,21 +71,21 @@ JOIN_REQS_DB = environ.get("JOIN_REQS_DB", DATABASE_URI)
 
 # Others
 VERIFY = bool(environ.get('VERIFY', False))
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'shareus.io')
-SHORTLINK_API = environ.get('SHORTLINK_API', '6SFnUuvWh5gSpVvbjt7fEp7Mlne2')
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'omnifly.in.net')
+SHORTLINK_API = environ.get('SHORTLINK_API', 'c4fbcc9ea0f3f90be6e004ac16f5c55ae66edcfb')
 IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "7")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "False")), True)
 PORT = environ.get("PORT", "8080")
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/OTTProvider')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/OTTProvider')
-TUTORIAL = environ.get('TUTORIAL', 'https://t.me/OTTProvider')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/allmovieshere019')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/backupchannel019')
+TUTORIAL = environ.get('TUTORIAL', 'https://t.me/Howto_openlink_0')
 IS_TUTORIAL = bool(environ.get('IS_TUTORIAL', True))
 MSG_ALRT = environ.get('MSG_ALRT', '𝐬𝐡𝐚𝐫𝐞 𝐚𝐧𝐝 𝐬𝐮𝐩𝐩𝐨𝐫𝐭')
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002006503236'))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001765670990'))
 GROUP_LOGS = int(environ.get('GROUP_LOGS', '-1002006503236'))
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'OTTProvider')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'allmovieshere019')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
