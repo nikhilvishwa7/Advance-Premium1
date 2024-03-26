@@ -1840,6 +1840,8 @@ async def auto_filter(client, msg, spoll=False):
         if len(message.text) < 100:
             search = message.text
             m=await message.reply_sticker("CAACAgIAAxkBAAEBUxhlF_3xP68-r1W66p5ckVPayyDhKQACcQgAAoSUQUlvaAkaprvOcx4E")
+            await asyncio.sleep(1)
+            await m.delete()
             search = search.lower()
             find = search.split(" ")
             search = ""
