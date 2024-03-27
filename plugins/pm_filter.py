@@ -1831,7 +1831,7 @@ async def auto_filter(client, msg, spoll=False):
     curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
     # reqstr1 = msg.from_user.id if msg.from_user else 0
     # reqstr = await client.get_users(reqstr1)
-    
+    bot = client
     if not spoll:
         message = msg
         if message.text.startswith("/"): return  # ignore commands
@@ -1840,8 +1840,6 @@ async def auto_filter(client, msg, spoll=False):
         if len(message.text) < 100:
             search = message.text
             m=await message.reply_sticker("CAACAgIAAxkBAAEBUxhlF_3xP68-r1W66p5ckVPayyDhKQACcQgAAoSUQUlvaAkaprvOcx4E")
-            await asyncio.sleep(1)
-            await m.delete()
             search = search.lower()
             find = search.split(" ")
             search = ""
