@@ -61,10 +61,6 @@ SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(
 FILE_CHANNEL = int(environ.get('FILE_CHANNEL', '-1001616308548'))
 FILE_CHANNEL_LINK = environ.get('FILE_CHANNEL_LINK', 'https://t.me/TGxMULTIBOTDB')
 
-#VALUES
-HRK_APP_NAME = environ.get('HRK_APP_NAME', 'mybots')
-HRK_API = environ.get('HRK_API', '0')
-OPENAI_API = environ.get("OPENAI_API","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")
 
 #Downloader
 DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
