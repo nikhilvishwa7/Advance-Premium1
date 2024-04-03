@@ -39,6 +39,9 @@ from database.gfilters_mdb import (
 import logging
 from urllib.parse import quote_plus
 
+import os
+req_channel = int(os.environ.get('CRAZY_REQUEST','-1001843498488'))
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 TIMEZONE = "Asia/Kolkata"
