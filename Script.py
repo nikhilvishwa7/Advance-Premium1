@@ -52,13 +52,13 @@ class script(object):
 <b>🆓 ғʀᴇᴇ:</b> <code>{}</code> """
 
     ABOUT_TXT = """<b>
-➣ ᴍʏ ɴᴀᴍᴇ ⋟ {}
-➢ ᴄʀᴇᴀᴛᴏʀ ⋟ <a href=https://t.me/backupchannel019>ᴅᴇᴠᴇʟᴏᴘᴇʀ</a>
-➣ ʟɪʙʀᴀʀʏ ⋟  𝘱𝘺𝘳𝘰𝘨𝘳𝘢𝘮
-➢ ʟᴀɴɢᴜᴀɢᴇ ⋟  𝘱𝘺𝘵𝘩𝘰𝘯 3
-➣ ᴅᴀᴛᴀʙᴀsᴇ ⋟  𝘮𝘰𝘯𝘨𝘰 𝘥𝘣
-➢ ʙᴏᴛ sᴇʀᴠᴇʀ ⋟  𝘩𝘦𝘳𝘰𝘬𝘶
-➣ ʙᴜɪʟᴅ sᴛᴀᴛs ⋟  𝘷2.0.1 ﹝ʙᴇᴛᴀ﹞</b>"""
+ 🤖 ᴍʏ ɴᴀᴍᴇ : {}
+ 👨‍💻 ᴄʀᴇᴀᴛᴏʀ : <a href='https://t.me/J_shree_ram'>ɴᴏᴛʜɪɴɢ ʙʀᴏ</a>
+ 📚 ʟɪʙʀᴀʀʏ : <a href='https://docs.pyrogram.org/'>ᴘʏʀᴏɢʀᴀᴍ</a>
+ 📝 ʟᴀɴɢᴜᴀɢᴇ : <a href='https://www.python.org/download/releases/3.0/'>ᴘʏᴛʜᴏɴ 3</a>
+ ♻️ ᴅᴀᴛᴀ ʙᴀsᴇ : <a href='https://www.mongodb.com/'>ᴍᴏɴɢᴏ ᴅʙ</a>
+ 📡 ʜᴏsᴛᴇᴅ ᴏɴ  : <a href='https://www.heroku.com/'>Heroku</a>
+ 🥶 ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ3.0 [sᴛᴀʙʟᴇ​]</b>"""
     
     SOURCE_TXT = """<b>
 ⚠️ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ɴᴏᴛ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ
