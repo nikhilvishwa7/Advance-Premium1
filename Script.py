@@ -18,12 +18,12 @@ class script(object):
 
 ᚜ ᴘᴀʏᴍᴇɴᴛ ᴍᴇᴛʜᴏᴅs ᚛
 
-✨ ᴜᴘɪ ɪᴅ - <code>9531506491@ibl</code> 
+✨ ᴜᴘɪ ɪᴅ - <code>satoru@postbank</code> 
 
 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 𝐅𝐨𝐫 𝐊𝐧𝐨𝐰 𝐀𝐛𝐨𝐮𝐭 𝐓𝐡𝐞 𝐏𝐚𝐲𝐦𝐞𝐧𝐭 𝐈𝐧𝐟𝐨
 
-ᴄʟɪᴄᴋ ʜᴇʀᴇ : <a href='https://t.me/backupchannel019'>ᴏᴡɴᴇʀ</a>
-ᴄʟɪᴄᴋ ʜᴇʀᴇ : <a href='https://t.me/backupchannel019'>ᴏᴡɴᴇʀ</a></b>"""
+ᴄʟɪᴄᴋ ʜᴇʀᴇ : <a href='https://t.me/J_shree_ram'>ᴏᴡɴᴇʀ</a>
+ᴄʟɪᴄᴋ ʜᴇʀᴇ : <a href='https://t.me/PrinceNy4'>ᴏᴡɴᴇʀ</a></b>"""
     
     HELP_TXT = """<b>ʜᴇy {}
 
@@ -63,7 +63,7 @@ class script(object):
     SOURCE_TXT = """<b>
 ⚠️ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ɴᴏᴛ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ
 
-◆ ᴅᴇᴠs ​1 : <a href='https://t.me/backupchannel019'>ᴄʀᴀᴢʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ</a></b>"""
+◆ ᴅᴇᴠs ​1 : <a href='https://t.me/J_shree_ram'>ᴀᴋʜᴀɴᴅ ʙʜᴀʀᴀᴛ</a></b>"""
 
     MANUELFILTER_TXT = """ʜᴇʟᴘ: <b>ꜰɪʟᴛᴇʀꜱ</b>
 - ꜰɪʟᴛᴇʀ ɪꜱ ᴀ ꜰᴇᴀᴛᴜʀᴇ ᴡᴇʀᴇ ᴜꜱᴇʀꜱ ᴄᴀɴ ꜱᴇᴛ ᴀᴜᴛᴏᴍᴀᴛᴇᴅ ʀᴇᴘʟɪᴇꜱ ꜰᴏʀ ᴀ ᴘᴀʀᴛɪᴄᴜʟᴀʀ ᴋᴇʏᴡᴏʀᴅ ᴀɴᴅ ɪ ᴡɪʟʟ ʀᴇꜱᴘᴏɴᴅ ᴡʜᴇɴᴇᴠᴇʀ ᴀ ᴋᴇʏᴡᴏʀᴅ ɪꜱ ꜰᴏᴜɴᴅ ɪɴ ᴛʜᴇ ᴍᴇꜱꜱᴀɢᴇ
