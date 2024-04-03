@@ -1371,7 +1371,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "plans":
         btn = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/OTTProviderBackup")
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/PrinceNy4")
         ],[
             InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
         ]]
@@ -1637,7 +1637,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "owner_info":
         buttons = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/OTTProviderBackup")
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/PrinceNy4")
             ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start')
         ]]
