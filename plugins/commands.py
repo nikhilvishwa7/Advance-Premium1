@@ -958,7 +958,7 @@ async def shortlink(bot, message):
     try:
         command, shortlink_url, api = data.split(" ")
     except:
-        return await message.reply_text("<b>🛠️ Command Incomplete 🤪\n\n➥  ɢɪᴠᴇ ᴍᴇ ᴀ ꜱʜᴏʀᴛʟɪɴᴋ ᴀɴᴅ ᴀᴘɪ ᴀʟᴏɴɢ ᴡɪᴛʜ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ !\n\n♻️  𝗘𝘅𝗮𝗺𝗽𝗹𝗲:\n\n<code>/set_shortner Onepagelink.in 8c09653e5c38f84d1b76ad3197c5a023e53b494d</code></b>")
+        return await message.reply_text("<b>🛠️ Command Incomplete 🤪\n\n➥  ɢɪᴠᴇ ᴍᴇ ᴀ ꜱʜᴏʀᴛʟɪɴᴋ ᴀɴᴅ ᴀᴘɪ ᴀʟᴏɴɢ ᴡɪᴛʜ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ !\n\n♻️  𝗘𝘅𝗮𝗺𝗽𝗹𝗲:\n\n<code>/set_shortner tfushorty.com 0c82f7b3a0c4f65a29e2c75de28118a1bba1ae5f</code></b>")
     reply = await message.reply_text("<b>Please Wait...</b>")
     await save_group_settings(grpid, 'shortlink', shortlink_url)
     await save_group_settings(grpid, 'shortlink_api', api)
