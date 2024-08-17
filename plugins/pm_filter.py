@@ -40,7 +40,7 @@ import logging
 from urllib.parse import quote_plus
 
 import os
-req_channel = int(os.environ.get('CRAZY_REQUEST','-1002069633417'))
+req_channel = int(os.environ.get('CRAZY_REQUEST',''))
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
@@ -1377,7 +1377,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(btn)
         await query.message.reply_photo(
-            photo="https://telegra.ph/file/63a587556de9419a8ee8b.jpg",
+            photo="https://graph.org/file/944ff750cd0d88156e044.jpg",
             caption=script.CPREMIUM_TEXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
