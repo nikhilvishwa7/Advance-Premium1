@@ -1371,7 +1371,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "plans":
         btn = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/PrinceNy4")
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/Abhikumar7799")
         ],[
             InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
         ]]
@@ -1471,9 +1471,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "smrati":
         buttons = [[
-            InlineKeyboardButton('ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ', url="https://t.me/backupchannel019")
+            InlineKeyboardButton('ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ', url="https://t.me/Your_Movie_Link_8")
         ],[
-            InlineKeyboardButton('ʀᴇᴘᴏʀᴛ ʙᴜɢs ᴀɴᴅ ꜰᴇᴇᴅʙᴀᴄᴋ', url="https://t.me/allmovieshere019")
+            InlineKeyboardButton('ʀᴇᴘᴏʀᴛ ʙᴜɢs ᴀɴᴅ ꜰᴇᴇᴅʙᴀᴄᴋ', url="https://t.me/Abhikumar7799")
         ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
@@ -1637,7 +1637,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "owner_info":
         buttons = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/PrinceNy4")
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/Abhikumar7799")
             ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start')
         ]]
@@ -1718,7 +1718,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "shortlink_info":
             btn = [[
-                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://t.me/OmniflyLinks')
+                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://tfushorty.com/ref/NikhilVishwa')
                     ],[
                     InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
                     InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
