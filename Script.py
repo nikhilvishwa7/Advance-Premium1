@@ -52,7 +52,7 @@ class script(object):
 
     ABOUT_TXT = """<b>
  🤖 ᴍʏ ɴᴀᴍᴇ : {}
- 👨‍💻 ᴄʀᴇᴀᴛᴏʀ : <a href='https://t.me/RyZer09'>ɴᴏᴛʜɪɴɢ ʙʀᴏ</a>
+ 👨‍💻 ᴄʀᴇᴀᴛᴏʀ : <a href='https://t.me/RyZer09'>RyZeR</a>
  📚 Owner : <a href='https://t.me/Abhikumar7799'>Owner</a>
  🥶 ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ3.0 [sᴛᴀʙʟᴇ​]</b>"""
     
