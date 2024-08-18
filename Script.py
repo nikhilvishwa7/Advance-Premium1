@@ -22,8 +22,7 @@ class script(object):
 
 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 𝐅𝐨𝐫 𝐊𝐧𝐨𝐰 𝐀𝐛𝐨𝐮𝐭 𝐓𝐡𝐞 𝐏𝐚𝐲𝐦𝐞𝐧𝐭 𝐈𝐧𝐟𝐨
 
-ᴄʟɪᴄᴋ ʜᴇʀᴇ : <a href='https://t.me/Abhikumar7799'>ᴏᴡɴᴇʀ</a>
-ᴄʟɪᴄᴋ ʜᴇʀᴇ : <a href='https://t.me/Ryzer09'>Developer</a></b>"""
+ᴄʟɪᴄᴋ ʜᴇʀᴇ : <a href='https://t.me/Abhikumar7799'>ᴏᴡɴᴇʀ</a>"""
     
     HELP_TXT = """<b>ʜᴇy {}
 
