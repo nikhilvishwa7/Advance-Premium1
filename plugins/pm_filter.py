@@ -40,7 +40,7 @@ import logging
 from urllib.parse import quote_plus
 
 import os
-req_channel = int(os.environ.get('CRAZY_REQUEST','-1002108939580'))
+req_channel = int(os.environ.get('CRAZY_REQUEST','-1001606185333'))
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
