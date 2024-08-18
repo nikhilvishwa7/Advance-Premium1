@@ -245,9 +245,9 @@ Nᴀᴍᴇ - {}"""
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """
-<b>[ @Your_Movie_Link_8 @rx_movies_request_1 ] - {file_name}
+<b>[ @Your_Movie_Link_8 ] - {file_name}
 
-♻️ Upload By [ @Hindi_movie_uplod @rx_movies_request_1 ]</b>"""
+♻️ Upload By [ @Hindi_movie_uplod ]</b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>​ʜᴇʏ {message.from_user.mention}, ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʀᴇꜱᴜʟᴛ ꜰᴏʀ ʏᴏᴜʀ {qurey}
