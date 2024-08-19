@@ -1371,7 +1371,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "plans":
         btn = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/Abhikumar7799")
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/Angrybull001")
         ],[
             InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
         ]]
@@ -1473,7 +1473,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ', url="https://t.me/Your_Movie_Link_8")
         ],[
-            InlineKeyboardButton('ʀᴇᴘᴏʀᴛ ʙᴜɢs ᴀɴᴅ ꜰᴇᴇᴅʙᴀᴄᴋ', url="https://t.me/Abhikumar7799")
+            InlineKeyboardButton('ʀᴇᴘᴏʀᴛ ʙᴜɢs ᴀɴᴅ ꜰᴇᴇᴅʙᴀᴄᴋ', url="https://t.me/Angrybull001")
         ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
@@ -1637,7 +1637,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "owner_info":
         buttons = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/Abhikumar7799")
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/Angrybull001")
             ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start')
         ]]
