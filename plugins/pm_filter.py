@@ -131,7 +131,7 @@ async def pm_text(bot, message):
     if user_id in ADMINS: return # ignore admins
     kk = await message.reply_text(
          text=f"<b>ʜᴇʏ {user} 😍 ,\n\nʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ᴍᴏᴠɪᴇs ꜰʀᴏᴍ ʜᴇʀᴇ. ʀᴇǫᴜᴇsᴛ ɪᴛ ɪɴ ᴏᴜʀ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ ᴏʀ ᴄʟɪᴄᴋ ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ 👇</b>",   
-         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ", url=f"https://t.me/Your_Movie_Link_8")]])
+         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ", url=f"https://t.me/+VhSIC02dAD1mMzU9")]])
     )
     await asyncio.sleep(60)
     await kk.delete()
@@ -1377,7 +1377,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(btn)
         await query.message.reply_photo(
-            photo="https://graph.org/file/944ff750cd0d88156e044.jpg",
+            photo="https://graph.org/file/d8128d156e618bbc2dd0f.jpg",
             caption=script.CPREMIUM_TEXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -1482,7 +1482,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 
-            InputMediaPhoto("https://graph.org/file/d86c988d45553f8a15cd5.jpg")
+            InputMediaPhoto("https://graph.org/file/d8128d156e618bbc2dd0f.jpg")
         )
         await query.message.edit_text(
             text=script.HELPZ_TXT,
@@ -1718,7 +1718,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "shortlink_info":
             btn = [[
-                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://tfushorty.com/ref/NikhilVishwa')
+                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://modijiurl.com/ref/NikhilVishwa')
                     ],[
                     InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
                     InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
