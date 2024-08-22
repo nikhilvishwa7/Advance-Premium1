@@ -210,9 +210,9 @@ Nᴀᴍᴇ - {}"""
 
 ›› sᴛᴇᴘ 𝟷 : ʏᴏᴜ ᴍᴜsᴛ ʜᴀᴠᴇ ᴀᴛʟᴇᴀsᴛ ᴏɴᴇ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴍɪɴɪᴍᴜᴍ 𝟹𝟶𝟶 ᴍᴇᴍʙᴇʀs.
 
-›› sᴛᴇᴘ 𝟸 : ᴍᴀᴋᴇ ᴀᴄᴄᴏᴜɴᴛ ᴏɴ <a href='https://tfushorty.com/ref/NikhilVishwa'>tfushorty.com</a> ᴏʀ <a href='https://tfushorty.com/ref/NikhilVishwa'>tfushort</a>. [ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴜsᴇ ᴏᴛʜᴇʀ sʜᴏʀᴛɴᴇʀ ᴡᴇʙsɪᴛᴇ ]
+›› sᴛᴇᴘ 𝟸 : ᴍᴀᴋᴇ ᴀᴄᴄᴏᴜɴᴛ ᴏɴ <a href='https://modijiurl.com/ref/triggeredbull00'>modijiurl.com.com</a> ᴏʀ <a href='https://modijiurl.com/ref/triggeredbull00'>modijiurl</a>. [ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴜsᴇ ᴏᴛʜᴇʀ sʜᴏʀᴛɴᴇʀ ᴡᴇʙsɪᴛᴇ ]
 
-›› sᴛᴇᴘ 𝟹 : ꜰᴏʟʟᴏᴡ ᴛʜᴇsᴇ <a href='https://t.me/Your_Movie_Link_8'>​ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ</a>.
+›› sᴛᴇᴘ 𝟹 : ꜰᴏʟʟᴏᴡ ᴛʜᴇsᴇ <a href='https://t.me/+q2lKoGPl6HhhYjRl'>​ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ</a>.
 
 ★ ​ᴛʜɪꜱ ʙᴏᴛ ᴡɪʟʟ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴄᴏɴᴠᴇʀᴛꜱ ʟɪɴᴋꜱ ᴡɪᴛʜ ʏᴏᴜʀ ᴀᴘɪ ᴀɴᴅ ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜʀ ʟɪɴᴋꜱ.
 
@@ -246,9 +246,9 @@ Nᴀᴍᴇ - {}"""
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """
-<b>[ @https://t.me/+q2lKoGPl6HhhYjRl ] - {file_name}
+<b>[ https://t.me/+q2lKoGPl6HhhYjRl ] - {file_name}
 
-♻️ Upload By [ @https://t.me/+jHW1z0CqcyY0ZTM1 ]</b>"""
+♻️ Upload By [ https://t.me/+jHW1z0CqcyY0ZTM1 ]</b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>​ʜᴇʏ {message.from_user.mention}, ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʀᴇꜱᴜʟᴛ ꜰᴏʀ ʏᴏᴜʀ {qurey}
