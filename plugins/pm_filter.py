@@ -1482,7 +1482,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 
-            InputMediaPhoto("https://graph.org/file/d8128d156e618bbc2dd0f.jpg")
+            InputMediaPhoto("https://graph.org/file/d86c988d45553f8a15cd5.jpg")
         )
         await query.message.edit_text(
             text=script.HELPZ_TXT,
@@ -1718,7 +1718,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "shortlink_info":
             btn = [[
-                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://modijiurl.com/ref/NikhilVishwa')
+                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://modijiurl.com/ref/triggeredbull00')
                     ],[
                     InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
                     InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
