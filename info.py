@@ -52,7 +52,7 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 #stream link shortner
 STREAM_SITE = (environ.get('STREAM_SITE', 'modijiurl.com'))
-STREAM_API = (environ.get('STREAM_API', '22732d32fcd1c2ed692cac536bd47831d8b17442'))
+STREAM_API = (environ.get('STREAM_API', 'f3e228611158e13010a422b5f62fae08e872a930'))
 STREAM_HOW_DOWNLOAD = environ.get('STREAM_HOW_DOWNLOAD', 'https://t.me/Hindi_movie_uplod/170')
 
 #stream feature - @TeamHMT_Bots
