@@ -131,7 +131,7 @@ async def pm_text(bot, message):
     if user_id in ADMINS: return # ignore admins
     kk = await message.reply_text(
          text=f"<b>ʜᴇʏ {user} 😍 ,\n\nʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ᴍᴏᴠɪᴇs ꜰʀᴏᴍ ʜᴇʀᴇ. ʀᴇǫᴜᴇsᴛ ɪᴛ ɪɴ ᴏᴜʀ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ ᴏʀ ᴄʟɪᴄᴋ ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ 👇</b>",   
-         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ", url=f"https://t.me/+VhSIC02dAD1mMzU9")]])
+         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ", url=f"https://t.me/+fUv8WckDL7kwZWY1")]])
     )
     await asyncio.sleep(60)
     await kk.delete()
@@ -1371,7 +1371,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "plans":
         btn = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/Angrybull001")
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/S_u_m_m_uu")
         ],[
             InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
         ]]
@@ -1471,9 +1471,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "smrati":
         buttons = [[
-            InlineKeyboardButton('ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ', url="https://t.me/+jHW1z0CqcyY0ZTM1")
+            InlineKeyboardButton('ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ', url="https://t.me/+fUv8WckDL7kwZWY1")
         ],[
-            InlineKeyboardButton('ʀᴇᴘᴏʀᴛ ʙᴜɢs ᴀɴᴅ ꜰᴇᴇᴅʙᴀᴄᴋ', url="https://t.me/Angrybull001")
+            InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url="https://t.me/S_u_m_m_uu")
         ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
@@ -1637,7 +1637,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "owner_info":
         buttons = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/Angrybull001")
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', url="https://t.me/S_u_m_m_uu")
             ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start')
         ]]
@@ -1718,7 +1718,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "shortlink_info":
             btn = [[
-                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://modijiurl.com/ref/triggeredbull00')
+                    InlineKeyboardButton('🔺ᴄᴏɴɴᴇᴄᴛ yᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ🔺', url='https://modijiurl.com/ref/NikhilVishwa')
                     ],[
                     InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
                     InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
