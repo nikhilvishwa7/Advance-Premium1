@@ -15,7 +15,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '27499182'))
 API_HASH = environ.get('API_HASH', '9c58142ef6abed28808a50e3e983c39c')
-BOT_TOKEN = environ.get('BOT_TOKEN', "6831021057:AAFvWUlFT7ahEOd8ibOooA5I5NaBHJWdHsU")
+BOT_TOKEN = environ.get('BOT_TOKEN', "7906429514:AAF7swEDQplaFfPYAZVPVhN7-OwPwBBUPu4")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -46,13 +46,13 @@ SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://RoyalDwip:RoyalDwip@cluster0.0sp6pvf.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Elsassa")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://nk3442838:wEbJ0R507BeDs9Ik@cluster0.mtis4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_NAME = environ.get('DATABASE_NAME', "cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 #stream link shortner
-STREAM_SITE = (environ.get('STREAM_SITE', 'modijiurl.com'))
-STREAM_API = (environ.get('STREAM_API', 'f3e228611158e13010a422b5f62fae08e872a930'))
+STREAM_SITE = (environ.get('STREAM_SITE', 'tryshort.in'))
+STREAM_API = (environ.get('STREAM_API', '3e0220f7a68d20f920f5ce7ffd6decf918035707'))
 STREAM_HOW_DOWNLOAD = environ.get('STREAM_HOW_DOWNLOAD', 'https://t.me/MovieBuckettt')
 
 #stream feature - @TeamHMT_Bots
@@ -66,16 +66,16 @@ PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1001606185333'))
 
 # Others
 VERIFY = bool(environ.get('VERIFY', False))
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'modijiurl.com')
-SHORTLINK_API = environ.get('SHORTLINK_API', 'f3e228611158e13010a422b5f62fae08e872a930')
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'tryshort.in')
+SHORTLINK_API = environ.get('SHORTLINK_API', '3e0220f7a68d20f920f5ce7ffd6decf918035707')
 IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "7")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "False")), True)
 PORT = environ.get("PORT", "8080")
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+fUv8WckDL7kwZWY1')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+Z-vEBqIV9lE3ODM1')
 CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/jb_corporatioonn')
-TUTORIAL = environ.get('TUTORIAL', 'https://t.me/+fUv8WckDL7kwZWY1')
+TUTORIAL = environ.get('TUTORIAL', 'https://t.me/+Z-vEBqIV9lE3ODM1')
 IS_TUTORIAL = bool(environ.get('IS_TUTORIAL', True))
 MSG_ALRT = environ.get('MSG_ALRT', '𝐬𝐡𝐚𝐫𝐞 𝐚𝐧𝐝 𝐬𝐮𝐩𝐩𝐨𝐫𝐭')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001606185333'))
