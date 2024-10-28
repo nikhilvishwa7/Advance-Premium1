@@ -246,9 +246,9 @@ Nᴀᴍᴇ - {}"""
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """
-<b>[ https://t.me/+q2lKoGPl6HhhYjRl ] - {file_name}
+<b>[ https://t.me/movieclubbackup ] - {file_name}
 
-♻️ Upload By [ https://t.me/+jHW1z0CqcyY0ZTM1 ]</b>"""
+♻️ Upload By [ @movieclubbackup ]</b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>​ʜᴇʏ {message.from_user.mention}, ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʀᴇꜱᴜʟᴛ ꜰᴏʀ ʏᴏᴜʀ {qurey}
