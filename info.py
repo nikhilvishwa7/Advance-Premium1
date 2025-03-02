@@ -52,7 +52,7 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 #stream link shortner
 STREAM_SITE = (environ.get('STREAM_SITE', 'modijiurl.com'))
-STREAM_API = (environ.get('STREAM_API', '22732d32fcd1c2ed692cac536bd47831d8b17442'))
+STREAM_API = (environ.get('STREAM_API', 'f3e228611158e13010a422b5f62fae08e872a930'))
 STREAM_HOW_DOWNLOAD = environ.get('STREAM_HOW_DOWNLOAD', 'https://t.me/Hindi_movie_uplod/170')
 
 #stream feature - @TeamHMT_Bots
@@ -67,15 +67,15 @@ PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1001606185333'))
 # Others
 VERIFY = bool(environ.get('VERIFY', False))
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'modijiurl.com')
-SHORTLINK_API = environ.get('SHORTLINK_API', '22732d32fcd1c2ed692cac536bd47831d8b17442')
+SHORTLINK_API = environ.get('SHORTLINK_API', 'f3e228611158e13010a422b5f62fae08e872a930')
 IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "7")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "False")), True)
 PORT = environ.get("PORT", "8080")
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+jHW1z0CqcyY0ZTM1')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/movieclubbackup')
-TUTORIAL = environ.get('TUTORIAL', 'https://t.me/+UGIue361GtE4NmJl')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+VhSIC02dAD1mMzU9')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/+VhSIC02dAD1mMzU9')
+TUTORIAL = environ.get('TUTORIAL', 'https://t.me/+VhSIC02dAD1mMzU9')
 IS_TUTORIAL = bool(environ.get('IS_TUTORIAL', True))
 MSG_ALRT = environ.get('MSG_ALRT', '𝐬𝐡𝐚𝐫𝐞 𝐚𝐧𝐝 𝐬𝐮𝐩𝐩𝐨𝐫𝐭')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001606185333'))
